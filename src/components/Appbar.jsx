@@ -8,7 +8,7 @@ export default function Appbar() {
     // const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="navbar h-[4rem] w-full px-4 flex items-center justify-between fixed bottom-0 left-0">
+    <div className="navbar text-white border-t border-white h-[4rem] w-full px-4 flex items-center justify-between fixed bottom-0 left-0">
       <NavLink className="text-2xl" to='/'>
         <FiHome />
       </NavLink>

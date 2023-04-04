@@ -32,13 +32,13 @@ Before we install the project, Here is what you need to be able to run Amal:
 1. Clone the project
 
 ```bash
-    git clone https://github.com/Thuch-Mager/imag
+    git clone https://github.com/chooselife-gdscuoj/choose-life
 ```
 
 2. Navigate to the project
 
 ```bash
-    cd amal
+    cd choose-life
 ```
 
 3. install dependencies

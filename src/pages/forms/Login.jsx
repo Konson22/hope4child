@@ -1,16 +1,17 @@
-import { FiX } from 'react-icons/fi'
+import { FiUser } from 'react-icons/fi'
 import InputField from './InputField'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import { useState } from 'react';
 import { useGlobalContext } from '../../contexts/GlobalContextProvider';
+import { Link } from 'react-router-dom';
 // import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from "firebase/auth"
 // import { auth } from '../../config';
 
 
 export default function Login() {
 
-    const { setProfile, setOpenModal } = useGlobalContext();
+    const { setProfile } = useGlobalContext();
     const [isLoading, setIsLoading] = useState(false);
     const [message, setMessage] = useState('');
 
@@ -48,6 +49,9 @@ export default function Login() {
     <div className='h-screen w-full flex justify-center items-center z-50'>
       <div className="md:w-[27%] w-[85%]">
         <div className="text-center mb-4">
+          <div className="flex justify-center items-center text-4xl">
+            <FiUser />
+          </div>
           <span className="text-2xl">Login</span>
           {message && <span className='text-red-500'>{message}</span>}
         </div>
@@ -73,7 +77,7 @@ export default function Login() {
                 )}
             </Formik>
           <div className="text-center mt-4">
-            Don't have an account <span className="text-blue-600 cursor-pointer" onClick={() => setOpenModal('signup')}>Sign up</span>
+            Don't have an account <Link className="text-blue-600 cursor-pointer" to='/signup' >Sign up</Link>
           </div>
         </div>
     </div>

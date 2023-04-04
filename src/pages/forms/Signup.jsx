@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 
 export default function Signup() {
 
-    const { setProfile, setOpenModal } = useGlobalContext();
+    const { setProfile } = useGlobalContext();
     const [isLoading, setIsLoading] = useState(false);
     const [message, setMessage] = useState('');
 
