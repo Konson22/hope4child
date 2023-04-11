@@ -10,7 +10,7 @@ export default function RegisterChild(){
     const { setChildren } = useChildren()
     const [loading, setLoading] = useState(false)
     const [message, setMessage] = useState('')
-    const [uploadPercentage, setUploadPercentage] = useState(60)
+    const [uploadPercentage, setUploadPercentage] = useState(0)
 
 
     const handleSubmit = async ev => {
@@ -79,7 +79,7 @@ const Loader = ({ uploadPercentage, setUploadPercentage }) => {
     return(
         <div className="h-screen fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
                 <div className="md:w-[35%] w-[90%] bg-white p-6 text-center rounded-md">
-                    {(uploadPercentage > 0 && uploadPercentage < 100) ?
+                    {uploadPercentage < 100 ?
                         <>
                             <span className="md:text-2xl">Uploading...</span>
                             <div className="md:h-[1.6rem] h-[1rem] bg-gray-50 rounded-[1rem] overflow-hidden shadow-inner md:my-6 my-4">
