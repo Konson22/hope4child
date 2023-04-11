@@ -1,21 +1,18 @@
 import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
 import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDeUHpBaNsWEN2kl1rUcNB-ftQCCk5Puvw",
-  authDomain: "hope4child-2e9a7.firebaseapp.com",
-  projectId: "hope4child-2e9a7",
-  storageBucket: "hope4child-2e9a7.appspot.com",
-  messagingSenderId: "414064356432",
-  appId: "1:414064356432:web:f54b56d8eb75b6cd15b555"
+  apiKey: "AIzaSyAGbsGQXI2lXD0QE2JpXpUL5yFVxj0nwR4",
+  authDomain: "amal-690c6.firebaseapp.com",
+  projectId: "amal-690c6",
+  storageBucket: "amal-690c6.appspot.com",
+  messagingSenderId: "1025119512158",
+  appId: "1:1025119512158:web:c2b5c5e15f367f6e9376cf"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);
 export const auth = getAuth(app);
-export const db = getFirestore(app);
-

@@ -1,119 +1,110 @@
-import { FaTimes } from "react-icons/fa";
-import { createUserWithEmailAndPassword } from "firebase/auth"
-import { useGlobalContext } from "../../contexts/GlobalContextProvider";
+import InputField from './InputField'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
-import InputField from './InputField';
-import { useState, useEffect } from "react";
-import { auth, db } from "../../config";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { useState } from 'react';
+import { useGlobalContext } from '../../contexts/GlobalContextProvider';
+// import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from "firebase/auth"
+// import { auth } from '../../config';
+import logo from '../../assets/images/logo.png'
+import { Link } from 'react-router-dom';
 
 
 export default function Signup() {
 
-    const { setOpenModal } = useGlobalContext();
+    const { setProfile } = useGlobalContext();
     const [isLoading, setIsLoading] = useState(false);
     const [message, setMessage] = useState('');
 
-
     // FORMIK FORM INITAL VALUES
-    const initialValues = { email:'', name:'', password:'', comfirm_password:'' }
+    const initialValues = { name:'', password:'', email:'', state:'', comfirm_password:'' }
 
     // VALIDATION SCHEMA
     const validationSchema = Yup.object({
+        email:Yup.string().required('please enter E-mal!'),
         name:Yup.string().required('please enter name!'),
-        email:Yup.string().required('please enter email!'),
-        password:Yup.string().required('please enter password!'),
-        comfirm_password:Yup.string().required('please enter password!'),
+        state:Yup.string().required('please choose state!'),
+        password:Yup.string().required('create password!'),
+        comfirm_password:Yup.string().required('comfirm password!'),
     });
 
-    
-    
-    useEffect(() => {
-        
-        const colRef = collection(db, 'users')
-        const getUser = async () => {
-            try {
-                const snapShut = await getDocs(colRef, `users/464BjqMADq7A8Eboiw73`)
-                const docs = snapShut.docs.map(doc => doc.data())
-                console.log(docs)
-            } catch (error) {
-                console.log(error)
-            }
-        }
-
-        getUser()
-    }, [])
     // LOGIN USER WITH EMAIL AND PASSWORD
-    const handleSubmit = async ({name, email, password}) => {
-        const colRef = collection(db, 'users')
-
+    const handleSubmit = async ({email, password}) => {
         setIsLoading(true);
-        createUserWithEmailAndPassword(auth, email, password).then(credentail => {
-            if(credentail.user){
-                addDoc(colRef, {uid:credentail.user.uid, avatar:'test', displayName:name}).then(res => {
-                    console.log(res)
-                }, err => {
-                    console.log(err?.code?.split('/')[1])
-                })
-            }
-            setIsLoading(false);
-        }, err => {
-            setMessage(err?.code?.split('/')[1])
-            setIsLoading(false);
-        })
+        setMessage('')
+        setProfile(null)
+        // try {
+        //   signInWithEmailAndPassword(auth, email, password).then(res => {
+        //     console.log(res)
+        //     setProfile(null)
+        //   }, err => {
+        //     setMessage(err?.code?.split('/')[1])
+        //     console.dir(err?.code?.split('/')[1])
+        //   })
+        // } catch (error) {
+        //   setMessage('Something went wrong!')
+        //   console.log(error)
+        // }finally{
+        //   setIsLoading(false);
+        // }
     }
 
-    
   return (
-    <div className='lg:px-[35%] px-[5%] h-screen fixed inset-0 z-50 overflow-hidden bg-black bg-opacity-25 backdrop-blur-sm pt-[5rem]'>
-         <div className="w-full lg:p-6 p-6 rounded bg-white relative">
-            <div 
-                className="rounded-full cursor-pointer text-gray-500 absolute top-[.5rem] right-[.5rem] text-xl"
-                onClick={() => setOpenModal(null)}
-            >
-                <FaTimes />
-            </div>
-            <div className="my-4"> 
-                <span className="block lg:text-2xl text-xl lg:font-semibold text-center mB-2">Sign up</span> 
-                {message && <span className='text-red-500'>{message}</span>}
-                {isLoading && 'Loading...'}
-            </div>
-            <Formik
-                initialValues={initialValues}
-                validationSchema={validationSchema}
-                onSubmit={handleSubmit}
-            >
-                {() => (
-                    <Form>
-                        {fields.map(field => (
-                            <div className='mb-4'>
-                            <InputField 
-                                isLoading={isLoading}
-                                name={field.name}
-                                placeholder={field.placeholder}
-                            />
-                            </div>
-                        ))}
-                        <button type='submit' className='w-full px-3 py-2 bg-amber-500 text-white'>
-                            {isLoading ? 'Loading...' : 'Sign up'}
-                        </button>
-                    </Form>
-                )}
-            </Formik>
-            <div className="flex justify-center mt-6" onClick={() => setOpenModal('login')}>
-                Already have an account 
-                <span className="text-blue-800 ml-2 cursor-pointer">Login</span>
-            </div>
+    <div className='w-full px-8 py-4'>
+        <div className="md:h-[5rem] h-[3rem] md:w-[11rem] w-[3rem] mb-4">
+            <img className='h-full w-full' src={logo} alt="" />
+        </div>
+        <div className="text-center mb-4">
+            <span className="text-2xl">Sign up</span>
+            {message && <span className='text-red-500'>{message}</span>}
+        </div>
+        <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
+        >
+            {() => (
+                <Form>
+                    {formFields.map(field => (
+                        <div className='mb-4'>
+                        <InputField 
+                            name={field.name}
+                            placeholder={field.placeholder}
+                        />
+                        </div>
+                    ))}
+                    <button className="w-full px-5 py-2 bg-green-600 text-white my-2 rounded" type='submit'>
+                        {isLoading ? 'Loading...' : 'Sign up'}
+                    </button>
+                </Form>
+            )}
+        </Formik>
+        <div className="text-center mt-">
+        Already have an account <Link className="text-blue-600 cursor-pointer" to='/login'>Sign in</Link>
         </div>
     </div>
   )
 }
 
+const states = [
+    'Juba',
+    'Wau',
+    'Malakal',
+    'Torit',
+    'Yambio',
+    'Aiel',
+    'Kuajok',
+    'Bor',
+    'Rumbek',
+    'Yirol',
+]
 
-const fields = [
-    {name:'name', placeholder:'Name', type:'text'},
-    {name:'email', placeholder:'email', type:'email'},
-    {name:'password', placeholder:'Create password', type:'password'},
-    {name:'comfirm_password', placeholder:'Confirm password', type:'password'},
+const formFields = [
+  {name:'name', type:'text', placeholder:'Enter your name'},
+  {name:'age', type:'text', placeholder:'Age', options:states},
+  {name:'country', type:'select', placeholder:'Country', options:states},
+  {name:'city', type:'text', placeholder:'city', options:states},
+  {name:'address', type:'text', placeholder:'address', options:states},
+  {name:'email', type:'email', placeholder:'E-mail Address'},
+  {name:'password', type:'password', placeholder:'Enter password'},
+  {name:'comfirm_password', type:'password', placeholder:'Comfirm password'},
 ]
