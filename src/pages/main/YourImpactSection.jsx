@@ -14,7 +14,7 @@ export const YourImpactSection = () => {
             <div className="p-4">
               <p className="text-2xl">{impact.title}</p>
               <p className='elips-text l4'>{impact.text}</p>
-              <button className="px-3 py-2 bg-sky-500 text-white rounded mt-4">
+              <button className="px-3 py-2 bg-gradient-to-br to-sky-300 from-cyan-500 text-white rounded mt-4">
                 <Link className='flex items-center' to={impact.path}>
                   Read more <FiArrowRight className='ml-1' />
                 </Link>

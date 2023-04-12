@@ -5,7 +5,7 @@ export default function EducationPage() {
 
     return (
       <>
-        <div className="px-[8%] lg:py-[5rem] py-[3rem]" 
+        <div className="px-[8%] lg:py-[6rem] py-[4rem]" 
             style={{backgroundImage:`url('${bgImage}')`, backgroundSize:'cover', backgroundPosition:'center'}}
         >
             <p className='md:w-[60%] lg:text-6xl font-bold text-white font-sans'>

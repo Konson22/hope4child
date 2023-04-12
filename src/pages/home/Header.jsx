@@ -2,10 +2,11 @@ import { Link } from 'react-router-dom';
 
 export default function Header(){
 
-  const bgImage = process.env.PUBLIC_URL+'./images/header-bg.jpeg'
+  const bgImage = process.env.PUBLIC_URL+'./images/group-african-kids-learning-together.jpg'
+  // const bgImage = process.env.PUBLIC_URL+'./images/annie-spratt-cVEOh_JJmEE-unsplash.jpg'
 
   return(
-    <header className="header-container flex items-center h-[60vh] px-[9%] text-white relative"
+    <header className="header-container flex items-center md:h-[65vh] h-[40vh] px-[9%] text-white relative"
       style={{
         backgroundImage:`linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('${bgImage}')`, backgroundSize:'cover', backgroundPosition:'center'
       }}

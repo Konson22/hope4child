@@ -19,6 +19,7 @@ export function LazyImage({ src, alt, cName}){
     }, [shouldLoad, placeholderRef]);
 
     return (
+        // shouldLoad ? <img className={cName} src={`http://localhost:3001${src}`} alt={alt} /> : 
         shouldLoad ? <img className={cName} src={`https://amal-api.onrender.com${src}`} alt={alt} /> : 
             <div className={`flex items-center justify-center bg-gray-400 ${cName}`} ref={placeholderRef}>
                 <FaImage className='icon' />

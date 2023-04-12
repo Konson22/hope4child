@@ -11,7 +11,7 @@ import RegisterChild from './pages/forms/RegisterChild';
 import Signup from './pages/forms/Signup';
 import ChildProofile from './pages/sponsor-child/ChildProfile';
 
-const Main = lazy(() => import('./pages/main'));
+const Main = lazy(() => import('./pages/home'));
 const Volunteer = lazy(() => import('./pages/Volunteer'));
 const SponsorChild = lazy(() => import('./pages/sponsor-child'));
 
