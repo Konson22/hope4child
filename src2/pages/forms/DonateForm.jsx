@@ -1,3 +1,4 @@
+import { auth } from "../../config";
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import InputField from './InputField';
@@ -63,6 +64,7 @@ export default function DonateForm() {
 const fields = [
     {name:'name', placeholder:'Name', type:'text'},
     {name:'address', placeholder:'Address', type:'text'},
+    {name:'name', placeholder:'Name', type:'text'},
     {name:'email', placeholder:'email', type:'email'},
-    {name:'amount', placeholder:'Amount', type:'text'},
+    {name:'amount', placeholder:'email', type:'text'},
 ]

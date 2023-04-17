@@ -1,26 +1,65 @@
-import DonateForm from './forms/DonateForm'
+import DonateForm from "./forms/DonateForm"
 
 export default function Donate() {
-    const bgImage = process.env.PUBLIC_URL+'./images/refugee-childern.jpeg'
+
+  const bgImage = process.env.PUBLIC_URL+'./images/group-african-kids-learning-together.jpg'
+
   return (
     <div>
-        <header className="md:px-[8%] px-3 md:pt-[7rem] md:pb-[7rem] pt-[2rem] pb-[6rem] bg-sky-300"
-            style={{backgroundImage:`linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('${bgImage}')`, backgroundSize:'cover', backgroundPosition:'center'}}
-        >
-            <div className="md:w-[60%]">
-                <h1 className="md:text-5xl text-white font-semibold">When you sponsor a child, you create a powerful multiplier effect.</h1>
-            </div>
-        </header>
-        <div className="flex md:px-[8%] px-5 mb-8">
-            <div className="md:block hidden flex-1 p-8">
-                <p className='text-xl'>
-                    Children in poverty are more likely to be exposed to the stress of violence, gangs and drugs. This can negatively affect brain development and long-term well-being. Your support during this vulnerable time helps children and youth set their own goals to build a life free from poverty.
-                </p>
-            </div>
-            <div className="md:w-[40%] w-full md:p-10 p-4 md:mt-[-11rem] mt-[-4rem] bg-sky-500 rounded shadow-md">
-                <DonateForm />
-            </div>
+      <header className="header-container flex items-center md:py-[6rem] py-[3rem] px-[9%] text-white z-20"
+        style={{
+          backgroundImage:`linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.2)), url('${bgImage}')`, backgroundSize:'cover', backgroundPosition:'center'
+        }}
+      >
+        <h1 className="md:text-5xl text-xl font-bold md:w-[60%]">
+          Your support gives a child life-changing opportunity to develope spiritually, emotionally
+          {/* As you offer encouragument and support your love will ignite a life time of hope for a child */}
+        </h1>
+      </header>
+      <div className="md:flex md:px-[13%] px-4 md:py-12 p-6">
+        <div className="md:w-[45%] bg-gray-200 md:p-10 p-6">
+          <DonateForm />
         </div>
+        <div className="flex-1 md:ml-10">
+          <h3 className="text-4xl font-bold">Your donation provides</h3>
+          <div className="flex items-center mt-6">
+            <img className="h-[60px] w-[60px]" src={process.env.PUBLIC_URL+'/images/health.png'} alt='' />
+            <div className="ml-5">
+              <h4 className="text-xl font-bold">Health care</h4>
+              <p>
+                Children in poverty are more likely to be exposed to the stress of violence, gangs and drugs. This can negatively affect brain development
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center mt-6">
+            <img className="h-[60px] w-[60px]" src={process.env.PUBLIC_URL+'/images/population.png'} alt='' />
+            <div className="ml-5">
+              <h4 className="text-xl font-bold">Hygeen Training</h4>
+              <p>
+                Children in poverty are more likely to be exposed to the stress of violence, gangs and drugs. This can negatively affect brain development
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center mt-6">
+            <img className="h-[60px] w-[60px]" src={process.env.PUBLIC_URL+'/images/health.png'} alt='' />
+            <div className="ml-5">
+              <h4 className="text-xl font-bold">Health care</h4>
+              <p>
+                Children in poverty are more likely to be exposed to the stress of violence, gangs and drugs. This can negatively affect brain development
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center mt-6">
+            <img className="h-[60px] w-[60px]" src={process.env.PUBLIC_URL+'/images/population.png'} alt='' />
+            <div className="ml-5">
+              <h4 className="text-xl font-bold">Health care</h4>
+              <p>
+                Children in poverty are more likely to be exposed to the stress of violence, gangs and drugs. This can negatively affect brain development
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

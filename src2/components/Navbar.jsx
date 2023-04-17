@@ -26,12 +26,10 @@ export default function Navbar() {
         </div>
         <div 
             className={`
-                md:static fixed md:h-auto h-screen inset-0 
-                duration-200 md:translate-x-[0] translate-x-[-100%] ${openMenu ? 'translate-x-[0]' : ''}
-                md:bg-transparent bg-black bg-opacity-40
+                md:static fixed md:h-auto h-screen inset-0 duration-200 md:translate-x-[0] translate-x-[-100%] ${openMenu ? 'translate-x-[0]' : ''}
             `}
         >
-            <ul className="md:flex items-center h-full md:w-auto w-[70%] lg:bg-none bg-gradient-to-bl to-sky-300 from-cyan-500">
+            <ul className="md:flex items-center h-full lg:bg-none bg-gradient-to-bl to-sky-300 from-cyan-500">
                 <div className="md:hidden flex items-center justify-between p-3">
                     <div className="flex items-center">
                         <FaPenAlt className="mr-3 lg:text-5xl text-2xl" />
@@ -45,37 +43,40 @@ export default function Navbar() {
                     <li key={link.text}>
                         {!link.subLinks  ? 
                             <NavLink 
-                                className='block hover:text-yellow-400 px-4 py-3 lg:flex items-center' to={link.path}
+                                className='block hover:text-yellow-400  px-4 py-3 lg:flex items-center' to={link.path}
                                 onClick={() => setOpenMenu(false)}
                             >
                                 {link.text}
                                 {link.subLinks && <FiChevronDown className='ml-2' />}
                             </NavLink>:
-                            <div className="cursor-pointer relative z-10" 
-                                onClick={() => setIsOpen(!isOpen)}
-                                onMouseEnter={() => setIsOpen(true)}
-                                onMouseLeave={() => setIsOpen(false)}
-                            >
-                                <span className="px-4 py-3 flex items-center">
-                                    {link.text}
-                                    {link.subLinks && <FiChevronDown className='ml-2' />}
-                                </span>
-                                {(isOpen && link.subLinks) &&
-                                    <ul className='w-[380px] flex lg:absolute top-full left-0 rounded md:shadow lg:border lg:bg-white lg:text-gray-600 p-1 z-[-1]'>
-                                        <div className="">
-                                            {link.subLinks.map((sub, index) => (
-                                                <li className="mb-1" key={index} onClick={() => setOpenMenu(false)}>
-                                                    <NavLink className='flex items-center hover:bg-yellow-500 hover:text-white px-8 md:py-1 py-2' to={sub.path}>
-                                                        {sub.text}
-                                                    </NavLink>
-                                                </li>
-                                            ))}
-                                        </div>
-                                        <div className="flex-1">
-                                            <img className='h-full' src={process.env.PUBLIC_URL+'./images/refugee-childern.jpeg'} alt='' />
-                                        </div>
-                                    </ul>
-                                }
+                            <div 
+                                className="
+                                    cursor-pointer relative z-10
+                                " 
+                                    onClick={() => setIsOpen(!isOpen)}
+                                    onMouseEnter={() => setIsOpen(true)}
+                                    onMouseLeave={() => setIsOpen(false)}
+                                >
+                                    <span className="px-4 py-3 flex items-center">
+                                        {link.text}
+                                        {link.subLinks && <FiChevronDown className='ml-2' />}
+                                    </span>
+                                    {(isOpen && link.subLinks) &&
+                                        <ul className='w-[380px] flex lg:absolute top-full left-0 rounded md:shadow lg:border lg:bg-white lg:text-gray-600 p-1 z-[-1]'>
+                                            <div className="">
+                                                {link.subLinks.map((sub, index) => (
+                                                    <li className="mb-1" key={index} onClick={() => setOpenMenu(false)}>
+                                                        <NavLink className='flex items-center hover:bg-yellow-500 hover:text-white px-8 md:py-1 py-2' to={sub.path}>
+                                                            {sub.text}
+                                                        </NavLink>
+                                                    </li>
+                                                ))}
+                                            </div>
+                                            <div className="flex-1">
+                                                <img className='h-full' src={process.env.PUBLIC_URL+'./images/refugee-childern.jpeg'} alt='' />
+                                            </div>
+                                        </ul>
+                                    }
                             </div>
                         }
                     </li>
