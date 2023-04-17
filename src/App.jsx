@@ -9,6 +9,7 @@ const Home = lazy(() => import('./pages/home'));
 const Sponsor = lazy(() => import('./pages/Sponsor'));
 const Donate = lazy(() => import('./pages/Donate'));
 const SponsorChild = lazy(() => import('./pages/sponsor-child'));
+const ChildProofile = lazy(() => import('./pages/sponsor-child/ChildProfile'));
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/sponsor' element={<Sponsor />} />
+          <Route path='/child-profile/:profileId' element={<ChildProofile />} />
           <Route path='/donate' element={<Donate />} />
           <Route path='/sponsor-child' element={<SponsorChild />} />
         </Routes>

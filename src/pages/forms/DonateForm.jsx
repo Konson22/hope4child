@@ -26,6 +26,7 @@ export default function DonateForm() {
     // LOGIN USER WITH EMAIL AND PASSWORD
     const handleSubmit = async (e) => {
         setIsLoading(true);
+        setMessage('')
     }
   return (
     <div className=''>
