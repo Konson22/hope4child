@@ -37,23 +37,22 @@ export default function Appbar() {
             <span className="text-3xl mx-4">
                 <FiBell />
             </span>
-            <div className="flex items-center cursor-pointer">
-                <img className='h-[40px] w-[40px] rounded-full overflow-hidden' src={process.env.PUBLIC_URL+'/images/kon.png'} alt='' />
-                <span className="md:block hidden ml-2 mr-1">
-                    Kon
-                </span> 
-                <FiChevronDown />
-            </div>
-            {/* <div className="flex items-center">
-                <img className='h-[30px] w-[30px] rounded-full overflow-hidden' src={profile?.avatar} alt='' />
-                <span className="md:block hidden ml-2">
-                    {profile?.name?.split(' ')[0]}
-                </span> 
-            </div> */}
+            {profile ?
+                <NavLink className="flex items-center cursor-pointer" to='/account'>
+                    <img className='md:h-[40px] md:w-[40px] h-[30px] w-[30px] rounded-full overflow-hidden' src={profile.avatar} alt='' />
+                    {/* <img className='h-[40px] w-[40px] rounded-full overflow-hidden' src={process.env.PUBLIC_URL+'/images/kon.png'} alt='' /> */}
+                    <span className="md:block hidden ml-2">
+                        {profile?.name?.split(' ')[0]}
+                    </span> 
+                    <FiChevronDown />
+                </NavLink> :
+                <div className="h-[30px] w-[30px] rounded-full bg-gray-200">
+                </div>
+            }
         </>
     )
   return (
-    <div className='sticky left-0 right-0 top-0 z-40 bg-dark-teal text-white'>
+    <div className='sticky left-0 right-0 top-0 z-40 md:bg-dark-teal bg-light-teal text-white'>
         <div className="flex items-center md:px-[5%] px-3 md:py-4 py-2">
             <div className="flex items-center flex-1">
                 <div className="md:hidden block mr-3 text-2xl" onClick={() => setOpenMenu(true)}>
@@ -64,7 +63,7 @@ export default function Appbar() {
             <div className="md:hidden block">
                 { donateButton }
             </div>
-            {profile ? guestUserActions : authUserActions }
+            {profile ? authUserActions : guestUserActions }
         </div>
         <div className="flex justify-between md:bg-light-teal md:px-[5%]">
             <div className={`
@@ -104,10 +103,10 @@ export default function Appbar() {
                                     </span>
                                     {(isOpen && link.subLinks) &&
                                         <ul className='w-[380px] flex lg:absolute top-full left-0 rounded md:shadow lg:border lg:bg-white lg:text-gray-600 p-1 z-[-1]'>
-                                            <div className="">
+                                            <div className="w-[40%]">
                                                 {link.subLinks.map((sub, index) => (
                                                     <li className="mb-1" key={index} onClick={() => setOpenMenu(false)}>
-                                                        <NavLink className='flex items-center hover:bg-yellow-500 hover:text-white px-8 md:py-1 py-2' to={sub.path}>
+                                                        <NavLink className='flex items-center hover:bg-yellow-500 hover:text-white px-3 md:py-1 py-2' to={sub.path}>
                                                             {sub.text}
                                                         </NavLink>
                                                     </li>

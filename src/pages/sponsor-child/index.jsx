@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { FiChevronDown } from "react-icons/fi";
+import { statesData } from "../../assets/data";
 import { ChildCard } from "../../components/ChildCard";
 import { useChildren } from "../../contexts/ChildrenContextProvider";
 
@@ -28,7 +27,7 @@ export default function SponsorChild() {
                     options={['Either', 'male', 'female']}
                     />
                 <Dropdown title='State'
-                    options={['Either', 'male', 'female']}
+                    options={statesData}
                 />
                 <button className="flex items-center px-4 py-2 rounded border bg-dark-teal">
                     <span className="md:block hidden">Find </span> Child
@@ -46,23 +45,18 @@ export default function SponsorChild() {
 
 function Dropdown({ title, options }){
 
-    const [isOpen, setIsOpen] = useState(false);
-
     return(
-        <div className="flex items-center px-4 py-2 rounded border border-dark-teal cursor-pointer mr-2 relative"
-            onClick={() => setIsOpen(!isOpen)}
-        >
-            <span className="md:block hidden">Choose</span> {title}
-            <FiChevronDown className="ml-1" />
-            {isOpen &&
-                <div className="absolute top-full right-0 left-0 bg-gray-100 shadow-md rounded z-30">
-                    {options.map(option => (
-                        <div className="px-4 py-1">
-                            {option}
-                        </div>
-                    ))}
-                </div>
-            }
+        <div className="rounded border border-dark-teal cursor-pointer mr-2 px-3">
+            <select className="py-2 border-none bg-transparent">
+                <option className="px-4 py-1">
+                    Choose {title}
+                </option>
+                {options.map(option => (
+                    <option className="px-4 py-1">
+                        {option}
+                    </option>
+                ))}
+            </select>
         </div>
     )
 }

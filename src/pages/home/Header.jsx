@@ -27,7 +27,7 @@ export default function Header(){
           { headerText }
         </div>
       </header>
-      <div className="md:hidden block bg-white mx-4 px-10 py-8 mt-[-4rem] rounded-md shadow-md z-50">
+      <div className="md:hidden block bg-white mx-4 px-10 py-8 mt-[-3rem] rounded-md shadow-md z-50">
         { headerText }
       </div>
     </div>
