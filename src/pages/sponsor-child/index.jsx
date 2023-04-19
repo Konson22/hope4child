@@ -16,10 +16,11 @@ export default function SponsorChild() {
     const [openStatesDropDown, setOpenStatesDropDown] = useState(false);
 
     useEffect(() => {
-        if(!loading && childrenData && childrenData.lengt >= 1){
+        if(childrenData && childrenData.lengt >= 1){
             setChildren(childrenData);
         }
-    }, [childrenData, loading]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     
     useEffect(() => {
         if(selectedGender === 'Either'){
