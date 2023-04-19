@@ -16,7 +16,7 @@ export default function SponsorChild() {
     const [openStatesDropDown, setOpenStatesDropDown] = useState(false);
 
     useEffect(() => {
-        if(childrenData && childrenData.lengt >= 1){
+        if(childrenData.lengt >= 1){
             setChildren(childrenData);
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps

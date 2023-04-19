@@ -125,9 +125,9 @@ function Sponsorship() {
       </div>
       <div className="md:grid grid-cols-3 gap-4 mt-10">
         {childrenData.length > 0 && childrenData.slice(0,6).map(child => (
-          <Link className="block w-full bg-gray-200 border relative cursor-pointer" to={`/sponsered-child/${child._id}`} key={child._id}>
+          <Link className="block w-full bg-gray-200 border relative cursor-pointer md:mb-0 mb-4 rounded" to={`/sponsered-child/${child._id}`} key={child._id}>
             <LazyImage cName="h-[300px]" src={child.image} alt='' />
-            <div className="flex flex-col items-center justify-end absolute w-full top-0 left-0 bg-black bg-opacity-40 hover:bg-opacity-70 text-white p-8">
+            <div className="flex flex-col items-center justify-end absolute h-full w-full top-0 left-0 bg-black bg-opacity-40 hover:bg-opacity-70 text-white p-8">
               <span className="block text-2xl">{child.name}</span>
               <button className="block border px-3 p-1 mt-3">Read more</button>
             </div>
