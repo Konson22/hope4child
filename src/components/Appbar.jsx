@@ -57,7 +57,7 @@ export default function Appbar() {
         <img className='md:h-[4.5rem] md:w-[4.5rem] h-[2rem] w-[2rem]' src={process.env.PUBLIC_URL+'/images/pngegg.png'} alt='logo pic' />
     )
   return (
-    <div className='sticky left-0 right-0 top-0 z-40 md:bg-dark-teal bg-light-teal text-white md:py-0 py-2'>
+    <div className='sticky left-0 right-0 top-0 z-40 md:bg-dark-teal bg-light-teal text-white md:py-0 py-3'>
         <div className="flex items-center md:px-[5%] px-3 md:py-4 py-0">
             <div className="flex items-center flex-1">
                 <div className="md:hidden block mr-3 text-2xl" onClick={() => setOpenMenu(true)}>
