@@ -37,7 +37,7 @@ export default function SponsorChildForm() {
     
     return child ? (
         <>
-            <div className="flex md:bg-light-teal text-white bg-dark-teal md:px-[8%] px-4 md:pt-[2rem] md:pb-[2rem] pt-[2rem] pb-[6rem]">
+            <div className="flex md:bg-rose-500 text-white bg-dark-teal md:px-[8%] px-4 md:pt-[2rem] md:pb-[2rem] pt-[2rem] pb-[6rem]">
                 <div className="flex items-center">
                     <LazyImage cName="md:h-[250px] h-[100px] md:w-[300px] w-[100px] rounded" src={child.image} alt="" />
                     <div className="ml-5">

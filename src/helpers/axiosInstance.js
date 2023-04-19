@@ -4,8 +4,8 @@ import axios from 'axios'
 //     withCredentials: true, credentials: 'include'
 // }
 const axiosInstance = axios.create({
-  // baseURL:'http://localhost:3001',
-  baseURL:'https://amal-api.onrender.com',
+  // baseURL:'https://amal-api.onrender.com',
+  baseURL:'http://localhost:3001',
   withCredentials: true, 
   credentials: 'include'
 })

@@ -70,3 +70,10 @@ export const statesData = [
     'Yambio',
     'Torit'
 ]
+
+export const agesRangeData = [
+    '3 - 7',
+    '8 - 12',
+    '13 - 17',
+    '18 - 22',
+]

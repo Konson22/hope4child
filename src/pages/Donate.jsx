@@ -6,7 +6,7 @@ export default function Donate() {
   const bgImage = process.env.PUBLIC_URL+'./images/group-african-kids-learning-together.jpg'
 
   return (
-    <PayPalScriptProvider options={{ "client-id": "test" }}>
+    <>
       <header className="header-container flex items-center md:py-[6rem] py-[3rem] px-[9%] text-white z-20"
         style={{
           backgroundImage:`linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.2)), url('${bgImage}')`, backgroundSize:'cover', backgroundPosition:'center'
@@ -20,7 +20,9 @@ export default function Donate() {
       <div className="md:flex md:px-[13%] px-4 md:py-12 p-6">
         <div className="md:w-[45%] bg-gray-200 md:p-10 p-6">
           <DonateForm />
-          <PayPalButtons style={{ layout: "horizontal" }} />
+          <PayPalScriptProvider>
+            <PayPalButtons style={{ layout: "horizontal" }} />
+          </PayPalScriptProvider>
         </div>
         <div className="flex-1 md:ml-10 md:mt-0 mt-6">
           <h3 className="text-4xl font-bold">Your donation provides</h3>
@@ -62,6 +64,6 @@ export default function Donate() {
           </div>
         </div>
       </div>
-    </PayPalScriptProvider>
+    </>
   )
 }

@@ -19,24 +19,19 @@ export default function Login() {
             setIsLoading(true)
             signInWithPopup(auth, new GoogleAuthProvider()).then(credential => {
                 const user = { name:credential.user.displayName, avatar:credential.user.photoURL}
-                console.log(user)
-                setProfile(user)
-                setOpenModal(null)
+                setProfile(user);
+                setOpenModal(null);
             }, err => {
-                setMessage(err?.code?.split('/')[1])
-                console.dir(err?.code?.split('/')[1])
+                setMessage(err?.code?.split('/')[1]);
             });
         } catch (error) {
-            setMessage('Error')
-            console.log(error)
+            setMessage('Error');
         }finally{
-            setIsLoading(false)
+            setIsLoading(false);
         }
     }
     
-
     // FORMIK FORM INITAL VALUES
-   
     const initialValues = {
         password:'',
         email:''
@@ -69,7 +64,7 @@ export default function Login() {
     }
   return (
     <div className='lg:px-[35%] px-[5%] h-screen fixed inset-0 z-50 overflow-hidden bg-gray-400 bg-opacity-25 backdrop-blur-sm pt-[5rem]'>
-         <div className="w-full lg:p-10 p-6 rounded bg-white relative shadow-md shadow-gray-600">
+         <div className="w-full lg:p-10 p-6 rounded bg-white relative shadow-md">
             <div 
                 className="rounded-full cursor-pointer text-gray-500 absolute top-[.5rem] right-[.5rem] text-xl"
                 onClick={() => setOpenModal(null)}

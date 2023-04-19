@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FaBars, FaPenAlt, FaTimes } from 'react-icons/fa'
+import { FaBars, FaTimes } from 'react-icons/fa'
 import { FiBell, FiChevronDown } from 'react-icons/fi'
 import { NavLink } from 'react-router-dom'
 import { useGlobalContext } from '../contexts/GlobalContextProvider';
@@ -11,7 +11,7 @@ export default function Appbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     const donateButton = (
-        <NavLink className="flex items-center px-5 py-1 bg-yellow-500 text-white" to='/donate'>
+        <NavLink className="flex items-center px-5 py-1 bg-rose-500 text-white" to='/donate'>
             <span className="md:block hidden">Make Donation</span>
             <span className="md:hidden block">Donate</span>
         </NavLink>
@@ -19,19 +19,20 @@ export default function Appbar() {
 
     const guestUserActions = (
         <>
-            <button className="md:h-[60%] h-full border hover:border px-3 py-1 rounded"
+            <button className="md:h-[60%] h-full borderr hover:border px-3 py-1 rounded"
                 onClick={() => setOpenModal('login')}
             >
                 Login
             </button> 
             <span className="mx-2 md:block hidden">|</span>
-            <button className="h-[60%] md:block border hover:border px-3 py-1 rounded hidden"
+            <button className="h-[60%] md:block borderr hover:border px-3 py-1 rounded hidden"
                 onClick={() => setOpenModal('signup')}
             >
                 Sign up
             </button> 
         </> 
     )
+
     const authUserActions = (
         <>
             <span className="text-3xl mx-4">
@@ -51,6 +52,10 @@ export default function Appbar() {
             }
         </>
     )
+
+    const logoImage = (
+        <img className='md:h-[4.5rem] md:w-[4.5rem] h-[2rem] w-[2rem]' src={process.env.PUBLIC_URL+'/images/pngegg.png'} alt='logo pic' />
+    )
   return (
     <div className='sticky left-0 right-0 top-0 z-40 md:bg-dark-teal bg-light-teal text-white'>
         <div className="flex items-center md:px-[5%] px-3 md:py-4 py-2">
@@ -58,7 +63,7 @@ export default function Appbar() {
                 <div className="md:hidden block mr-3 text-2xl" onClick={() => setOpenMenu(true)}>
                     <FaBars />
                 </div>
-                <img className='md:h-[4.5rem] md:w-[4.5rem] h-[2.8rem] w-[2.8rem]' src={process.env.PUBLIC_URL+'/images/pngegg.png'} alt='logo pic' />
+                { logoImage }
             </div>
             <div className="md:hidden block">
                 { donateButton }
@@ -67,17 +72,14 @@ export default function Appbar() {
         </div>
         <div className="flex justify-between md:bg-light-teal md:px-[5%]">
             <div className={`
-                    md:static fixed md:h-auto h-screen inset-0 bg-transparent
-                    bg-black bg-opacity-40
+                    md:static fixed md:h-auto h-screen inset-0 md:bg-transparent
+                    bg-black bg-opacity-80
                     duration-200 md:translate-x-[0] translate-x-[-100%] ${openMenu ? 'translate-x-[0]' : ''}
                 `}
             >
                 <ul className="md:flex items-center h-full md:w-auto w-[70%] lg:bg-none bg-gradient-to-bl to-sky-300 from-cyan-500">
                     <div className="md:hidden flex items-center justify-between p-3">
-                        <div className="flex items-center">
-                            <FaPenAlt className="mr-3 lg:text-5xl text-2xl" />
-                            <span className="flex items-center lg:text-3xl text-xl">Hope</span>
-                        </div>
+                        { logoImage }
                         <div className="text-2xl" onClick={() => setOpenMenu(false)}>
                             <FaTimes />
                         </div>
@@ -86,7 +88,10 @@ export default function Appbar() {
                         <li key={link.text}>
                             {!link.subLinks  ? 
                                 <NavLink 
-                                    className='block hover:text-yellow-400 px-4 py-3 lg:flex items-center' to={link.path}
+                                    className='
+                                        block px-4 py-3 lg:flex items-center border-b-2 
+                                        border-b-light-teal border-t-light-teal hover:border-b-red-500 hover:text-rose-500 
+                                    ' to={link.path}
                                     onClick={() => setOpenMenu(false)}
                                 >
                                     {link.text}
@@ -138,7 +143,7 @@ const links = [
         {text:'Donate', path:'/donate'},
         {text:'Volunteer', path:'/volunteer'},
         {text:'Sponsor', path:'/sponsor'},
-        {text:'Donate', path:'/donate'},
+        {text:'Donate', path:'/children-in-critical-need'},
     ]},
     {text:'Sponsor Child', path:'/sponsor-child'},
     {text:'Our Mission', path:'/mission'},
