@@ -7,11 +7,19 @@ import Footer from "components/Footer";
 import HealthPage from "pages/HealthPage";
 import EducationPage from "pages/EducationPage";
 import DonatePage from "pages/DonatePage";
+import ScrollToTop from "hooks/ScrollToTop";
+import Login from "pages/forms/Login";
+import { useGlobalContext } from "contexts/GlobalContextProvider";
 
 function App() {
+
+  const { showForm } = useGlobalContext()
+
   return (
     <div className="bg-white text-base dark:bg-neutral-900 text-neutral-500 dark:text-neutral-200">
       <Appbar />
+      <ScrollToTop />
+      {(showForm && showForm === 'login') && <Login />}
       <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/sponsor-child' component={ChildrenPage} />

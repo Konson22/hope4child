@@ -9,7 +9,7 @@ export default function FeaturedCauses() {
         <Title1 text="OUR ONGING CAMPIGN" cName="text-center" />
         <div className="md:grid grid-cols-3 gap-4 mt-4">
             {focusData.map(focus => (
-            <div className="border bg-gray-50 md:mb-0 mb-4">
+            <div className="border bg-slate-50 md:mb-0 mb-4">
                 <img className="h-[200px] w-full" src={focus.image} alt="" />
                 <div className="p-4">
                     <Title3 text={focus.title} cName="text-cente mb-4" />

@@ -3,8 +3,11 @@ import { Navigations } from "./Navigations";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Logo from "./Logo";
+import { useGlobalContext } from "contexts/GlobalContextProvider";
 
 export default function Appbar() {
+
+  const { setShowForm } = useGlobalContext()
 
   const [openMenu, setOpenMenu] = useState<boolean>(false)
 
@@ -37,7 +40,12 @@ export default function Appbar() {
               aria-hidden="true"
             />
         </Link>
-        <button className="md:flex border border-rose-600 text-rose-600 text-sm rounded-md px-4 py-2 mx-4 hidden">Login | Sign up</button>
+        <button 
+          className="md:flex border border-rose-600 text-rose-600 text-sm rounded-md px-4 py-2 mx-4 hidden"
+          onClick={() => setShowForm('login')}
+        >
+          Login | Sign up
+        </button>
         <div className="md:hidden block ml-6" onClick={() => setOpenMenu(true)}>
           <span className="block h-[.09rem] w-6 bg-white mb-[.4rem]"></span>
           <span className="block h-[.09rem] w-6 bg-white mb-[.4rem]"></span>
