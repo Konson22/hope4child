@@ -1,9 +1,9 @@
 import AboutSection from "./AboutSection"
 import FeaturedCauses from "./FeaturedCauses"
-import UpcomingEventsSections from "./UpcomingEventsSections"
 import Ourfocus from "./Ourfocus"
 import ContactForm from "pages/forms/ContactForm"
 import { Link } from "react-router-dom"
+import UpcomingEventsSections from "./UpcomingEventsSections"
 
 
 export default function Home() {
@@ -21,6 +21,7 @@ export default function Home() {
     </div>
   )
 }
+
 
 
 const Header = () => {
@@ -60,28 +61,4 @@ const Header = () => {
   )
 }
 
-// const Header = () => {
 
-//   const bgImage = process.env.PUBLIC_URL+'./images/children-g1c4ec8142_1280.jpg'
-
-//   return(
-//     <header
-//       className="flex items-center md:px-[8%] px-3 md:py-[7rem] py-[8rem] bg-red-500"
-//       style={{backgroundImage:`linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2)), url('${bgImage}')`, backgroundSize:'cover', backgroundPosition:'center'}}
-//     >
-//       <div className="md:w-[85%] text-white hidden">
-//         <h1 className="md:text-7xl text-4xl font-bbold">Give us the opportunity to change our story</h1>
-//         <div className="flex mt-9">
-//           <button className="bg-rose-500 text-white md:text-xl md:px-6 px-5 md:py-4 py-3 rounded">
-//             Sponsor child
-//           </button>
-//         </div>
-//         <p className="hidden md:text-3xl text-xl mt-3">
-//           Growing up in poverty, children face tough challenges: hunger and malnutrition, limited access 
-//         </p>
-//       </div>
-//     </header>
-//   )
-// }
-
-//Small Efford Makes a Big Changes
