@@ -11,27 +11,36 @@ export default function Appbar() {
 
   const [openMenu, setOpenMenu] = useState<boolean>(false)
 
+  const toggleMenu = () => setOpenMenu(!openMenu)
+
   return (
     <>
-    <div className="md:flex hidden items-center justify-between h-[4rem] bg-slate-800 px-[3%]">
-      <div className="flex text-sm text-slate-300">
+    <div className="md:flex hidden items-center justify-between h-[4rem] bg-slate-800 text-slate-300 px-[3%]">
+      <div className="flex text-sm ">
+       
+      </div>
+      <div className="flex">
         <span className="flex items-center">
-          <PhoneIcon className="h-6" />
-          +211920079070
-        </span>
-        <span className="flex items-center">
-          <PhoneIcon className="h-6" />
-          +211920079070
-        </span>
-        <span className="flex items-center">
-          <PhoneIcon className="h-6" />
+          <img className="h-8 w-8" src={process.env.PUBLIC_URL+'./images/instagram2.png'} alt='' />
           info@hope4child.com
         </span>
+        <span className="flex items-center mx-6">
+          <PhoneIcon className="h-6 mr-2" />
+          +211920079070
+        </span>
+        {/* <span className="flex items-center mx-6">
+          <img className="h-8 w-8 mr-2" src={process.env.PUBLIC_URL+'./images/whatsapp.png'} alt='' />
+          +211920079070
+        </span> */}
+        <img className="h-7 w-7" src={process.env.PUBLIC_URL+'./images/twitter.png'} alt='' />
+        <img className="h-7 w-7 mx-6" src={process.env.PUBLIC_URL+'./images/facebook.png'} alt='' />
+        <img className="h-7 w-7" src={process.env.PUBLIC_URL+'./images/instagram2.png'} alt='' />
+        <img className="h-7 w-7 mx-6" src={process.env.PUBLIC_URL+'./images/youtube.png'} alt='' />
       </div>
     </div>
     <div className=" md:bg-gray-100 bg-slate-800 md:text-slate-600 text-white backdrop-blur-sm flex items-center justify-between md:px-[3%] px-3 md:py-0 py-2 sticky top-0 left-0 z-40">
       <Logo />
-      <Navigations open={openMenu} close={setOpenMenu} />
+      <Navigations isOpen={openMenu} toggle={toggleMenu} />
       <div className="flex items-center text-white">
         <Link className="flex items-center text-sm bg-rose-600 rounded" to='/donate'>
           <div className="md:px-4 px-3 py-2 border-r-2 border-dotted">Donate</div>

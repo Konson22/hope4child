@@ -8,22 +8,21 @@ interface LinkProps {
     text:String;
     path?:String;
     className?: string | ((isActive: boolean) => string) | undefined;
-    // close: () => void;
+    toggle?: () => void;
   }
   
 interface NavigationsProps {
-  open:boolean;
-  close: React.Dispatch<React.SetStateAction<boolean>>;
+  isOpen:boolean;
+  toggle: () => void;
 }
 
-export const Navigations:React.FC<NavigationsProps> = ({ open, close }) => {
-
+export const Navigations:React.FC<NavigationsProps> = ({ isOpen, toggle }) => {
 
   return(
     <div 
       className={`
         md:static fixed md:h-auto h-screen inset-0 z-50 md:bg-transparent bg-rose-500
-        md:translate-x-0 duration-150 ${!open ? 'translate-x-[-100%]':''}
+        md:translate-x-0 duration-150 ${!isOpen ? 'translate-x-[-100%]':''}
       `}
     >
       <div 
@@ -35,7 +34,7 @@ export const Navigations:React.FC<NavigationsProps> = ({ open, close }) => {
           className="md:hidden bg-slate-800 flex items-center justify-between py-3 px-3"
         >
           <Logo />
-          <div className="px-3" onClick={() => close(false)}>
+          <div className="px-3" onClick={() => toggle()}>
             <XMarkIcon className="h-7" />
           </div>
         </div>
@@ -44,11 +43,12 @@ export const Navigations:React.FC<NavigationsProps> = ({ open, close }) => {
             <NavLinkItem 
               text={link.text} 
               path={link.path} 
+              toggle={toggle}
               className="block px-5 md:py-5 py-3 md:cursor-pointer md:border-none border-t border-slate-500"
             />:
             <DropDownLinks 
-              text={link.text} 
-              subLinks={link.subLinks}
+              text={link.text}
+              subLinks={link.subLinks} toggle={toggle}
             />
         ))}
       </div>
@@ -57,7 +57,7 @@ export const Navigations:React.FC<NavigationsProps> = ({ open, close }) => {
 }
 
 
-const DropDownLinks:React.FC<{text:String, subLinks:LinkProps[]}> = ({ text, subLinks }) => {
+const DropDownLinks:React.FC<{text:String, subLinks:LinkProps[], toggle:() => void}> = ({ text, toggle, subLinks }) => {
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -80,6 +80,7 @@ const DropDownLinks:React.FC<{text:String, subLinks:LinkProps[]}> = ({ text, sub
             <NavLinkItem 
               text={sublink.text} 
               path={sublink.path} 
+              toggle={toggle}
               className="block hover:bg-red-400 hover:text-white transition-colors px-4 border-b py-2"
             />
           )}
@@ -90,11 +91,12 @@ const DropDownLinks:React.FC<{text:String, subLinks:LinkProps[]}> = ({ text, sub
 }
 
   
-const NavLinkItem:React.FC<LinkProps> = ({path, text, className }) => {
+const NavLinkItem:React.FC<LinkProps> = ({path, text, toggle, className }) => {
     return(
       <NavLink 
         className={className}
         to={`${path}`}
+        onClick={toggle}
       >
         {text}
       </NavLink>

@@ -4,7 +4,7 @@ export const navigationsLinksData = [
     {text:'HOME', path:'/'},
     {text:'WHO ARE WE', path:'/how-to-help', subLinks:[
         {text:'About us', path:'donate'},
-        {text:'Projects', path:'donate'},
+        {text:'Projects', path:'/our-projects'},
         {text:'Support & Partners', path:'donate'},
         {text:'Our Team', path:'donate'},
         {text:'Legal Structure', path:'donate'},
@@ -14,10 +14,10 @@ export const navigationsLinksData = [
         subLinks:[
             {text:'Sponsor Child', path:'/sponsor-child'},
             {text:'Make donation', path:'/donate'},
-            {text:'Become a member', path:'/'},
-            {text:'Volunteer', path:'/'},
-            {text:'Ingternship', path:'/'},
-            {text:'Jobs', path:'/'},
+            {text:'Become a member', path:'/become-a-member'},
+            {text:'Volunteer', path:'/volunteer'},
+            {text:'Internship', path:'/internship'},
+            {text:'Jobs', path:'/jobs'},
             {text:'News latter', path:'/'},
         ],
     },

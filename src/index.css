@@ -24,8 +24,17 @@
   }
 } */
 
-.logo-wraper{
-  clip-path: polygon(89% 0, 100% 46%, 80% 100%, 0 100%, 0 0);
-  /* -webkit-clip-path: polygon(0 0, 0, 83%, 100% 100%, 0% 100%); */
+/* .cliped{
+  clip-path: polygon(100% 0, 100% 100%, 100% 95%, 0 100%, 0 5%);
+} */
+
+.title{
+  letter-spacing: .3rem;
 }
 
+@media (max-width: 768px){
+  .title{
+    letter-spacing: unset;
+  }
+
+}

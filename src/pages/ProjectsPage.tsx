@@ -3,17 +3,17 @@ import DonateForm from "./forms/DonateForm"
 import { Header } from "components/Header"
 
 
-export default function DonatePage() {
+export default function ProjectsPage() {
 
   return (
     <div>
         <Header 
-            image="./images/children-g1c4ec8142_1280.jpg" 
-            cName='pt-[4rem] pb-[7rem]'
-            text="Your generosity gives children a smile, support our work" 
+            image="./images/team.jpg" 
+            cName='py-[7rem] b-[7rem]'
+            text="Our ProjectsPage" 
         />
-        <div className="md:px-[8%] px-3 flex">
-            <div className="flex-1 md:p-8 p-3">
+        <div className="md:px-[8%] px-3 py-5 flex">
+            <div className="flex-1">
                 <p className="md:text-3xl hidden">
                     Acknowledging street kids realities is crucial for the development of education programmes that leave no street child behind. 
                 </p>
@@ -31,7 +31,7 @@ export default function DonatePage() {
                     </p>
                 </div>
             </div>
-            <div className="w-[45%] md:block hidden mt-[-4rem]">
+            <div className="w-[45%] md:block hidden">
                 <DonateForm />
             </div>
         </div>

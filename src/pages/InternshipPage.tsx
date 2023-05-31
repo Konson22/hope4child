@@ -3,14 +3,14 @@ import DonateForm from "./forms/DonateForm"
 import { Header } from "components/Header"
 
 
-export default function DonatePage() {
+export default function InternshipPage() {
 
   return (
     <div>
         <Header 
-            image="./images/children-g1c4ec8142_1280.jpg" 
-            cName='pt-[4rem] pb-[7rem]'
-            text="Your generosity gives children a smile, support our work" 
+            image="./images/team.jpg" 
+            cName='py-[7rem] b-[7rem]'
+            text="Get Internship opportunity" 
         />
         <div className="md:px-[8%] px-3 flex">
             <div className="flex-1 md:p-8 p-3">

@@ -10,6 +10,9 @@ import DonatePage from "pages/DonatePage";
 import ScrollToTop from "hooks/ScrollToTop";
 import Login from "pages/forms/Login";
 import { useGlobalContext } from "contexts/GlobalContextProvider";
+import VolunteerPage from "pages/VolunteerPage";
+import InternshipPage from "pages/InternshipPage";
+import ProjectsPage from "pages/ProjectsPage";
 
 function App() {
 
@@ -25,6 +28,9 @@ function App() {
         <Route exact path='/sponsor-child' component={ChildrenPage} />
         <Route exact path='/health' component={HealthPage} />
         <Route exact path='/education' component={EducationPage} />
+        <Route exact path='/our-projects' component={ProjectsPage} />
+        <Route exact path='/internship' component={InternshipPage} />
+        <Route exact path='/volunteer' component={VolunteerPage} />
         <Route exact path='/donate' component={DonatePage} />
         <Route exact path='/profile' component={Profile} />
       </Switch>
