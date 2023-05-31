@@ -72,7 +72,7 @@ export default function UpcomingEventsSections() {
           {[...new Array(3)].map(() => (
             <li className="bg-slate-100 relative">
               <img 
-                className="" 
+                className="h-[150px]" 
                 src={process.env.PUBLIC_URL+'./images/people.jpg'} 
                 alt="" 
               />
