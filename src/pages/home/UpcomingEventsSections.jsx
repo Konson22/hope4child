@@ -69,10 +69,10 @@ export default function UpcomingEventsSections() {
       </div>
       <div className='glide__track' data-glide-el='track'>
         <ul className='glide__slides'>
-          {[...new Array(3)].map(() => (
+          {[...new Array(10)].map(() => (
             <li className="bg-slate-100 relative">
               <img 
-                className="h-[150px]" 
+                className="h-[150px] w-full" 
                 src={process.env.PUBLIC_URL+'./images/people.jpg'} 
                 alt="" 
               />
