@@ -13,19 +13,25 @@ import { useGlobalContext } from "contexts/GlobalContextProvider";
 import VolunteerPage from "pages/VolunteerPage";
 import InternshipPage from "pages/InternshipPage";
 import ProjectsPage from "pages/ProjectsPage";
+import SponsorPage from "pages/SponsorPage";
+import AboutPage from "pages/AboutPAge";
+import MainPage from "pages/main";
 
 function App() {
 
   const { showForm } = useGlobalContext()
 
   return (
-    <div className="bg-white text-base dark:bg-neutral-900 text-neutral-500 dark:text-neutral-200">
+    <div className="bg-slate-00 text-base dark:bg-neutral-900 text-neutral-500 dark:text-neutral-200">
       <Appbar />
       <ScrollToTop />
       {(showForm && showForm === 'login') && <Login />}
       <Switch>
-        <Route exact path='/' component={Home} />
+        <Route exact path='/' component={MainPage} />
+        <Route exact path='/main' component={Home} />
         <Route exact path='/sponsor-child' component={ChildrenPage} />
+        <Route exact path='/sponsor' component={SponsorPage} />
+        <Route exact path='/about' component={AboutPage} />
         <Route exact path='/health' component={HealthPage} />
         <Route exact path='/education' component={EducationPage} />
         <Route exact path='/our-projects' component={ProjectsPage} />

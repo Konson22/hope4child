@@ -21,7 +21,7 @@ export default function Appbar() {
       </div>
       <div className="flex">
         <span className="flex items-center">
-          <img className="h-8 w-8" src={process.env.PUBLIC_URL+'./images/instagram2.png'} alt='' />
+          <img className="h-8 w-8 mr-3" src={process.env.PUBLIC_URL+'./images/comments.png'} alt='' />
           info@hope4child.com
         </span>
         <span className="flex items-center mx-6">

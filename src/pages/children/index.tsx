@@ -22,11 +22,13 @@ export default function ChildrenPage() {
 function HeaderSearch(){
 
   const searchBar = (
-    <div className="h-[2.7rem] md:w-[400px] bg-white rounded-full flex items-center mt-2">
+    <div className="md:h-[2.7rem] h-[3rem] md:w-[400px] bg-white rounded-full flex items-center md:mt-0 mt-3">
       <div className="flex-1">
         <input className="h-full w-full bg-transparent text-white border-none" type="search" />
       </div>
-      <button className="h-[2.4rem] w-[2.4rem] mr-[.2rem] bg-red-500 md:text-white rounded-full">f</button>
+      <div className="md:h-[2.2rem] h-[2.4rem] md:w-[2.2rem] w-[2.4rem] mr-[.3rem] p-2 border bg-slate-200 rounded-full">
+        <img className="h-full w-full" src={process.env.PUBLIC_URL+'./images/search.png'} alt="" />
+      </div>
     </div>
   )
 

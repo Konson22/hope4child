@@ -24,3 +24,13 @@ export const MyButton:React.FC<buttonProps> = ({ text, Icon, bg='bg-rose-500', c
     </button>
   )
 }
+
+export const Button1:React.FC<buttonProps> = ({ text, Icon, cName=''}) => {
+  return (
+    <button className={`flex items-center rounded text-white bg-rose-600 ${cName} px-4 py-2`}>
+      {text}
+      {Icon && <Icon className='h-4 ml-2' />}
+    </button>
+  )
+}
+

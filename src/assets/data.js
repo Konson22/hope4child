@@ -3,7 +3,7 @@
 export const navigationsLinksData = [
     {text:'HOME', path:'/'},
     {text:'WHO ARE WE', path:'/how-to-help', subLinks:[
-        {text:'About us', path:'donate'},
+        {text:'About us', path:'/about'},
         {text:'Projects', path:'/our-projects'},
         {text:'Support & Partners', path:'donate'},
         {text:'Our Team', path:'donate'},
@@ -109,4 +109,27 @@ export const childrenTestimonialsData = [
         title:'18-year-old street boy',
         text:`I have been supporting my younger siblings who go to school, so if I should be removed from the street my siblings are going to lose their education`
     }
+]
+
+export const projectsData = [
+    {
+        title:'Back to School project',
+        description:'We have a participatory approach, which respects diverse peoples and their cultures. Our priority is to ensure the protection of children and their welfare. We endeavour to act in the best way possible and we are committed to our Ethical Charter. Our projects to help children are regularly monitored by our teams and their financing is subject to independent and transparent inspection.',
+        image:process.env.PUBLIC_URL+'./images/header-bg.jpeg'
+    },
+    {
+        title:'Back to School project',
+        description:'We have a participatory approach, which respects diverse peoples and their cultures. Our priority is to ensure the protection of children and their welfare. We endeavour to act in the best way possible and we are committed to our Ethical Charter. Our projects to help children are regularly monitored by our teams and their financing is subject to independent and transparent inspection.',
+        image:process.env.PUBLIC_URL+'./images/WhatsApp Image 2023-03-30 at 2.28.27 PM.jpeg'
+    },
+    {
+        title:'Back to School project',
+        description:'We have a participatory approach, which respects diverse peoples and their cultures. Our priority is to ensure the protection of children and their welfare. We endeavour to act in the best way possible and we are committed to our Ethical Charter. Our projects to help children are regularly monitored by our teams and their financing is subject to independent and transparent inspection.',
+        image:process.env.PUBLIC_URL+'./images/istockphoto-468578642-612x612.jpg'
+    },
+    {
+        title:'Back to School project',
+        description:'We have a participatory approach, which respects diverse peoples and their cultures. Our priority is to ensure the protection of children and their welfare. We endeavour to act in the best way possible and we are committed to our Ethical Charter. Our projects to help children are regularly monitored by our teams and their financing is subject to independent and transparent inspection.',
+        image:process.env.PUBLIC_URL+'./images/header-bg.jpeg'
+    },
 ]

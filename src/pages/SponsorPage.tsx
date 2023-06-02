@@ -3,7 +3,7 @@ import DonateForm from "./forms/DonateForm"
 import { Header } from "components/Header"
 
 
-export default function DonatePage() {
+export default function SponsorPage() {
 
   return (
     <div>
@@ -15,10 +15,10 @@ export default function DonatePage() {
         <div className="md:px-[8%] px-3 flex">
             <div className="flex-1 md:p-8 p-3">
                 <p className="md:text-3xl hidden">
-                With Humanium, your sponsorship prioritizes protection of the child and their well-being. Your monthly gifts help ensure all children’s rights become a reality. Learn more
-Without obligation: you control your payments without consequences for the child.
-Tax deductible: your sponsorship is a qualified charitable donation.
-Respectfully, you help the child and his community.
+                    With Humanium, your sponsorship prioritizes protection of the child and their well-being. Your monthly gifts help ensure all children’s rights become a reality. Learn more
+                    Without obligation: you control your payments without consequences for the child.
+                    Tax deductible: your sponsorship is a qualified charitable donation.
+                    Respectfully, you help the child and his community.
                 </p>
                 <Title3 text="Realising street children’s right to education" />
                 <p className="my-3">

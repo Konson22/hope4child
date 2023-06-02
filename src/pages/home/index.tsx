@@ -15,8 +15,13 @@ export default function Home() {
       <Ourfocus />
       <FeaturedCauses />
       <UpcomingEventsSections />
-      <div className="cliped">
-        <ContactForm cName="bg-rose-500 text-white px-[10%] py-[5rem]" />
+      <div className="cliped flex px-[8%] py-[4rem]">
+        <div className="flex-1">
+          
+        </div>
+        <div className="flex-1">
+          <ContactForm cName="" />
+        </div>
       </div>
     </div>
   )

@@ -16,7 +16,7 @@ export const Header:React.FC<Props> = ({ cName, image, text }) => {
             backgroundPosition:'center'
         }}
     >
-        <h1 className="md:text-6xl text-2xl font-bold mb-4">{text}</h1>
+        <h1 className="md:text-5xl text-2xl font-bold mb-4">{text}</h1>
     </div>
   )
 }
