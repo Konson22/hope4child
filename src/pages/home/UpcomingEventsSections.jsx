@@ -34,10 +34,51 @@ export default function UpcomingEventsSections() {
                 Hales of firmament beginning seas yielding won void in land Fowl midst had said made of male evening
               </p>
             </div>
-           
-           
-          </div>
-        ))}
+          ))}
+        </div>
+      </div>
+    </div>
+    <div className='md:hidden block glide px-3 py-7'>
+      <div className="flex items-center justify-between mb-3">
+        <h3 className="text-2xl">Upcoming Event</h3>
+        <div className='glide__arrows' data-glide-el='controls'>
+          <button
+            className='bg-slate-50 border rounded-full p-2'
+            data-glide-dir='<'
+          >
+            <ChevronLeftIcon className="h-4" />
+          </button>
+          <button
+            className='bg-slate-50 border rounded-full p-2 ml-2'
+            data-glide-dir='>'
+          >
+            <ChevronRightIcon className="h-4" />
+          </button>
+        </div>
+      </div>
+      <div className='glide__track' data-glide-el='track'>
+        <ul className='glide__slides'>
+          {[...new Array(3)].map(() => (
+            <li className="bg-slate-100 relative">
+              <img 
+                className="" 
+                src={process.env.PUBLIC_URL+'./images/people.jpg'} 
+                alt="" 
+              />
+              <div className="p-3">
+                <h3 className="text-2xl">Clean Water For Child</h3>
+                <span className="text-[.7rem]">TIME: 07.04 AM TO 12.00 AM</span>
+                <p className="">
+                  Hales of firmament beginning seas yielding won void in land Fowl midst had said made of male evening
+                </p>
+              </div>
+              <div className="bg-green-400 text-white absolute right-0 top-0 rounded-md px-4 py-2">
+                <span className="block text-xl font-bold">23</span>
+                <span className="block text-sm">Mar</span>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   )
