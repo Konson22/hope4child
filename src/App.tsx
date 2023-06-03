@@ -38,7 +38,7 @@ function App() {
         <Route exact path='/internship' component={InternshipPage} />
         <Route exact path='/volunteer' component={VolunteerPage} />
         <Route exact path='/donate' component={DonatePage} />
-        <Route exact path='/profile' component={Profile} />
+        <Route exact path='/profile/:profileId' component={Profile} />
       </Switch>
       <Footer />
     </div>

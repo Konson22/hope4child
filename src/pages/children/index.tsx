@@ -1,18 +1,23 @@
-import { childrenData, statesData } from "assets/data";
+import { statesData } from "assets/data";
 import { SelectDropDown } from "components/SelectDropDown";
 import { ChildCard } from "components/cards/ChildCard";
+import { useChildrenContext } from "contexts/ChildrenContextProvider";
 
 
 export default function ChildrenPage() {
 
+  const { isLoading, childrenData } = useChildrenContext()
   
   return (
     <div className="bg-slate-200">
       <HeaderSearch />
       <div className="md:px-[5%] px-3">
-        <div className="grid md:grid-cols-4 grid-cols-2 gap-x-3 gap-y-6 md:mt-16 mt-8">
-        {childrenData.map(child => <ChildCard child={child} />)}
-      </div>
+        {isLoading ?
+          <LoaderCard />:
+          <div className="grid md:grid-cols-4 grid-cols-2 gap-x-3 gap-y-6 md:mt-16 mt-8">
+            {childrenData.map((child: { id: string; name: string; gender: string; age: number; avatar: string; }) => <ChildCard child={child} />)}
+          </div>
+        }
       </div>
     </div>
   )
@@ -48,6 +53,19 @@ function HeaderSearch(){
       <div className="md:block hidden">
         {searchBar}
       </div>
+    </div>
+  )
+}
+
+
+function LoaderCard(){
+  return(
+    <div className="grid md:grid-cols-4 grid-cols-2 gap-x-3 gap-y-6 md:mt-16 mt-8">
+      {[...new Array(10)].map(() => (
+        <div className="">
+          <div className="h-[200px] bg-gray-100"></div>
+        </div>
+      ))}
     </div>
   )
 }

@@ -44,7 +44,7 @@ export default function MainPage() {
         <ProjectSection />
         <TestimonySection />
         <EventSection />
-        <div className="bg-slate-100 md:flex items-center md:px-[8%] px-4 md:py-[4rem] py-[2rem]">
+        <div className="bg-slate-300 md:flex items-center md:px-[8%] px-4 md:py-[4rem] py-[2rem]">
             <div className="flex-1 md:mr-14">
                 <p>
                     the figure being as high as 91% for primary school aged children.Despite this commendable progress, street children are at risk of being left behind. The numerous societal, practical and health barriers street children face means they are among the millions of the world’s

@@ -1,5 +1,5 @@
 import { ChevronRightIcon } from "@heroicons/react/24/solid";
-import { Button } from "components/Buttons";
+import { Link } from "react-router-dom";
 
 interface CardProps {
   child:{
@@ -17,11 +17,18 @@ export const ChildCard:React.FC<CardProps> = ({ child }) => {
       <img className="md:h-[200px] h-[150px] w-full" src={child.avatar} alt="" />
       <div className="p-3">
         <h3 className="md:text-xl font-bold">{child.name}</h3>
-        <span>{child.age} old, {child.gender}, from Juba</span>
-        <p className="line-clamp-2">
+        <span className="block">Gender: {child.gender}</span>
+        <span className="block">Age: {child.age}</span>
+        {/* <p className="line-clamp-2">
           Reasons have day were meat dominion they're moving setting great very us hath the
-        </p>
-        <Button text="Profile" Icon={ChevronRightIcon} cName="w-full flex justify-center bg-rose-400 px- py-2 mt-2" />
+        </p> */}
+        <Link 
+          className='w-full flex items-center justify-center text-white rounded bg-rose-400 px- py-2 mt-2' 
+          to={`/profile/${child.id}`}
+        >
+          Profile
+          <ChevronRightIcon className="h-4" />
+        </Link>
       </div>
     </div>
   )

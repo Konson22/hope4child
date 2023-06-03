@@ -25,48 +25,48 @@ export const navigationsLinksData = [
     {text:'GIVE GIFT', path:'/'},
 ]
 
-export const childrenData = [
+export const childrenDataDb = [
     {
         id:'2sa',
         name:'Kon Akech',
         gender:'male',
         age:14,
-        avatar:process.env.PUBLIC_URL+'./images/avatars/image-1.png'
+        avatar:process.env.PUBLIC_URL+'/images/avatars/image-1.png'
     },
     {
         id:'2edsa',
         name:'James John',
         gender:'male',
         age:14,
-        avatar:process.env.PUBLIC_URL+'./images/avatars/image-2.png'
+        avatar:process.env.PUBLIC_URL+'/images/avatars/image-2.png'
     },
     {
         id:'2sdsa',
         name:'Suzan Malik',
         gender:'male',
         age:14,
-        avatar:process.env.PUBLIC_URL+'./images/avatars/image-3.png'
+        avatar:process.env.PUBLIC_URL+'/images/avatars/image-3.png'
     },
     {
         id:'2sa',
         name:'Kon Akech',
         gender:'male',
         age:14,
-        avatar:process.env.PUBLIC_URL+'./images/avatars/image-4.png'
+        avatar:process.env.PUBLIC_URL+'/images/avatars/image-4.png'
     },
     {
         id:'2edsa',
         name:'James John',
         gender:'male',
         age:14,
-        avatar:process.env.PUBLIC_URL+'./images/avatars/image-5.png'
+        avatar:process.env.PUBLIC_URL+'/images/avatars/image-5.png'
     },
     {
         id:'2sdsa',
         name:'Suzan Malik',
         gender:'male',
         age:14,
-        avatar:process.env.PUBLIC_URL+'./images/avatars/image-6.png'
+        avatar:process.env.PUBLIC_URL+'/images/avatars/image-6.png'
     },
 ]
 
