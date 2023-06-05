@@ -1,4 +1,4 @@
-import { Switch, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "pages/home";
 import Appbar from "components/appbar";
 import ChildrenPage from "pages/children";
@@ -26,20 +26,20 @@ function App() {
       <Appbar />
       <ScrollToTop />
       {(showForm && showForm === 'login') && <Login />}
-      <Switch>
-        <Route exact path='/' component={MainPage} />
-        <Route exact path='/main' component={Home} />
-        <Route exact path='/sponsor-child' component={ChildrenPage} />
-        <Route exact path='/sponsor' component={SponsorPage} />
-        <Route exact path='/about' component={AboutPage} />
-        <Route exact path='/health' component={HealthPage} />
-        <Route exact path='/education' component={EducationPage} />
-        <Route exact path='/our-projects' component={ProjectsPage} />
-        <Route exact path='/internship' component={InternshipPage} />
-        <Route exact path='/volunteer' component={VolunteerPage} />
-        <Route exact path='/donate' component={DonatePage} />
-        <Route exact path='/profile/:profileId' component={Profile} />
-      </Switch>
+      <Routes>
+        <Route path='/' element={<MainPage />} />
+        <Route path='/main' element={<Home />} />
+        <Route path='/sponsor-child' element={<ChildrenPage />} />
+        <Route path='/sponsor' element={<SponsorPage />} />
+        <Route path='/about' element={<AboutPage />} />
+        <Route path='/health' element={<HealthPage />} />
+        <Route path='/education' element={<EducationPage />} />
+        <Route path='/our-projects' element={<ProjectsPage />} />
+        <Route path='/internship' element={<InternshipPage />} />
+        <Route path='/volunteer' element={<VolunteerPage />} />
+        <Route path='/donate' element={<DonatePage />} />
+        <Route path='/profile/:profileId' element={<Profile />} />
+      </Routes>
       <Footer />
     </div>
   );

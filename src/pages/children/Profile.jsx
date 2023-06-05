@@ -10,7 +10,7 @@ export default function Profile() {
 
   useEffect(() => {
     if(childrenData.length > 0){
-      const result = childrenData.filter(child => child.id === profileId)[0]
+      const result = childrenData.filter(child => child.id === parseInt(profileId))[0]
       result && setProfile(result)
     }
   }, [profileId])
@@ -24,7 +24,7 @@ export default function Profile() {
         {/* <h2 className="text-3xl text-bold mb-6">{profile.name}'s Profile</h2> */}
         <div className="flex">
           <div className="w-[40%] mr-6">
-          <img className="h-[300px] w-full rounded-md" src={profile.avatar} alt="" />
+          <img className="h-[300px] w-full rounded-md" src={`http://localhost:3001/${profile.image}`} alt="" />
           </div>
           <div className="flex-1">
             <span className="text-2xl font-bold block mb-1">Who is {profile.name}?</span>

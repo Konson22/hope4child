@@ -7,7 +7,7 @@ import { useState } from "react";
 interface LinkProps {
     text:String;
     path?:String;
-    className?: string | ((isActive: boolean) => string) | undefined;
+    cName?: string | ((isActive: boolean) => string) | undefined;
     toggle?: () => void;
   }
   
@@ -44,7 +44,7 @@ export const Navigations:React.FC<NavigationsProps> = ({ isOpen, toggle }) => {
               text={link.text} 
               path={link.path} 
               toggle={toggle}
-              className="block px-5 md:py-5 py-3 md:cursor-pointer md:border-none border-t border-slate-500"
+              cName="block px-5 md:py-5 py-3 md:cursor-pointer md:border-none border-t border-slate-500"
             />:
             <DropDownLinks 
               text={link.text}
@@ -81,7 +81,7 @@ const DropDownLinks:React.FC<{text:String, subLinks:LinkProps[], toggle:() => vo
               text={sublink.text} 
               path={sublink.path} 
               toggle={toggle}
-              className="block hover:bg-red-400 hover:text-white transition-colors px-4 border-b py-2"
+              cName="block hover:bg-red-400 hover:text-white transition-colors px-4 border-b py-2"
             />
           )}
         </div>
@@ -91,10 +91,11 @@ const DropDownLinks:React.FC<{text:String, subLinks:LinkProps[], toggle:() => vo
 }
 
   
-const NavLinkItem:React.FC<LinkProps> = ({path, text, toggle, className }) => {
+const NavLinkItem:React.FC<LinkProps> = ({path, text, toggle, cName }) => {
     return(
       <NavLink 
-        className={className}
+      className={`${cName}`}
+        // className={() => className}
         to={`${path}`}
         onClick={toggle}
       >

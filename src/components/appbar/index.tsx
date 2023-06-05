@@ -7,7 +7,7 @@ import { useGlobalContext } from "contexts/GlobalContextProvider";
 
 export default function Appbar() {
 
-  const { setShowForm } = useGlobalContext()
+  const { user, setShowForm } = useGlobalContext()
 
   const [openMenu, setOpenMenu] = useState<boolean>(false)
 
@@ -46,18 +46,20 @@ export default function Appbar() {
               aria-hidden="true"
             />
         </Link>
-        <button 
-          className="md:flex border border-rose-600 text-rose-600 text-sm rounded-md px-4 py-2 mx-4 hidden"
-          onClick={() => setShowForm('login')}
-        >
-          Login | Sign up
-        </button>
         <div className="md:hidden block ml-6" onClick={() => setOpenMenu(true)}>
           <span className="block h-[.09rem] w-6 bg-white mb-[.4rem]"></span>
           <span className="block h-[.09rem] w-6 bg-white mb-[.4rem]"></span>
           <span className="block h-[.09rem] w-6 bg-white mb-[.4rem]"></span>
         </div>
-        <UserProfile />
+        {user ? 
+          <UserProfile user={user} />:
+          <button 
+            className="md:flex border border-rose-600 text-rose-600 text-sm rounded-md px-4 py-2 mx-4 hidden"
+            onClick={() => setShowForm('login')}
+          >
+            Login | Sign up
+          </button>
+        }
       </div>
     </div>
     </>
@@ -65,10 +67,10 @@ export default function Appbar() {
 }
 
 
-function UserProfile(){
+function UserProfile({ user }:{user:{id:string; name:string}}){
   let [isOpen, setIsOpen] = useState(false)
   return(
-    <div className="hidden md:text-slate-600 cursor-pointer">
+    <div className="flex md:text-slate-600 cursor-pointer">
       <span className="md:mx-6 mx-3 py-3">
         <BellIcon className="h-7 text-slate-600" />
       </span>
@@ -78,13 +80,13 @@ function UserProfile(){
           src={process.env.PUBLIC_URL+'/images/kon.png'} 
           alt="" 
         />
-        <span className="md:block hidden mx-2">Kon</span>
+        <span className="md:block hidden mx-2">{user.name.split(' ')[0]}</span>
         <ChevronDownIcon className="h-4" />
         {isOpen &&
-          <div className="bg-white absolute w-[180px] right-0 top-full rounded-md p-4">
+          <div className="bg-slate-50 border shadow-sm absolute w-[180px] right-0 top-full rounded-md p-4">
             <div className="px-4 py-2 hover:bg-slate-100">Profile</div>
             <div className="px-4 py-2 hover:bg-slate-100">Setting</div>
-            <div className="px-4 py-2 hover:bg-slate-100">Setting</div>
+            <div className="px-4 py-2 hover:bg-slate-100">Signout</div>
           </div>
         }
       </span>

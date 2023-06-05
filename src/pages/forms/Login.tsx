@@ -1,13 +1,26 @@
 import { XMarkIcon } from "@heroicons/react/24/solid";
-
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"
 
 import { useGlobalContext } from "contexts/GlobalContextProvider"
+import { auth } from "config";
 
 export default function Login() {
 
-  const { setShowForm } = useGlobalContext()
+  const { setUser, setShowForm } = useGlobalContext()
   const bgImage = process.env.PUBLIC_URL+'./images/children-g1c4ec8142_1280.jpg'
 
+
+  const GoogleAuthHandler =  () => {
+    signInWithPopup(auth, new GoogleAuthProvider()).then(credential => {
+      const user = { name:credential.user.displayName, avatar:credential.user.photoURL}
+      console.log(user)
+      setUser(user)
+      setShowForm(null)
+    }, err => {
+      console.dir(err)
+    //   setMessage(err?.code?.split('/')[1])
+    });
+  }
 
   return (
     <div className="h-screen flex items-center justify-center fixed inset-0 z-50 backdrop-blur-sm bg-black bg-opacity-50 shadow-md">
@@ -25,12 +38,21 @@ export default function Login() {
                     Login with
                 </div>
                 <div className="flex items-center justify-between mb-8">
-                    <button className="flex-1 flex items-center justify-center border border-sky-600 rounded text-rose-500 py-2">
+                    <button 
+                        className="
+                            flex-1 flex items-center justify-center border 
+                            border-sky-600 rounded text-rose-500 py-2"
+                            onClick={GoogleAuthHandler}
+                    >
                         <img className="mr-3" src={process.env.PUBLIC_URL+'/images/Facebook.svg'} alt="" />
                         Google
                     </button>
                     <span className="mx-2">OR</span>
-                    <button className="flex-1 flex items-center justify-center border border-rose-500 rounded text-rose-500 py-2">
+                    <button 
+                        className="
+                        flex-1 flex items-center justify-center border border-rose-500 rounded text-rose-500 py-2"
+                        onClick={GoogleAuthHandler}
+                    >
                         <img className="mr-3" src={process.env.PUBLIC_URL+'/images/Google.svg'} alt="" />
                         Google
                     </button>

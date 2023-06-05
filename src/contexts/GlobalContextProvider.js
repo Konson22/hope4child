@@ -1,4 +1,6 @@
-import { useState, useContext, createContext } from 'react'
+import { auth } from 'config'
+import { onAuthStateChanged } from 'firebase/auth'
+import { useState, useContext, createContext, useEffect } from 'react'
 
 
 // interface User {
@@ -19,6 +21,19 @@ export default function GlobalContextProvider({ children }) {
 
   const [showForm, setShowForm] = useState(null)
   const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    onAuthStateChanged(auth, user => {
+      if(!user){
+        setUser(null)
+      }else{
+        setUser({
+          id:user.uid,
+          name:user.displayName
+        })
+      }
+    })
+  }, [])
 
   return (
     <contextApi.Provider value={{ user, setUser, showForm, setShowForm }}>
