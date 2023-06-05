@@ -183,7 +183,7 @@ function AgeDropdownSelect({ data, handler } : AgeDropdownProps){
     handler(min, max)
   }
   return(
-    <div className={`flex items-center bg-white border border-cyan-500 rounded-md cursor-pointer relative px-4 py-2 mr-5`}
+    <div className={`flex items-center bg-white border border-cyan-500 rounded-md cursor-pointer relative md:px-4 px-2 py-2 mr-5`}
       onClick={() => setIsOpen(!isOpen)}
     >
       {selectedAge}
