@@ -6,7 +6,7 @@ import { childInterface } from "util/Types";
 export const ChildCard:React.FC<{child:childInterface}> = ({ child }) => {
   return (
     <div className="bg-slate-100 border rounded overflow-hidden">
-      <img className="md:h-[200px] h-[150px] w-full" src={`https://hope4child-api.onrender.com//${child.image}`} alt="" />
+      <img className="md:h-[200px] h-[150px] w-full" src={process.env.PUBLIC_URL+`${child.image}`} alt="" />
       <div className="p-3">
         <h3 className="md:text-xl md:font-bold">{child.name}</h3>
         <span className="block">Gender: {child.gender}</span>

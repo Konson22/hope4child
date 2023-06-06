@@ -109,7 +109,7 @@ export default function ChildrenPage() {
         </div>
         <div className="flex justify-between md:mt-0 mt-4">
           <DropdownSelect data={['Gender', 'male', 'female', 'either']} handler={searchByGender} />
-          <DropdownSelect data={['All States', ...statesData]} handler={searchByState} />
+          <DropdownSelect data={['All States', ...statesData]} handler={searchByState} cName='md:mx-4 mx-2' />
           <AgeDropdownSelect 
             data={[
               {min:4, max:8},
@@ -138,16 +138,17 @@ export default function ChildrenPage() {
 
 
 interface DropdownProps {
+  cName?:string;
   data:string[];
   handler:(event:string) => void;
 }
 
-function DropdownSelect({ data, handler } : DropdownProps){
+function DropdownSelect({ data, cName, handler } : DropdownProps){
 
   const [isOpen, setIsOpen] = useState(false)
   
   return(
-    <div className={`flex items-center bg-white border border-cyan-500 rounded-md relative p-2 mr-5`}
+    <div className={`flex items-center bg-white border border-cyan-500 rounded-md relative p-2 ${cName}`}
       onClick={() => setIsOpen(!isOpen)}
     >
       {data[0]}
@@ -183,7 +184,7 @@ function AgeDropdownSelect({ data, handler } : AgeDropdownProps){
     handler(min, max)
   }
   return(
-    <div className={`flex items-center bg-white border border-cyan-500 rounded-md cursor-pointer relative md:px-4 px-2 py-2 mr-5`}
+    <div className={`flex items-center bg-white border border-cyan-500 rounded-md cursor-pointer relative md:px-4 px-2 py-2`}
       onClick={() => setIsOpen(!isOpen)}
     >
       {selectedAge}
