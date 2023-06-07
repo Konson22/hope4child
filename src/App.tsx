@@ -1,9 +1,9 @@
-import { Route, Routes } from "react-router-dom";
 import Appbar from "components/appbar";
 import ScrollToTop from "hooks/ScrollToTop";
-import HomePage from "pages/home";
 import { useGlobalContext } from "contexts/GlobalContextProvider";
 import Login from "pages/forms/Login";
+import AppRoutes from "AppRoutes";
+import Footer from "components/Footer";
 
 
 function App() {
@@ -15,9 +15,8 @@ function App() {
       {(showForm && showForm === 'login') && <Login />}
       <Appbar />
       <ScrollToTop />
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-      </Routes>
+      <AppRoutes />
+      <Footer />
     </div>
   );
 }

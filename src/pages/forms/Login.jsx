@@ -30,7 +30,7 @@ export default function Login() {
     if(email && password){
         try {
             const result = await axiosInstance.post('/auth/login', {
-                email, password
+                email, password,
             }).then(res => res);
             console.log(result)
         } catch (error) {
@@ -59,19 +59,19 @@ export default function Login() {
                     <button 
                         className="
                             flex-1 flex items-center justify-center border 
-                            border-white text-gray-800 rounded bg-white py-2"
+                            border-white text-gray-800 rounded bg-white p-2"
                             onClick={GoogleAuthHandler}
                     >
-                        <img className="mr-3" src={process.env.PUBLIC_URL+'/images/social-media/Facebook.svg'} alt="" />
+                        <img className="md:h-6 h-4 md:w-6 w-4 mr-2" src={process.env.PUBLIC_URL+'/images/social-media/Facebook.svg'} alt="" />
                         Facebook
                     </button>
                     <span className="mx-2">OR</span>
                     <button 
                         className="
-                        flex-1 flex items-center justify-center bg-white border-white text-gray-800 border rounded  py-2"
+                        flex-1 flex items-center justify-center bg-white border-white text-gray-800 border rounded  p-2"
                         onClick={GoogleAuthHandler}
                     >
-                        <img className="mr-3" src={process.env.PUBLIC_URL+'/images/social-media/Google.svg'} alt="" />
+                        <img className="md:h-6 h-4 md:w-6 w-4  mr-2" src={process.env.PUBLIC_URL+'/images/social-media/Google.svg'} alt="" />
                         Google
                     </button>
                 </div>

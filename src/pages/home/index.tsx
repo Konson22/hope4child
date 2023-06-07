@@ -1,8 +1,9 @@
 import { FiChevronDown } from "react-icons/fi";
 import Header from "./Header";
 import OurMission from "./OurMission";
-import ProjectsSection from "./ProjectsSection";
 import Slider from "rc-slider";
+import SponsorSection from "./SponsorSection";
+import StorySection from "./StorySection";
 
 
 export default function HomePage() {
@@ -61,14 +62,15 @@ export default function HomePage() {
             <span className="flex md:text-5xl text-[1.7rem] font-bold">Health</span> 
           </div>
           <p className="text-2xl text-center">
-            When you sponsor a child, you care for and encourage them through prayer, letter writing and financial support. That support empowers a local church to individually and holistically meet their needs in a loving
+            Child sponsorship is a program that enables you to support children, their families and entire communities — giving them the chance to grow up healthy, educated and safe – forever changing their life and future
           </p>
           <button className="px-5 py-2 bg-rose-600 text-white rounded mt-6">Support our work</button>
         </div>
         <div className="py-3 bg-slate-800 clip-top"></div>
       </div>
+      <SponsorSection />
       <OurMission />
-      <ProjectsSection />
+      <StorySection />
     </div>
   )
 }

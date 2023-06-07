@@ -1,5 +1,5 @@
 import { auth } from 'config'
-import { onAuthStateChanged } from 'firebase/auth'
+import { onAuthStateChanged, signOut } from 'firebase/auth'
 import { useState, useContext, createContext, useEffect } from 'react'
 
 
@@ -27,16 +27,21 @@ export default function GlobalContextProvider({ children }) {
       if(!user){
         setUser(null)
       }else{
+        console.log(user)
         setUser({
           id:user.uid,
-          name:user.displayName
+          name:user.displayName,
+          avatar:user.photoURL
         })
       }
     })
   }, [])
 
+
+  const logOutUser = () => signOut(auth)
+
   return (
-    <contextApi.Provider value={{ user, setUser, showForm, setShowForm }}>
+    <contextApi.Provider value={{ user, setUser, showForm, setShowForm, logOutUser }}>
       {children}
     </contextApi.Provider>
   )
