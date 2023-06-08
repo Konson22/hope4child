@@ -16,7 +16,7 @@ export default function Header() {
       <div className=" md:mt-12 mt-5">
         <Link 
           className="bg-rose-600 text-white md:text-xl md:px-6 px-5 md:py-4 py-2 rounded"
-          to='/sponsor-child'
+          to='/children'
         >
           Sponsor child
         </Link>
