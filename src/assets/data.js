@@ -4,7 +4,7 @@ export const navigationsLinksData = [
     {text:'HOME', path:'/'},
     {text:'WHO ARE WE', path:'/how-to-help', subLinks:[
         {text:'About us', path:'/about'},
-        {text:'Projects', path:'/our-projects'},
+        {text:'Projects', path:'/#projects'},
         {text:'Support & Partners', path:'donate'},
         {text:'Our Team', path:'donate'},
         {text:'Legal Structure', path:'donate'},

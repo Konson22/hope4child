@@ -2,9 +2,11 @@ import { FiArrowRight, FiBarChart } from 'react-icons/fi'
 import { Button } from "components/Buttons";
 import { Heading1, Heading3 } from "components/Heading";
 
+
 export default function OurMission() {
+
   return (
-    <div className="md:px-[8%] px-4 md:py-[7rem] py-[2rem] bg-rose-5000">
+    <div className="md:px-[8%] px-4 md:py-[7rem] py-[2rem] bg-rose-5000" id='projects'>
         <Heading1 text="OUR ONGING PROJECTS" cName="text-center mb-6" />
         <div className="md:grid grid-cols-3 gap-4 mt-4">
             {focusData.map(focus => (

@@ -1,3 +1,5 @@
+// import { useQuery } from "@tanstack/react-query";
+// import { getChild } from "apis/apis";
 import SponsorFeedback from "components/SponsorFeedback";
 import YourDonation from "components/YourDonation";
 import { useChildrenContext } from "contexts/ChildrenContextProvider"
@@ -9,8 +11,15 @@ import { childInterface } from "util/Types";
 export default function ChildProfile() {
 
   const { profileId } = useParams()
+
+  // const qieryResult = useQuery({
+  //   queryKey:['posts', profileId],
+  //   queryFn:() => getChild(profileId)
+  // })
+
   const { isLoading, childrenData } = useChildrenContext()
   const [profile, setProfile] = useState<childInterface | null>(null)
+  
 
   useEffect(() => {
     if(!isLoading && childrenData){

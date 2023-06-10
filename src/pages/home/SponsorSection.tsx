@@ -9,11 +9,11 @@ export default function SponsorSection() {
             {data.map((d, i) => (
                 <div className="relative md:mb-0 mb-6" key={i}>
                     <div className="z-10">
-                    <h3 className="text-2xl">{d.title}</h3>
+                    <h3 className="md:text-2xl font-bold mb-1">{d.title}</h3>
                     <p className="">{d.text}</p>
                     </div>
-                    <div className="flex items-center justify-center text-green-100 text-9xl font-bold absolute h-full left-0 top-0 w-full z-[-1] p-6">
-                        {i}
+                    <div className="flex items-center justify-center text-green-200 text-9xl font-bold absolute h-full left-0 top-0 w-full z-[-1] p-6">
+                        {i+1}
                     </div>
                 </div>
             ))}
@@ -25,12 +25,12 @@ export default function SponsorSection() {
 
 const data = [
     {
-        title:'Choose State',
+        title:'where to sponsor child?',
         text:`Choose an area where you want to make a difference in children’s lives and their communities. No matter where you choose, you’ll help give girls and boys the opportunity to learn and grow.`
     },
     {
-        title:'Sponsorship?',
-        text:`About 10 days after you sign up, you’ll receive a welcome kit in the mail. Your welcome letter will introduce you to the children in the area you chose, including photos and more information about how your sponsorship impacts their entire community. `
+        title:'Choose State',
+        text:`Choose an area where you want to make a difference in children’s lives and their communities. No matter where you choose, you’ll help give girls and boys the opportunity to learn and grow.`
     },
     {
         title:'What is Sponsorship?',

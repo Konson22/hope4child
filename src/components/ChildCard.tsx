@@ -12,8 +12,8 @@ export default function ChildCard({ child }: { child:childInterface}) {
   return (
     <div className='bg-slate-100' key={child.id}>
         <div className="relative">
-            {/* <img className='md:h-[170px] h-[200px] w-full' src={process.env.PUBLIC_URL+'/images/avatars/image-1.png'} alt="" /> */}
-            <img className='md:h-[170px] h-[200px] w-full' src={`https://hope4child-api.onrender.com/${child.image}`} alt="" />
+            <img className='md:h-[170px] h-[200px] w-full' src={process.env.PUBLIC_URL+'/images/avatars/image-1.png'} alt="" />
+            {/* <img className='md:h-[170px] h-[200px] w-full' src={`http://localhost:3001/${child.image}`} alt="" /> */}
             <span className="hidden bg-green-500 text-white absolute bottom-0 left-0 px-3 py-2">
                 {child.state}
             </span>
