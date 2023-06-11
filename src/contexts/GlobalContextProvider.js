@@ -1,34 +1,50 @@
-import { onAuthStateChanged } from 'firebase/auth';
-import { useState, useContext, useEffect, createContext } from 'react'
-import { auth } from '../config';
+import { auth } from 'config'
+import { onAuthStateChanged, signOut } from 'firebase/auth'
+import { useState, useContext, createContext, useEffect } from 'react'
 
 
-const apiContext = createContext()
+// interface User {
+//   name: string;
+//   email: string;
+// }
+
+// interface ContextProps {
+//   children:ReactNode;
+//   user: User | null;
+//   setUser:React.Dispatch<React.SetStateAction<User | null>>;
+// }
+
+const contextApi = createContext()
 
 
-export const useGlobalContext = () => useContext(apiContext)
+export default function GlobalContextProvider({ children }) {
 
-
-export default function GlobalContextProvider({children}) {
-
-  const [openModal, setOpenModal] = useState(null);
-  const [profile, setProfile] = useState(null);
+  const [showForm, setShowForm] = useState(null)
+  const [user, setUser] = useState(null)
 
   useEffect(() => {
-    const listen = onAuthStateChanged(auth, user => {
-      if(user){
-        setProfile({ name:user.displayName, avatar:user.photoURL})
+    onAuthStateChanged(auth, user => {
+      if(!user){
+        setUser(null)
+      }else{
+        console.log(user)
+        setUser({
+          id:user.uid,
+          name:user.displayName,
+          avatar:user.photoURL
+        })
       }
     })
-
-    return () => {
-      listen()
-    }
   }, [])
 
+
+  const logOutUser = () => signOut(auth)
+
   return (
-    <apiContext.Provider value={{ openModal, profile, setOpenModal, setProfile }}>
+    <contextApi.Provider value={{ user, setUser, showForm, setShowForm, logOutUser }}>
       {children}
-    </apiContext.Provider>
+    </contextApi.Provider>
   )
 }
+
+export const useGlobalContext = () => useContext(contextApi)

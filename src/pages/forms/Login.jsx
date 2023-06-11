@@ -1,118 +1,112 @@
-import { FaGoogle, FaTimes } from "react-icons/fa";
-import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from "firebase/auth"
-import { useGlobalContext } from "../../contexts/GlobalContextProvider";
-import { auth } from "../../config";
-import { Formik, Form } from 'formik'
-import * as Yup from 'yup'
-import InputField from './InputField';
+import { XMarkIcon } from "@heroicons/react/24/solid";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"
+
+import { useGlobalContext } from "contexts/GlobalContextProvider"
+import { auth } from "config";
 import { useState } from "react";
-
-
+import axiosInstance from "hooks/useAxios";
 export default function Login() {
 
-    const { setProfile, setOpenModal } = useGlobalContext();
-    const [isLoading, setIsLoading] = useState(false);
-    const [message, setMessage] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+  const { setUser, setShowForm } = useGlobalContext()
+  const bgImage = process.env.PUBLIC_URL+'./images/pexels-lagos-food-bank-initiative-7849435.jpg'
 
-    const GoogleAuthHandler = async () => {
-        try {
-            setIsLoading(true)
-            signInWithPopup(auth, new GoogleAuthProvider()).then(credential => {
-                const user = { name:credential.user.displayName, avatar:credential.user.photoURL}
-                setProfile(user);
-                setOpenModal(null);
-            }, err => {
-                setMessage(err?.code?.split('/')[1]);
-            });
-        } catch (error) {
-            setMessage('Error');
-        }finally{
-            setIsLoading(false);
-        }
-    }
-    
-    // FORMIK FORM INITAL VALUES
-    const initialValues = {
-        password:'',
-        email:''
-    }
 
-    // VALIDATION SCHEMA
-    const validationSchema = Yup.object({
-        password:Yup.string().required('please enter password!'),
-        email:Yup.string().required('please enter email!')
+  // LOGIN USER WITH GOOGLE PROVIDER
+  const GoogleAuthHandler =  () => {
+    signInWithPopup(auth, new GoogleAuthProvider()).then(credential => {
+      const user = { name:credential.user.displayName, avatar:credential.user.photoURL}
+      console.log(user)
+      setUser(user)
+      setShowForm(null)
+    }, err => {
+      console.dir(err)
     });
+  }
 
-    // LOGIN USER WITH EMAIL AND PASSWORD
-    const handleSubmit = async ({email, password}) => {
-        setIsLoading(true);
+  const handleSubmit = async e => {
+    e.preventDefault()
+    if(email && password){
         try {
-            signInWithEmailAndPassword(auth, email, password).then(res => {
-                setProfile(res)
-                console.log(res)
-            }, err => {
-                setMessage(err?.code?.split('/')[1])
-                console.dir(err?.code?.split('/')[1])
-            })
-            
+            const result = await axiosInstance.post('/auth/login', {
+                email, password,
+            }).then(res => res);
+            console.log(result)
         } catch (error) {
-            setMessage('Something went wrong!')
             console.log(error)
-        }finally{
-            setIsLoading(false);
         }
     }
+  }
+
+
   return (
-    <div className='lg:px-[35%] px-[5%] h-screen fixed inset-0 z-50 overflow-hidden bg-gray-400 bg-opacity-25 backdrop-blur-sm pt-[5rem]'>
-         <div className="w-full lg:p-10 p-6 rounded bg-white relative shadow-md">
+    <div className="h-screen flex items-center justify-center fixed inset-0 z-50 backdrop-blur-sm bg-white bg-opacity-30 shadow-md">
+        <div className="md:w-[70%] w-[90%] flex bg-white rounded-md relative"
+            // style={{backgroundImage:`linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2)), url('${bgImage}')`, backgroundSize:'cover', backgroundPosition:'center'}}
+        >
             <div 
-                className="rounded-full cursor-pointer text-gray-500 absolute top-[.5rem] right-[.5rem] text-xl"
-                onClick={() => setOpenModal(null)}
+                className="bg-black bg-opacity-50 p-1 rounded-full text-white cursor-pointer absolute right-3 top-3"
+                onClick={() => setShowForm(null)}
             >
-                <FaTimes />
+                <XMarkIcon className='h-6' />
             </div>
-            <div className="my-4"> 
-                <span className="block lg:text-2xl text-xl lg:font-semibold text-center mB-2">Login</span> 
-                {message && <span className='text-red-500'>{message}</span>}
+            <div className="flex-1 bg-cyan-500 text-white p-8">
+                <div className="flex justify-center text-2xl mb-5">
+                    Login with
+                </div>
+                <div className="flex items-center justify-between mb-8">
+                    <button 
+                        className="
+                            flex-1 flex items-center justify-center border 
+                            border-white text-gray-800 rounded bg-white p-2"
+                            onClick={GoogleAuthHandler}
+                    >
+                        <img className="md:h-6 h-4 md:w-6 w-4 mr-2" src={process.env.PUBLIC_URL+'/images/social-media/Facebook.svg'} alt="" />
+                        Facebook
+                    </button>
+                    <span className="mx-2">OR</span>
+                    <button 
+                        className="
+                        flex-1 flex items-center justify-center bg-white border-white text-gray-800 border rounded  p-2"
+                        onClick={GoogleAuthHandler}
+                    >
+                        <img className="md:h-6 h-4 md:w-6 w-4  mr-2" src={process.env.PUBLIC_URL+'/images/social-media/Google.svg'} alt="" />
+                        Google
+                    </button>
+                </div>
+                <div className="flex justify-center text-xl font-bold">
+                    Login with email
+                </div>
+                <form onSubmit={handleSubmit}>
+                    <div className="mb-5">
+                        <span className="block m-1">E-mail</span>
+                        <input 
+                        name="email" 
+                        className="h-[3rem] w-full border border-slate-300 rounded bg-slate-100 px-3" 
+                        placeholder="E-mail" 
+                        onChange={e => setEmail(e.target.value)}
+                    />
+                    </div>
+                    <div className="mb-5">
+                        <span className="block m-1">Password</span>
+                        <input 
+                            name="password" 
+                            className="h-[3rem] w-full border border-slate-300 rounded bg-slate-100 px-3" 
+                            placeholder="Password" 
+                            onChange={e => setPassword(e.target.value)}
+                        />
+                    </div>
+                    <button className="h-[3rem] w-full bg-rose-500 text-white rounded py-2" type="submit">Login</button>
+                </form>
+                
+                
             </div>
-            <Formik
-                initialValues={initialValues}
-                validationSchema={validationSchema}
-                onSubmit={handleSubmit}
-            >
-                {() => (
-                    <Form>
-                        {fields.map(field => (
-                            <div className='mb-4'>
-                            <InputField 
-                                isLoading={isLoading}
-                                name={field.name}
-                                placeholder={field.placeholder}
-                            />
-                            </div>
-                        ))}
-                        <button type='submit' className='w-full px-3 py-2 bg-amber-500 text-white'>
-                            {isLoading ? 'Loading...' : 'Login'}
-                        </button>
-                    </Form>
-                )}
-            </Formik>
-            <button className='flex items-center justify-center w-full px-3 py-2 bg-red-600 text-white my-4'
-                onClick={GoogleAuthHandler}
-            >
-                <FaGoogle className='mr-2' />Login with Google
-            </button>
-            <div className="flex justify-center mt-6" onClick={() => setOpenModal('signup')}>
-                Don't have account 
-                <span className="text-blue-800 ml-2 cursor-pointer">Sign up</span>
+            
+            <div className="md:block hidden flex-1" style={{backgroundImage:`linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2)), url('${bgImage}')`, backgroundSize:'cover', backgroundPosition:'center'}}>
+                {/* <img className="h-full" src={process.env.PUBLIC_URL+'./images/children-g1c4ec8142_1280.jpg'} alt="" /> */}
             </div>
         </div>
     </div>
   )
 }
-
-
-const fields = [
-    {name:'email', placeholder:'email', type:'email'},
-    {name:'password', placeholder:'Enter password', type:'password'},
-]
