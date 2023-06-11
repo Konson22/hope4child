@@ -12,13 +12,8 @@ export default function ChildCard({ child }: { child:childInterface}) {
   return (
     <div className='bg-slate-100' key={child.id}>
         <div className="relative">
-<<<<<<< HEAD
             <img className='md:h-[170px] h-[200px] w-full' src={process.env.PUBLIC_URL+'/images/avatars/image-1.png'} alt="" />
             {/* <img className='md:h-[170px] h-[200px] w-full' src={`http://localhost:3001/${child.image}`} alt="" /> */}
-=======
-            {/* <img className='md:h-[170px] h-[200px] w-full' src={process.env.PUBLIC_URL+'/images/avatars/image-1.png'} alt="" /> */}
-            <img className='md:h-[170px] h-[200px] w-full' src={process.env.PUBLIC_URL+'/images/avatars/image.png'} alt="" />
->>>>>>> 6c68be9999c372f1d1a6497b8c2d25af9dc1874f
             <span className="hidden bg-green-500 text-white absolute bottom-0 left-0 px-3 py-2">
                 {child.state}
             </span>
