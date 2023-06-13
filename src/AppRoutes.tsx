@@ -14,7 +14,7 @@ export default function AppRoutes() {
   return (
     <Routes>
         <Route path='/' element={<MainPage />} />
-        <Route path='/main' element={<HomePage />} />
+        <Route path='/home' element={<HomePage />} />
         <Route path='/search' element={<SearchPage />} />
         <Route path='/children' element={<ChildrenPage />} />
         <Route path='/children/profile/:profileId' element={<ChildProfile />} />
