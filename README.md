@@ -1,27 +1,64 @@
-# Hope for child
+# Hope for Child
 
-![project image](public/images/demo.jpeg)
+![Projectimage](public/images/demo.jpeg)
+Simple overview of use/purpose.
 
-Child sponsorship is a program that enables you to support children, their families and entire communities — giving them the chance to grow up healthy, educated and safe – forever changing their life and future
+## requirements
+- node version 17 and above
+- git 2.29.2.windows.3
 
-Available scripts:
+## Description
+
+## Getting Started
+
+### Dependencies
+
+* [Reactjs]()
+* [tailwindcss]()
+* [tanstack]()
+* [react-share]()
+* [firebase]()
+* [glidejs]()
+* [framer-motion]()
+* [formik]()
+* [rc-slider]()
+* [axios]()
+
+
+## clone the project
 
 ```
- npm install 
- or 
- yarn install
+git clone https://github.com/Konson22/hope4child.git
+```
+### Installing
 
 ```
-
-```
-    npm install -D tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9 
-
-    or 
-
-    yarn add -D tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
+npm install or yarn install
 ```
 
+### Executing program
+
 ```
-    npm start 
+npm start or yarn start
 ```
-## to view the project 
+
+## Help
+
+Any advise for common problems or issues.
+```
+command to run if program contains helper info
+```
+
+## Authors
+
+Contributors names and contact info
+
+Konson Ak  
+[@konsonak](https://twitter.com/dompizzie)
+
+
+
+## License
+
+This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+
