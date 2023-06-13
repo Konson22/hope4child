@@ -1,26 +1,25 @@
 import ChildCard from "components/ChildCard";
-import { AgeDropdown } from "components/dropdown/AgeDropdown";
-import { GenderDropdown } from "components/dropdown/GenderDropdown";
-import { StateDropdown } from "components/dropdown/StateDropdown";
-import { useState } from "react";
 import { childInterface } from "util/Types";
 import { useQuery } from "@tanstack/react-query"
 import { getChildren } from "apis/apis";
 import { FiSearch } from "react-icons/fi";
+import { useChildrenContext } from "contexts/ChildrenContextProvider";
 
 
 export default function ChildrenPage() {
 
-    const qieryResult = useQuery({
-        queryKey:['posts'],
-        queryFn:getChildren
-    })
+    const { childrenData } = useChildrenContext()
+    // const qieryResult = useQuery({
+    //     queryKey:['posts'],
+    //     queryFn:getChildren
+    // })
+
+    // console.log(qieryResult)
 
 
     // if(qieryResult.isLoading){
     //     return <LoaderCard />
     // }
-  
 
   return (
     <div className="px-[3%] py-4">
@@ -57,11 +56,16 @@ export default function ChildrenPage() {
                 <span className="text-2xl">Results 120</span>
                 <div className="px-3 py-1 border">Sort by</div>
             </div>
-            {(qieryResult.isSuccess && qieryResult.data?.data) &&
+            {(childrenData && childrenData.length >= 1) &&
+                <div className="grid md:grid-cols-4 grid-cols-1 gap-4">
+                    {childrenData.map((child: childInterface) => <ChildCard child={child} />)}
+                </div>
+            }
+            {/* {(qieryResult.isSuccess && qieryResult.data?.data) &&
                 <div className="grid md:grid-cols-4 grid-cols-1 gap-4">
                     {qieryResult.data?.data.map((child: childInterface) => <ChildCard child={child} />)}
                 </div>
-            }
+            } */}
         </div>
     </div>
   )

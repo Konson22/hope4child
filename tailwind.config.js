@@ -25,7 +25,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      display: ["var(--font-display)", ...defaultTheme.fontFamily.sans],
+      display: ["var(--font-display)", ...defaultTheme.fontFamily.serif],
       body: ["var(--font-body)", ...defaultTheme.fontFamily.sans],
     },
 

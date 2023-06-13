@@ -6,6 +6,8 @@ import { StateDropdown } from "components/dropdown/StateDropdown";
 import { AgeSlider, ChildSearch } from "components/dropdown/ChildSearch";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { Heading1 } from "components/Heading";
+import MyGlide from "./Glide";
 
 
 export default function HomePage() {
@@ -75,7 +77,13 @@ export default function HomePage() {
         <div className="md:py-3 py-2 bg-slate-800 clip-top"></div>
       </div>
       <SponsorSection />
-      {/* <OurMission /> */}
+      <div className="px-[8%] py-[4rem]">
+        <Heading1 text="SPONSOR CHILD NOW" cName="text-center" />
+        <p>
+          You can't change the whole world on your own. You can start by supporting one child and offer him or her the opportunity to develop well. These children are currently waiting for a sponsor. Would you prefer a more extensive choice?
+        </p>
+      </div>
+      <MyGlide />
       <StorySection />
     </div>
   )

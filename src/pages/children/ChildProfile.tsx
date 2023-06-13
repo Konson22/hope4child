@@ -4,6 +4,7 @@ import SponsorFeedback from "components/SponsorFeedback";
 import YourDonation from "components/YourDonation";
 import { useChildrenContext } from "contexts/ChildrenContextProvider"
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom"
 import { childInterface } from "util/Types";
 
@@ -11,33 +12,31 @@ import { childInterface } from "util/Types";
 export default function ChildProfile() {
 
   const { profileId } = useParams()
-
   // const qieryResult = useQuery({
   //   queryKey:['posts', profileId],
   //   queryFn:() => getChild(profileId)
   // })
 
-  const { isLoading, childrenData } = useChildrenContext()
+  const { childrenData } = useChildrenContext()
   const [profile, setProfile] = useState<childInterface | null>(null)
   
 
   useEffect(() => {
-    if(!isLoading && childrenData){
+    if(childrenData.length > 0){
       // eslint-disable-next-line eqeqeq
       const user = childrenData.filter((user: any) => user.id == profileId)[0]
       user && setProfile(user)
-      // console.log(user)
     }
-  }, [profileId])
+  }, [])
 
   return (
     <>
       {profile &&
       <div className="md:flex items-center md:px-[15%] px-3 my-6">
         <div className="flex-1 rounded-md overflow-hidden md:mr-6">
-          <img className="md:h-[400px] h-[260px]" src={`http://localhost:3001/${profile.image}`} alt="" />
-          <div className="bg-cyan-500 md:font-semibold text-white md:text-center md:p-3 p-2">
-            {profile.name.split(' ')[0]} has been waiting <span className="text-rose-500">456</span> days for a sponsor.
+          <img className="md:h-[400px] h-[260px]" src={process.env.PUBLIC_URL+`/${profile.image}`} alt="" />
+          <div className="bg-cyan-300 md:font-semibold text-white text-sm md:text-center md:p-3 p-2">
+            {profile.name.split(' ')[0]} has been waiting <span className="text-red-700">456</span> days for a sponsor.
           </div>
         </div>
         <div className="flex-1 md:p-5 md:mt-0 mt-4">
@@ -75,7 +74,12 @@ export default function ChildProfile() {
               <td className="py-1">{profile.state}</td>
             </tr>
           </table>
-          <button className="bg-rose-600 text-white md:text-xl text-base rounded px-5 py-2">Sponsor {profile.name}</button>
+          <Link 
+            className="bg-rose-600 text-white md:text-xl text-base rounded px-5 py-2"
+            to={`/sponsor-child/${profile.id}`}
+          >
+            Sponsor {profile.name}
+          </Link>
         </div>
       </div>
       }

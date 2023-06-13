@@ -27,7 +27,6 @@ export default function GlobalContextProvider({ children }) {
       if(!user){
         setUser(null)
       }else{
-        console.log(user)
         setUser({
           id:user.uid,
           name:user.displayName,
