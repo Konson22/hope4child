@@ -15,7 +15,7 @@ Simple overview of use/purpose.
 
 * [Reactjs]()
 * [tailwindcss]()
-* [tanstack]()
+* [tanstack](https://tanstack.com)
 * [react-share]()
 * [firebase]()
 * [glidejs]()

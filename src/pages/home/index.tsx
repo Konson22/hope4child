@@ -14,7 +14,9 @@ export default function HomePage() {
             <div className="flex-1">
                 {/* <Heading1 text="Realising street children’s right to education" /> */}
                 <p className="md:text-2xl dmd:text-center">
-                    According to UN stats, there are approximately up to 150 million children worldwide living on the streets today. Some have had no choice. They were orphaned, abandoned or disowned by their parents. Some have faced war or natural disasters and have no home to return to. Others have opted to brave the dangers of street life rather than face one more day in an abusive home
+
+Street children can have complex circumstances and are very vulnerable to exploitation and violence. It’s hard to reach them with vital services such as education and healthcare. They miss out on their right to education because they are trying to support themselves or their families, so less formal approaches might be needed to try to get them into learning.
+                    {/* According to UN stats, there are approximately up to 150 million children worldwide living on the streets today. Some have had no choice. They were orphaned, abandoned or disowned by their parents. Some have faced war or natural disasters and have no home to return to. Others have opted to brave the dangers of street life rather than face one more day in an abusive home */}
                 </p>
             </div>
             <SearchFilter />

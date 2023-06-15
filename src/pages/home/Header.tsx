@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 
 export default function Header() {
-  const bgImage = process.env.PUBLIC_URL+'./images/bg-image.jpg'
+  const bgImage = process.env.PUBLIC_URL+'./images/children-g1c4ec8142_1280.jpg'
   
   const headerText = (cName:string) => (
     <div 
