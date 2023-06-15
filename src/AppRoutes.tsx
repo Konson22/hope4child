@@ -13,8 +13,8 @@ import { Route, Routes } from "react-router-dom";
 export default function AppRoutes() {
   return (
     <Routes>
-        <Route path='/home' element={<MainPage />} />
-        <Route path='/' element={<HomePage />} />
+        <Route path='/' element={<MainPage />} />
+        <Route path='/home' element={<HomePage />} />
         <Route path='/search' element={<SearchPage />} />
         <Route path='/children' element={<ChildrenPage />} />
         <Route path='/children/profile/:profileId' element={<ChildProfile />} />
