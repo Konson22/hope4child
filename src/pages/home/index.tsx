@@ -1,49 +1,26 @@
 import { Heading1 } from "components/Heading";
-import Header from "pages/main/Header";
 import ChildrenSection from "./ChildrenSection";
-import { Link } from "react-router-dom";
-import { AgeSlider, ChildSearch } from "components/dropdown/ChildSearch";
-import { StateDropdown } from "components/dropdown/StateDropdown";
-import { useState } from "react";
+import Header from "./Header";
+import SearchFilter from "components/SearchFilter";
 
 
 export default function HomePage() {
 
-    const [selectedState, setSelectedState] = useState<string>('All State');
-    const [selectedGender, setSelectedGender] = useState<string>('Either');
-    const [selectedAge, setSelectedAge] = useState<number>(4);
-
-    const handleSlide = (e:number) => setSelectedAge(e)
-
-    const handleSearch = () => {  }
-
   return (
     <div>
         <Header />
-        <>
-        <div className="md:flex items-center md:px-[8%] px-3 py-[3rem] bg-cyan-600 text-white">
+        {/* START OF INTRODUCTION SECTION */}
+        <div className="clip-path-bottom md:flex items-center md:px-[8%] px-3 pt-[3rem] pb-[5rem] bg-cyan-600 text-white">
             <div className="flex-1">
-                <Heading1 text="Realising street children’s right to education" />
+                {/* <Heading1 text="Realising street children’s right to education" /> */}
                 <p className="md:text-2xl dmd:text-center">
-                    There are estimated to be around 120 million children living on the streets in the world (30 million in Africa, 30 million in Asia, and 60 million in South America). Often victims of all kinds of abuse, these children still have rights
+                    According to UN stats, there are approximately up to 150 million children worldwide living on the streets today. Some have had no choice. They were orphaned, abandoned or disowned by their parents. Some have faced war or natural disasters and have no home to return to. Others have opted to brave the dangers of street life rather than face one more day in an abusive home
                 </p>
             </div>
-            <div className="md:w-[30%] w-full bg-cyan-500 rounded-md p-6 md:ml-10 md:mt-0 mt-8">
-                <h3 className="text-2xl font-bold mb-4">Spanosr a child</h3>
-                <ChildSearch selectedGender={selectedGender} setSelectedGender={setSelectedGender} cName="w-[31%]"/>
-                <StateDropdown selectedState={selectedState} setSelectedState={setSelectedState} />
-                <AgeSlider selectedAge={selectedAge} handleSlide={handleSlide} />
-                <button 
-                    className="w-full py-1 text-white bg-yellow-500 rounded mt-6"
-                    onClick={handleSearch}
-                >
-                Find
-                </button>
-            </div>
+            <SearchFilter />
         </div>
-        <div className="md:py-4 py-2 bg-cyan-600 clip-bottom rotate[180deg]">
-        </div>
-        </>
+        {/* end OF INTRODUCTION SECTION */}
+      
 
         {/*  ------ THE START OF OUR FOCUS SECTION ----------- */}
         <div className="md:px-[8%] px-3 py-[4rem] text-center">
@@ -86,8 +63,8 @@ export default function HomePage() {
         <div className="md:mx-[8%] md:my-16 my-7 md:py-[7rem] py-[3rem]"
             style={{
                 backgroundImage:`
-                linear-gradient(to right, rgba(0,0,0,.9), rgba(0,0,0,.4)), 
-                url(${process.env.PUBLIC_URL}'./images/siddhant-soni-CvqCzwVOhCM-unsplash.jpg')
+                linear-gradient(to right, rgba(0,0,0,.9), rgba(0,0,0,.1)), 
+                url(${process.env.PUBLIC_URL}'./images/bg-image.jpg')
                 `,
                 backgroundSize:'cover',
                 backgroundPosition:'top'

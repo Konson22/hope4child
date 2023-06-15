@@ -1,11 +1,11 @@
-import { statesData } from "assets/data"
+// import { statesData } from "assets/data"
 import { useState } from "react";
 import { FiChevronDown } from "react-icons/fi"
 import { stateSearchProps } from "util/Types";
 
 
   
-export function StateDropdown({ selectedState, setSelectedState, cName } : stateSearchProps){
+export function StateDropdown({ selectedState, setSelectedState, data, cName } : stateSearchProps){
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -24,7 +24,7 @@ export function StateDropdown({ selectedState, setSelectedState, cName } : state
       </div>
       {isOpen &&
         <div className="md:w-[150px] w-full h-[300px] overflow-y-scroll rounded text-slate-700  z-20 bg-white absolute left-0 top-full">
-          {statesData.map((state:string) => (
+          {data.map((state:string) => (
             <div 
               className="hover:bg-rose-500 px-4 py-2 border-t border-b"
               key={state}

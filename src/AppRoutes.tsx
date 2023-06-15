@@ -6,15 +6,13 @@ import ChildProfile from "pages/children/ChildProfile";
 import SponsorForm from "pages/forms/SponsorForm";
 import SupportChildForm from "pages/forms/SupportChildForm";
 import HomePage from "pages/home";
-import MainPage from "pages/main";
 import { Route, Routes } from "react-router-dom";
 
 
 export default function AppRoutes() {
   return (
     <Routes>
-        <Route path='/' element={<MainPage />} />
-        <Route path='/home' element={<HomePage />} />
+        <Route path='/' element={<HomePage />} />
         <Route path='/search' element={<SearchPage />} />
         <Route path='/children' element={<ChildrenPage />} />
         <Route path='/children/profile/:profileId' element={<ChildProfile />} />

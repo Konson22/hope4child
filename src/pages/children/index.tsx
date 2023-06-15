@@ -1,55 +1,104 @@
 import ChildCard from "components/ChildCard";
 import { childInterface } from "util/Types";
-import { useQuery } from "@tanstack/react-query"
-import { getChildren } from "apis/apis";
-import { FiSearch } from "react-icons/fi";
 import { useChildrenContext } from "contexts/ChildrenContextProvider";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ChildSearch } from "components/dropdown/ChildSearch";
+import { Dropdown } from "components/dropdown";
+import { ageData, statesData } from "assets/data";
+import { FiSearch } from "react-icons/fi";
+// import { getChildren } from "apis/apis";
+// import { useQuery } from "@tanstack/react-query"
 
 
 export default function ChildrenPage() {
 
     const { childrenData } = useChildrenContext()
-    // const qieryResult = useQuery({
-    //     queryKey:['posts'],
-    //     queryFn:getChildren
-    // })
 
-    // console.log(qieryResult)
+    const navigate = useNavigate()
+    const [selectedState, setSelectedState] = useState<string>('All States');
+    const [selectedGender, setSelectedGender] = useState<string>('Either');
+    const [selectedAge, setSelectedAge] = useState<string>('All ages');
 
-
-    // if(qieryResult.isLoading){
-    //     return <LoaderCard />
-    // }
+    const handleSearch = () => { 
+        let query = []
+        if(selectedState && selectedState !== 'All States'){
+            query.push(`state=${selectedState}`)
+        }
+        if(selectedGender && selectedGender !== 'Either'){
+            query.push(`gender=${selectedGender}`)
+        }
+        if(selectedAge && selectedAge !== 'All ages'){
+            query.push(`age=${selectedAge}`)
+        }
+        navigate(`/search?${query.join('&')}`)
+    }
+   
+    const bgImage = process.env.PUBLIC_URL+'./images/children-g1c4ec8142_1280.jpg'
 
   return (
-    <div className="px-[3%] py-4">
-        <div className="md:flex items-center justify-between">
-            <div className="flex-1 md:mb-0 mb-4">
-                <h3 className='md:text-2xl ttext-xl'>Fine a child to sponsor</h3>
-            </div>
-            <div className="">
-                <div className="flex items-center h-[3rem] md:w-[500px] bg-slate-100 rounded overflow-hidden">
-                    <input className="h-full bg-transparent " 
-                        type="search" 
-                        placeholder="Search by Name/state"
+    <>
+    <div 
+        className="md:px-[20%] px-4 md:pt-[7rem] pt-[3rem] pb-[8rem] text-white"
+        style={{
+            backgroundImage:`linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${bgImage}')`, 
+            backgroundSize:'cover', 
+            backgroundPosition:'center'
+        }}
+    >
+        <div className="md:w-[80">
+            <h2 className="md:text-6xl text-4xl font-bold">
+                Realizing <span className="text-rose-600">street</span> children’s right to <span className="text-rose-600">education</span></h2>
+           
+        </div>
+    </div>
+    <div className="px-[3%] py-4 mt-[-6rem]">
+        <div className="flex justify-center ">
+            <div className="bg-cyan-500 rounded text-white md:px-20 px-4 py-12">
+                <div className="text-2xl font-bold mb-4">
+                Change a child’s life today!
+                </div>
+                <div className="md:flex md:w-auto w-full">
+                    <ChildSearch 
+                        selectedGender={selectedGender} 
+                        setSelectedGender={setSelectedGender} 
+                        cName="flex-1 md:mx-2 mx-1"
                     />
-                    <button className="h-full flex items-center md:bg-rose-600 md:text-white text-rose-600 px-3">
-                        <FiSearch className="text-2xl" />
-                        <span className="md:block hidden">Search</span>
-                    </button>
+                    <div className="flex md:mx-6 md:my-0 my-6">
+                        <div className="md:flex-none flex-1 md:mr-3">
+                            <span className="block mb-1">Choose State</span>
+                            <Dropdown 
+                                data={selectedAge} 
+                                handleChange={setSelectedAge} 
+                                dataArray={ageData} 
+                                cName="flex-1 mx-1" 
+                            />
+                        </div>
+                        <div className="md:flex-none flex-1">
+                            <span className="block mb-1">Choose State</span>
+                            <Dropdown 
+                                data={selectedState} 
+                                handleChange={setSelectedState} 
+                                dataArray={statesData} 
+                                cName="flex-1 mx-1" 
+                            />
+                        </div>
+                    </div>
+                    <div className="md:mr-3">
+                        <span className="block mb-1">Match child</span>
+                        <button 
+                            className="
+                                w-full flex items-center justify-center bg-rose-600 text-white
+                                rounded px-5 py-2
+                            "
+                            onClick={handleSearch}
+                        >
+                            <FiSearch className="text-xl mr-2" />
+                            Search
+                        </button>
+                    </div>
                 </div>
             </div>
-            {/* <div className="flex items-center">
-                <GenderDropdown selectedGender={selectedGender} setSelectedGender={setSelectedGender} cName='bg-slate-100' />
-                <AgeDropdown selectedAge={selectedAge} setSelectedAge={setSelectedAge} cName='md:mx-3 mx-1' />
-                <StateDropdown selectedState={selectedState} setSelectedState={setSelectedState} cName='bg-slate-100' />
-                <div className="ml-1">
-                    <span className="block mb-1">Search</span>
-                    <button className="bg-rose-600 border border-rose-600 text-white rounded px-4 py-2">
-                        Find
-                    </button>
-                </div>
-            </div> */}
         </div>
         <div className="md:px-0 mx-2 my-10">
             <div className="flex items-center justify-between mb-7">
@@ -68,6 +117,7 @@ export default function ChildrenPage() {
             } */}
         </div>
     </div>
+    </>
   )
 }
 

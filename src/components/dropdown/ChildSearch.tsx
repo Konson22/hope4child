@@ -4,7 +4,7 @@ import 'rc-slider/assets/index.css';
 
 export function ChildSearch({ selectedGender, setSelectedGender, cName } : childSearchProps){
 
-    const genderData = ['Either', 'Boy', 'Girl']
+    const genderData = ['Either', 'male', 'female']
 
     return(
         <div className="">

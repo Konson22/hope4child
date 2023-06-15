@@ -13,6 +13,7 @@ export interface childInterface {
 export interface stateSearchProps {
   selectedState:string;
   cName?:string;
+  data:string[];
   setSelectedState:React.Dispatch<React.SetStateAction<string>>
 }
 
