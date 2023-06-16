@@ -5,13 +5,12 @@ import { useGlobalContext } from "contexts/GlobalContextProvider"
 import { auth } from "config";
 import { useState } from "react";
 import axiosInstance from "hooks/useAxios";
-
 export default function Login() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
   const { setUser, setShowForm } = useGlobalContext()
-  const bgImage = process.env.PUBLIC_URL+'./images/children-g1c4ec8142_1280.jpg'
+  const bgImage = process.env.PUBLIC_URL+'./images/pexels-lagos-food-bank-initiative-7849435.jpg'
 
 
   // LOGIN USER WITH GOOGLE PROVIDER
@@ -31,7 +30,7 @@ export default function Login() {
     if(email && password){
         try {
             const result = await axiosInstance.post('/auth/login', {
-                email, password
+                email, password,
             }).then(res => res);
             console.log(result)
         } catch (error) {
@@ -42,9 +41,9 @@ export default function Login() {
 
 
   return (
-    <div className="h-screen flex items-center justify-center fixed inset-0 z-50 backdrop-blur-sm bg-black bg-opacity-50 shadow-md">
+    <div className="h-screen flex items-center justify-center fixed inset-0 z-50 backdrop-blur-sm bg-white bg-opacity-30 shadow-md">
         <div className="md:w-[70%] w-[90%] flex bg-white rounded-md relative"
-            style={{backgroundImage:`linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2)), url('${bgImage}')`, backgroundSize:'cover', backgroundPosition:'center'}}
+            // style={{backgroundImage:`linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2)), url('${bgImage}')`, backgroundSize:'cover', backgroundPosition:'center'}}
         >
             <div 
                 className="bg-black bg-opacity-50 p-1 rounded-full text-white cursor-pointer absolute right-3 top-3"
@@ -52,7 +51,7 @@ export default function Login() {
             >
                 <XMarkIcon className='h-6' />
             </div>
-            <div className="flex-1 bg-white p-8">
+            <div className="flex-1 bg-cyan-500 text-white p-8">
                 <div className="flex justify-center text-2xl mb-5">
                     Login with
                 </div>
@@ -60,19 +59,19 @@ export default function Login() {
                     <button 
                         className="
                             flex-1 flex items-center justify-center border 
-                            border-sky-600 rounded text-rose-500 py-2"
+                            border-white text-gray-800 rounded bg-white p-2"
                             onClick={GoogleAuthHandler}
                     >
-                        <img className="mr-3" src={process.env.PUBLIC_URL+'/images/Facebook.svg'} alt="" />
-                        Google
+                        <img className="md:h-6 h-4 md:w-6 w-4 mr-2" src={process.env.PUBLIC_URL+'/images/social-media/Facebook.svg'} alt="" />
+                        Facebook
                     </button>
                     <span className="mx-2">OR</span>
                     <button 
                         className="
-                        flex-1 flex items-center justify-center border border-rose-500 rounded text-rose-500 py-2"
+                        flex-1 flex items-center justify-center bg-white border-white text-gray-800 border rounded  p-2"
                         onClick={GoogleAuthHandler}
                     >
-                        <img className="mr-3" src={process.env.PUBLIC_URL+'/images/Google.svg'} alt="" />
+                        <img className="md:h-6 h-4 md:w-6 w-4  mr-2" src={process.env.PUBLIC_URL+'/images/social-media/Google.svg'} alt="" />
                         Google
                     </button>
                 </div>
@@ -103,7 +102,8 @@ export default function Login() {
                 
                 
             </div>
-            <div className="md:block hidden flex-1">
+            
+            <div className="md:block hidden flex-1" style={{backgroundImage:`linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2)), url('${bgImage}')`, backgroundSize:'cover', backgroundPosition:'center'}}>
                 {/* <img className="h-full" src={process.env.PUBLIC_URL+'./images/children-g1c4ec8142_1280.jpg'} alt="" /> */}
             </div>
         </div>

@@ -1,10 +1,10 @@
 import { useState } from 'react'
+import { Dropdown } from './dropdown'
+import { ChildSearch } from './dropdown/ChildSearch'
 import { ageData, statesData } from 'assets/data';
 import { useNavigate } from 'react-router-dom';
-import { Dropdown } from './Dropdown';
-import { childSearchProps } from 'util/Types';
 
-export default function SearchFilter({cName}:{cName:string}) {
+export default function SearchFilter() {
 
     const navigate = useNavigate()
     const [selectedState, setSelectedState] = useState<string>('All States');
@@ -28,15 +28,10 @@ export default function SearchFilter({cName}:{cName:string}) {
     }
 
   return (
-        <div className={`
-            ${cName}
-            md:w-[30%] w-full md:bg-black bg-cyan-600 md:bg-opacity-30
-            text-white backdrop-blur-sm rounded-md 
-            px-6 py-10 md:ml-10 md:mt-0
-        `}>
+        <div className="md:w-[30%] w-full bg-cyan-500 rounded-md p-6 md:ml-10 md:mt-0 mt-8">
             <h3 className="text-2xl font-bold mb-4">Spanosr a child</h3>
             <ChildSearch selectedGender={selectedGender} setSelectedGender={setSelectedGender} cName="w-[31%]"/>
-            <div className="flex mt-10">
+            <div className="flex mt-6">
                 <Dropdown 
                     data={selectedState} 
                     handleChange={setSelectedState} 
@@ -51,37 +46,11 @@ export default function SearchFilter({cName}:{cName:string}) {
                 />
             </div>
             <button 
-                className="w-full py-2 text-white bg-rose-700 rounded mt-10"
+                className="w-full py-1 text-white bg-yellow-500 rounded mt-6"
                 onClick={handleSearch}
             >
-            Match you child
+            Find
             </button>
         </div>
   )
-}
-
-
-function ChildSearch({ selectedGender, setSelectedGender, cName } : childSearchProps){
-
-    const genderData = ['Either', 'male', 'female']
-
-    return(
-        <div className="">
-            <span className="block mb-1">I am intrested in</span>
-            <div className="flex justify-between">
-                {genderData.map((gender:string) => (
-                <div 
-                    className={`
-                        px-5 py-2 border rounded cursor-pointer hover:bg-cyan-600 hover:text-white
-                        ${selectedGender === gender ? 'bg-cyan-600 text-white':''} ${cName}
-                    `} 
-                    key={gender}
-                    onClick={() => setSelectedGender(gender)}
-                >
-                    {gender}
-                </div>
-                ))}
-            </div>
-        </div>
-    )
 }

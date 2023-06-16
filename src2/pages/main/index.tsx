@@ -1,100 +1,124 @@
+import { Heading1 } from "components/Heading";
+import SearchFilter from "components/SearchFilter";
+import Header from "pages/home/Header";
 import { Link } from "react-router-dom";
-import EventSection from "./EventSection";
-import IntroductionSection from "./IntroductionSection";
-import ProjectSection from "./ProjectSection";
-import WhatWeDoSection from "./WhatWeDoSection";
-import TestimonySection from "./TestimonySection";
-import ContactForm from "pages/forms/ContactForm";
-import { HeadingText1 } from "components/HeadingText";
-import { Button1 } from "components/Buttons";
-import { svgPath } from "assets/svgPath";
+import ChildrenSection from "./ChildrenSection";
 
 
 export default function MainPage() {
 
-  const imageCard = (cname:string) => (
-      <div className={`md:w-[45%] md:mr-12 md:mb-0 mb-5 ${cname}`}>
-        <img 
-          className="h-full w-full rounded-md" 
-          src={process.env.PUBLIC_URL+'./images/A-street-child-crying-consoled-by-his-friend-in-Ouagadougou-Burkina-Faso.webp'} 
-          alt="" 
-        />
-      </div>
-  )
+  const bgImage = process.env.PUBLIC_URL+'./images/bg-image.jpg'
+
   return (
     <div>
         <Header />
-        <IntroductionSection />
-        
-        <div className="md:px-[8%] px-4 md:py-[6rem] py-[2rem]">
-          <div className="flex">
+        {/* START OF INTRODUCTION SECTION */}
+        <div 
+            className="
+                clip-path-bottom md:flex items-center md:px-[8%] px-3 pt-[3rem] pb-[5rem]
+                 bg-cyan-600 text-white
+            "
+        >
             <div className="flex-1">
-              { imageCard('md:hidden block') }
-              <HeadingText1 text="What Is Sponsorship?" />
-              <p>
-                When you sponsor a child, you care for and encourage them through prayer, letter writing and financial support. That support empowers a local church to individually and holistically meet their needs in a loving, safe community where they can learn, grow, play and dream.
-              </p>
-              <p className="mt-4">
-                Your support gives a child life-changing opportunity to develop spiritually, emotionally, physically and economically. It's a relationship more powerful than poverty — changing their
-              </p>
-              <Button1 text="Sponsor child" cName="mt-4" />
-            </div>
-            { imageCard('md:block hidden ml-14') }
-          </div>
-        </div>
-        <WhatWeDoSection />
-        <ProjectSection />
-        <TestimonySection />
-        <EventSection />
-        <div className="bg-slate-300 md:flex items-center md:px-[8%] px-4 md:py-[4rem] py-[2rem]">
-            <div className="flex-1 md:mr-14">
-                <p>
-                    the figure being as high as 91% for primary school aged children.Despite this commendable progress, street children are at risk of being left behind. The numerous societal, practical and health barriers street children face means they are among the millions of the world’s
+                <Heading1 text="Education for street children" />
+                <p className="md:text-2xl dmd:text-center">
+                    The right to a quality education is just one of the rights that street children are denied. Yet education is the most effective way to enable street children to reintegrate into society.
+
+                    No matter how street life is defined, one thing remains the same: all are at risk of disease, violence, becoming addicted to alcohol and drugs and being trafficked or sold into prostitution. Lack of education leaves few opportunities to find a way out. Their life expectancy is extremely low.
+                    {/* Street children can have complex circumstances and are very vulnerable to exploitation and violence. It’s hard to reach them with vital services such as education and healthcare. They miss out on their right to education because they are trying to support themselves or their families, so less formal approaches might be needed to try to get them into learning. */}
                 </p>
             </div>
-            <div className="flex-1">
-                <ContactForm />
+            <SearchFilter />
+        </div>
+        {/* end OF INTRODUCTION SECTION */}
+
+        {/* end OF INTRODUCTION SECTION */}
+        <div className="md:flex md:px-[8%] px-3 py-[5rem]">
+            <div className="flex-1 md:mb-0 mb-3">
+                <img className="md:h-auto h-[250px]" src={process.env.PUBLIC_URL+'./images/R.jpg'} alt="" />
+            </div>
+            <div className="flex-1 md:pl-5">
+                <p className="mb-2">
+                    According to UN stats, there are approximately up to 150 million children worldwide living on the streets today. Some have had no choice. They were orphaned, abandoned or disowned by their parents. Some have faced war or natural disasters and have no home to return to. Others have opted to brave the dangers of street life rather than face one more day in an abusive home.
+                </p>
+                <p className="md:block hidden">
+                    Then there are the children who have a home but work on the streets as their only means of income. They beg, steal or perform small jobs like shoe-shining or selling items in the market to feed themselves and their family. These children often drop out of school and are much more likely to join gangs, steal and become addicted to drugs and alcohol.
+                </p>
+                <div className="mt-8">
+                    <Link className="bg-rose-600 text-white rounded px-5 py-2 mt-8" to='/children'>
+                        Learn more
+                    </Link>
+                </div>
             </div>
         </div>
+        {/* end OF INTRODUCTION SECTION */}
+
+        <div className="md:px-[8%] px-3 md:py-[5rem] py-[2rem]">
+            <Heading1  text="WHY TO SPONSOR A CHILD" />
+            <p>
+                When you sponsor a child, you are helping to give an orphaned or abandoned child a family and a future. With your help, children who have lost everything get a mother, brothers and sisters and everything they need to have a normal childhood in a loving home.
+            </p>
+        </div>
+        <div className="md:px-[8%] px-3 md:py-[5rem] py-[2rem]">
+            <div className="md:px-[8%] md:text-center">
+                <Heading1  text="HOW TO SPONSOR A CHILD" cName="mb-2" />
+                <p>
+                    When you sponsor a child, you are helping to give an orphaned or abandoned child a family and a future. With your help, children who have lost everything get a mother, brothers and sisters and everything they need to have a normal childhood in a loving home.
+                </p>
+            </div>
+            <div className="md:grid grid-cols-3 gap-5 mt-14">
+                {data.map((d, index) => (
+                    <div className="relative md:mb-0 mb-8 bg-gray-100 md:p-4 p-4" key={index}>
+                        <div className="">
+                            <span className="text-xl font-bold mb-2">{d.title}</span>
+                            <p>{d.text}</p>
+                        </div>
+                        <div className="absolute text-9xl font-bold text-green-200 top-0 left-0 z-[-1] p-8">{index + 1}</div>
+                    </div>
+                ))}
+            </div>
+        </div>
+        <ChildrenSection />
+        {/* end OF INTRODUCTION SECTION */}
+        <div 
+            className="md:mx-[8%] mx-0 md:px-8 px-4 md:py-[7rem] py-[3rem] my-16 text-white"
+            style={{
+                backgroundImage:`linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${bgImage}')`, backgroundSize:'cover', backgroundPosition:'top'
+            }}
+        >
+            <div className='md:w-[60%]'>
+                <h3 className="md:text-5xl text-2xl font-bold">
+                    Give us the <span className="text-rose-600">opportunity</span> to change our <span className="text-rose-600">story</span>
+                </h3>
+                <p className="text-2xl">
+                    Street Children are obviously not educated. Because of this, they don’t have the same opportunities as other children. In fact, because they don’t see a future for themselves, and because they have no professional training.
+                </p>
+                <div className="mt-8">
+                    <Link className="bg-rose-600 text-white rounded px-5 py-2 mt-8" to='/children'>Sponsor child</Link>
+                </div>
+                {/* <p>
+                    Raise public awareness about street children and of the right to education for all
+                </p> */}
+            </div>
+        </div>
+        {/* end OF INTRODUCTION SECTION */}
+
     </div>
   )
 }
 
 
-const Header = () => {
-
-    const bgImage = process.env.PUBLIC_URL+'./images/children-g1c4ec8142_1280.jpg'
-  
-    const headerText = (cName:string) => (
-      <div 
-        className={`
-          md:w-[85%] md:bg-transparent bg-slate-100 shadow-mdd ${cName} 
-          rounded-md  md:p-0 p-6 md:mx-0 mx- md:mt-0 mt-[-3.5rrem]
-        `}
-      >
-        <h1 className="title md:text-6xl text-2xl md:font-bold">Give us opportunity</h1>
-        <h1 className="md:text-5xl text-2xl ont-bold md:my-2">to study and change our story</h1>
-        <div className=" md:mt-7 mt-5">
-          <Link
-            className="bg-rose-500 text-white md:text-xl md:px-6 px-5 md:py-4 py-2 rounded"
-            to='/sponsor-child'
-          >
-            Sponsor child
-          </Link>
-        </div>
-      </div>
-    )
-  
-    return(
-      <div className="">
-        <header
-          className="flex items-center md:px-[8%] px-3 md:py-[7rem] py-[6rem] bg-red-500 text-white"
-          style={{backgroundImage:`url('${bgImage}')`, backgroundSize:'cover', backgroundPosition:'center'}}
-        >
-          {headerText('md:block hidden')}
-        </header>
-          {headerText('md:hidden block')}
-      </div>
-    )
-  }
-  
+const data = [
+    {
+        title:'Choose child',
+        text:'When you sponsor a child, you are helping to give an orphaned or abandoned child a family and a future. With your help, children who have lost everything get a mother, brothers and sisters and everything they need to have a normal childhood in a loving home.'
+    },
+    {
+        title:'Choose child',
+        text:'When you sponsor a child, you are helping to give an orphaned or abandoned child a family and a future. With your help, children who have lost everything get a mother, brothers and sisters and everything they need to have a normal childhood in a loving home.'
+    },
+    {
+        title:'Choose child',
+        text:'When you sponsor a child, you are helping to give an orphaned or abandoned child a family and a future. With your help, children who have lost everything get a mother, brothers and sisters and everything they need to have a normal childhood in a loving home.'
+    },
+]

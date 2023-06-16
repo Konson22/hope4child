@@ -1,104 +1,70 @@
-import { Heading1 } from "components/Heading";
-import ChildrenSection from "./ChildrenSection";
+import { LinkButton1 } from "components/Buttons";
 import Header from "./Header";
-import SearchFilter from "components/SearchFilter";
+import ChildrenSection from "./ChildrenSection";
 
 
 export default function HomePage() {
-
   return (
     <div>
         <Header />
         {/* START OF INTRODUCTION SECTION */}
-        <div className="clip-path-bottom md:flex items-center md:px-[8%] px-3 pt-[3rem] pb-[5rem] bg-cyan-600 text-white">
-            <div className="flex-1">
-                {/* <Heading1 text="Realising street children’s right to education" /> */}
-                <p className="md:text-2xl dmd:text-center">
+        <div className="md:px-[8%] px-3 md:py-[5rem] py-[3rem] md:text-center">
+            <h2 className="md:text-5xl text-[1.4rem] font-bold mb-3">
+                Realizing Street
+                <span className="text-rose-600"> Children</span> Right To
+                <span className="text-rose-600"> Education</span>
+            </h2>
+            <p className="text-xl">
+                The right to a quality education is just one of the rights that street children are denied. Yet education is the most effective way to enable street children to reintegrate into society.
 
-Street children can have complex circumstances and are very vulnerable to exploitation and violence. It’s hard to reach them with vital services such as education and healthcare. They miss out on their right to education because they are trying to support themselves or their families, so less formal approaches might be needed to try to get them into learning.
-                    {/* According to UN stats, there are approximately up to 150 million children worldwide living on the streets today. Some have had no choice. They were orphaned, abandoned or disowned by their parents. Some have faced war or natural disasters and have no home to return to. Others have opted to brave the dangers of street life rather than face one more day in an abusive home */}
-                </p>
-            </div>
-            <SearchFilter />
+                No matter how street life is defined, one thing remains the same: all are at risk of disease, violence, becoming addicted to alcohol and drugs and being trafficked or sold into prostitution. Lack of education leaves few opportunities to find a way out. Their life expectancy is extremely low.
+            </p>
         </div>
-        {/* end OF INTRODUCTION SECTION */}
-      
+        {/* THE END OF INTRODUCTION SECTION */}
 
-        {/*  ------ THE START OF OUR FOCUS SECTION ----------- */}
-        <div className="md:px-[8%] px-3 py-[4rem] text-center">
-            <div className="md:px-[15%] mb-8">
-                <span className="md:text-4xl font-bold text-rose-600">WHAT WE FOCUS ON</span>
-                {/* <div className="flex justify-center text-cyan-500 md:text-2xl text-xl font-bold my-4">
-                    <div className="">EDUCATION</div>
-                    <div className="border-x-2 md:px-4 px-2 md:mx-4 mx-2 border-rose-600">HEALTH</div>
-                    <div className="">EDUCATION</div>
-                </div> */}
-                <p className='md:text-xl'>
-                    Street children are confronted by a large number of problems. In fact, growing up in an environment generally regarded as dangerous, they incur considerable risks.
-                    As a consequence, some of their rights are very often compromised
-                </p>
+        {/* THE END OF WHAT WE DO SECTION */}
+        <div className="md:px-[8%] mx-2 md:py-[5rem] bg-slate-2000 md:flex items-center">
+            <div className="md:w-[45%] md:mr-6">
+                <img src={process.env.PUBLIC_URL+'./images/children-g1c4ec8142_1280.jpg'} alt="" />
             </div>
-            <div className="grid md:grid-cols-3 grid-cols-1 md:gap-5 gap-7">
-                {data.map((cause) => (
-                    <div className="shadow rounded-md overflow-hidden">
-                        <img 
-                            className="md:h-[320px] h-[300px]" 
-                            src={cause.image} 
-                            alt="" 
-                        />
-                        <div className="bg-cyan-400 text-white text-left p-3">
-                            <h3 className="text-xl font-bold">{cause.title}</h3>
-                            <p className="line-clamp-3">{cause.text}</p>
-                            <button className="bg-rose-500 text-white px-5 py-2 mt-5">Read more</button>
+            <div className="flex-1 md:p-0 p-3">
+                <h2 className="md:text-4xl text-[1.4rem] font-bold mb-3">
+                    WHY WE
+                    <span className="text-rose-600"> DO</span> OUR JOB
+                </h2>
+                <p>
+                    there are the children who have a home but work on the streets as their only means of income. They beg, steal or perform small jobs like shoe-shining or selling items in the market to feed themselves and their family. These children often drop out of school and are much more likely to join gangs, steal and become addicted to drugs and alcohol.
+                </p>
+                <div className="mt-6">
+                    <LinkButton1 text="Learn more" cName="mt-6" path="/what we do" />
+                </div>
+            </div>
+        </div>
+        {/* THE END OF WHAT WE DO SECTION */}
+
+        {/* THE END OF WHAT WE DO SECTION */}
+        <div className="md:px-[8%] px-3 md:py-[5rem] py-[3rem]">
+            <h2 className="md:text-5xl text-[1.4rem] md:text-center font-bold mb-3">
+                HOW TO 
+                <span className="text-rose-600"> SPONSOR</span> A CHILD
+            </h2>
+            <div className="md:grid grid-cols-2 gap-5 md:mt-14">
+                {data.map((d, index) => (
+                    <div className="relative md:mb-0 mb-8" key={index}>
+                        <div className="">
+                            <span className="text-xl font-bold mb-2">{d.title}</span>
+                            <p>{d.text}</p>
                         </div>
+                        <div className="absolute text-9xl flex justify-center items-center inset-0 font-bold text-green-200 top-0 left-0 z-[-1] p-8">{index + 1}</div>
                     </div>
                 ))}
             </div>
         </div>
-       
-        {/*  ------ THE END OF OUR FOCUS SECTION ----------- */}
+        {/* THE END OF WHAT WE DO SECTION */}
 
-        {/*  ------ THE START OF CHILDREN SECTION ----------- */}
+        {/* THE END OF WHAT WE DO SECTION */}
         <ChildrenSection />
-        {/*  ------ THE END OF CHILDREN SECTION ----------- */}
-
-        <div className="md:mx-[8%] md:my-16 my-7 md:py-[7rem] py-[3rem]"
-            style={{
-                backgroundImage:`
-                linear-gradient(to right, rgba(0,0,0,.9), rgba(0,0,0,.1)), 
-                url(${process.env.PUBLIC_URL}'./images/bg-image.jpg')
-                `,
-                backgroundSize:'cover',
-                backgroundPosition:'top'
-            }}
-        >
-            <div className="md:w-[60%] md:px-16 px-3 text-white">
-                <Heading1 text="EVERY CHILD COUNTS" cName="mb-3" />
-                <p className="md:text-2xl">
-                    Street Children are obviously not educated. Because of this, they don’t have the same opportunities as other children. In fact, because they don’t see a future for themselves, and because they have no professional training.
-                </p>
-                <button className="bg-rose-600 text-white rounded-md mt-8 px-6 py-3">Sponsor child</button>
-            </div>
-        </div>
-        {/*  ------ THE START OF SIGN UP SECTION ----------- */}
-        <div className="md:mx-[17%] md:px-[8%] px-3 py-[3rem]">
-            <h3 className="text-3xl  text-center mb-2">Sign up for our new letter</h3>
-            <p className=" text-center">
-                Street children are confronted by a large number of problems. In fact, growing up in an environment generally regarded as dangerous, they incur considerable risks.
-            </p>
-            <div className="bg-cyan-600 md:p-12 px-3 py-6 text-white">
-                <span className="block m-1">Email Address</span>
-                <div className="flex h-[3rem]">
-                    <input 
-                        type="email" 
-                        className="h-full bg-white" 
-                        placeholder="example@gmail.com"
-                    />
-                    <button className="h-full bg-rose-500 text-white rounded px-4">Subcribe</button>
-                </div>
-            </div>
-        </div>
-        {/*  ------ THE END OF SIGN UP SECTION ----------- */}
+        {/* THE END OF WHAT WE DO SECTION */}
     </div>
   )
 }
@@ -106,18 +72,15 @@ Street children can have complex circumstances and are very vulnerable to exploi
 
 const data = [
     {
-        title:'Right to Education',
-        text:'Street Children are obviously not educated. Because of this, they don’t have the same opportunities as other children. In fact, because they don’t see a future for themselves, and because they have no professional training, they are hindered from finding a job and from finally leaving the streets',
-        image:process.env.PUBLIC_URL+'./images/children/child-7.jpg'
+        title:'CHOOSE A CHILD',
+        text:'When you sponsor a child, you are helping to give an orphaned or abandoned child a family and a future. With your help, children who have lost everything get a mother, brothers and sisters and everything they need to have a normal childhood in a loving home.'
     },
     {
-        title:'Right to Health',
-        text:'street children are exposed to different diseases. Their health is often troubling. Without a family to take care of them, these youth must take care of themselves.',
-        image:process.env.PUBLIC_URL+'./images/children/child-1.jpg'
+        title:'CHOOSE KIND OF SPONSORSHIP',
+        text:'When you sponsor a child, you are helping to give an orphaned or abandoned child a family and a future. With your help, children who have lost everything get a mother, brothers and sisters and everything they need to have a normal childhood in a loving home.'
     },
-    {
-        title:'Right to food',
-        text:'Street children often don’t have access to a healthy and sufficient diet. Sometimes they don’t even have food, because living on the streets,  they don’t produce any and don’t have money to buy.',
-        image:process.env.PUBLIC_URL+'./images/children/child-6.jpg'
-    },
+    // {
+    //     title:'WATCH YOUR CHILD PROGREES',
+    //     text:'When you sponsor a child, you are helping to give an orphaned or abandoned child a family and a future. With your help, children who have lost everything get a mother, brothers and sisters and everything they need to have a normal childhood in a loving home.'
+    // },
 ]

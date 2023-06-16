@@ -1,25 +1,15 @@
+import { Link } from "react-router-dom";
 
-interface buttonPorps {
-    bg?:string;
-    text:string;
-    Icon?:(props: React.ComponentProps<'svg'>) => JSX.Element;
-    cName?:string;
-}
-
-export function Button({ text, bg='bg-rose-500 text-white', Icon, cName} : buttonPorps) {
+export function Button1({ text, cName }:{ text:string; cName?:string}) {
   return (
-    <button className={`flex items-center px-3 py-2 rounded ${bg} ${cName}`}>
-      {text}
-      {Icon && <Icon className="ml-2" />}
-    </button>
+    <button className={`px-5 py-2 rounded bg-rose-600 text-white ${cName}`}>{text}</button>
   )
 }
 
-export function ButtonSm({ text, bg='bg-rose-500 text-white', Icon, cName} : buttonPorps) {
+export function LinkButton1({ text, cName, path }:{ text:string; path:string; cName?:string}) {
   return (
-    <button className={`flex items-center px-3 py-1 rounded ${bg} ${cName}`}>
-      {text}
-      {Icon && <Icon className="ml-2" />}
-    </button>
+    <Link className={`px-5 py-2 rounded bg-rose-600 text-white ${cName}`} to={path}>
+        {text}
+    </Link>
   )
 }

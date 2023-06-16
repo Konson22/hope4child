@@ -1,117 +1,123 @@
-import { Link } from "react-router-dom"
-import Slider from "rc-slider";
+import { Heading1 } from "components/Heading";
+import ChildrenSection from "./ChildrenSection";
+import Header from "./Header";
+import SearchFilter from "components/SearchFilter";
 
 
-export default function Home() {
+export default function HomePage() {
 
   return (
     <div>
-      <Header />
-      <div className="md:flex bg-cyan-600 text-xl text-white text-cente md:px-[8%] px-3 md:py-20 py-7">
-        <div className="md:w-[30%] w-full bg-cyan-500 rounded-md p-6 mr-10">
-          <div className="">
-            <span className="block mb-1">I am intrested in</span>
-            <div className="flex">
-              <div className="flex-1 px-4 py-1 border rounded">Girl</div>
-              <div className="flex-1 px-4 py-1 border rounded mx-3">Male</div>
-              <div className="flex-1 px-4 py-1 border rounded">Either</div>
+        <Header />
+        {/* START OF INTRODUCTION SECTION */}
+        <div className="clip-path-bottom md:flex items-center md:px-[8%] px-3 pt-[3rem] pb-[5rem] bg-cyan-600 text-white">
+            <div className="flex-1">
+                {/* <Heading1 text="Realising street children’s right to education" /> */}
+                <p className="md:text-2xl dmd:text-center">
+
+Street children can have complex circumstances and are very vulnerable to exploitation and violence. It’s hard to reach them with vital services such as education and healthcare. They miss out on their right to education because they are trying to support themselves or their families, so less formal approaches might be needed to try to get them into learning.
+                    {/* According to UN stats, there are approximately up to 150 million children worldwide living on the streets today. Some have had no choice. They were orphaned, abandoned or disowned by their parents. Some have faced war or natural disasters and have no home to return to. Others have opted to brave the dangers of street life rather than face one more day in an abusive home */}
+                </p>
             </div>
-          </div>
-          <div className="">
-            <span className="block mb-1">State</span>
-            <div className="px-4 py-1 border rounded">All States</div>
-          </div>
-          <div className="mt-6">
-            <span className="block mb-1">Age between</span>
-            <Slider
-              min={4}
-              max={23}
-              dotStyle={{height:'50px'}}
-              defaultValue={10}
-            />
-          </div>
-          <button className="w-full py-1 text-white bg-yellow-500 rounded mt-6">Find</button>
+            <SearchFilter />
         </div>
-        <div className="flex-1 md:mt-0 mt-10">
-          <h1 className="md:text-5xl text-2xl font-bold">
-            Realising street children’s right to education
-          </h1>
-          <p>
-            When you sponsor a child, you care for and encourage them through prayer, letter writing and financial support. That support empowers a local church to individually and holistically meet their needs in a loving <span className="md:flex hidden"> safe community where they can learn, grow, play and dream.
-            Your support gives a child life-changing opportunity to develop spiritually, emotionally, physically and economically. It's a relationship more powerful than poverty — changing their</span>
-          </p>
+        {/* end OF INTRODUCTION SECTION */}
+      
+
+        {/*  ------ THE START OF OUR FOCUS SECTION ----------- */}
+        <div className="md:px-[8%] px-3 py-[4rem] text-center">
+            <div className="md:px-[15%] mb-8">
+                <span className="md:text-4xl font-bold text-rose-600">WHAT WE FOCUS ON</span>
+                {/* <div className="flex justify-center text-cyan-500 md:text-2xl text-xl font-bold my-4">
+                    <div className="">EDUCATION</div>
+                    <div className="border-x-2 md:px-4 px-2 md:mx-4 mx-2 border-rose-600">HEALTH</div>
+                    <div className="">EDUCATION</div>
+                </div> */}
+                <p className='md:text-xl'>
+                    Street children are confronted by a large number of problems. In fact, growing up in an environment generally regarded as dangerous, they incur considerable risks.
+                    As a consequence, some of their rights are very often compromised
+                </p>
+            </div>
+            <div className="grid md:grid-cols-3 grid-cols-1 md:gap-5 gap-7">
+                {data.map((cause) => (
+                    <div className="shadow rounded-md overflow-hidden">
+                        <img 
+                            className="md:h-[320px] h-[300px]" 
+                            src={cause.image} 
+                            alt="" 
+                        />
+                        <div className="bg-cyan-400 text-white text-left p-3">
+                            <h3 className="text-xl font-bold">{cause.title}</h3>
+                            <p className="line-clamp-3">{cause.text}</p>
+                            <button className="bg-rose-500 text-white px-5 py-2 mt-5">Read more</button>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
-      </div>
-      <div className="bg-cyan-600">
-        <div className="py-3 bg-slate-800 clip-bottom rotate-[180deg]"></div>
-      </div>
-      <div className="">
-        <div className="flex flex-col text-slate-50 items-center justify-center md:px-[25%] px-3 py-[3rem] bg-slate-800">
-          <span className="text-3xl text-rose-500">Our Focus</span>
-          <div className="flex text-cyan-500 my-7">
-            <span className="flex md:text-5xl text-2xl font-bold">Education</span>
-            <div className="w-1 bg-red-500 mx-3"></div>
-            <span className="flex md:text-5xl text-2xl font-bold">Health</span> 
-            <div className="w-1 bg-red-500 mx-3"></div>
-            <span className="flex md:text-5xl text-2xl font-bold">Health</span> 
-          </div>
-          <p className="text-2xl text-center">
-            When you sponsor a child, you care for and encourage them through prayer, letter writing and financial support. That support empowers a local church to individually and holistically meet their needs in a loving
-          </p>
-          <button className="px-5 py-2 bg-rose-600 text-white rounded mt-6">Support our work</button>
-        </div>
-        <div className="py-3 bg-slate-800 clip-top"></div>
-      </div>
-      <div className="px-[8%] py-[4rem]">
-        <h1 className="text-6xl font-bold">OUR PROJECTS</h1>
-      </div>
-    </div>
-  )
-}
+       
+        {/*  ------ THE END OF OUR FOCUS SECTION ----------- */}
 
+        {/*  ------ THE START OF CHILDREN SECTION ----------- */}
+        <ChildrenSection />
+        {/*  ------ THE END OF CHILDREN SECTION ----------- */}
 
-
-const Header = () => {
-
-  const bgImage = process.env.PUBLIC_URL+'./images/children-g1c4ec8142_1280.jpg'
-
-  const headerText = (cName:string) => (
-    <div 
-      className={`
-        md:w-[85%] md:bg-transparent bg-cyan-50 shadow-md ${cName} 
-        rounded-md  md:p-0 p-6 md:mx-0 mx-3 md:mt-0 mt-[-3.5rem]
-      `}
-    >
-      <h1 className="title md:text-6xl text-2xl md:font-bold">Give us opportunity</h1>
-      <h1 className="md:text-5xl text-2xl ont-bold md:my-2">to study and change our story</h1>
-      <div className=" md:mt-7 mt-5">
-        <Link 
-          className="bg-rose-500 text-white md:text-xl md:px-6 px-5 md:py-4 py-2 rounded"
-          to='/sponsor-child'
+        <div className="md:mx-[8%] md:my-16 my-7 md:py-[7rem] py-[3rem]"
+            style={{
+                backgroundImage:`
+                linear-gradient(to right, rgba(0,0,0,.9), rgba(0,0,0,.1)), 
+                url(${process.env.PUBLIC_URL}'./images/bg-image.jpg')
+                `,
+                backgroundSize:'cover',
+                backgroundPosition:'top'
+            }}
         >
-          Sponsor child
-        </Link>
-      </div>
-    </div>
-  )
-
-  return(
-    <div className="bg-cyan-600">
-      <header
-        className="flex items-center md:px-[8%] px-3 md:py-[7rem] py-[7.5rem] bg-red-500 text-white"
-        style={{backgroundImage:`url('${bgImage}')`, backgroundSize:'cover', backgroundPosition:'center'}}
-      >
-        {headerText('md:block hidden')}
-      </header>
-        {headerText('md:hidden block')}
+            <div className="md:w-[60%] md:px-16 px-3 text-white">
+                <Heading1 text="EVERY CHILD COUNTS" cName="mb-3" />
+                <p className="md:text-2xl">
+                    Street Children are obviously not educated. Because of this, they don’t have the same opportunities as other children. In fact, because they don’t see a future for themselves, and because they have no professional training.
+                </p>
+                <button className="bg-rose-600 text-white rounded-md mt-8 px-6 py-3">Sponsor child</button>
+            </div>
+        </div>
+        {/*  ------ THE START OF SIGN UP SECTION ----------- */}
+        <div className="md:mx-[17%] md:px-[8%] px-3 py-[3rem]">
+            <h3 className="text-3xl  text-center mb-2">Sign up for our new letter</h3>
+            <p className=" text-center">
+                Street children are confronted by a large number of problems. In fact, growing up in an environment generally regarded as dangerous, they incur considerable risks.
+            </p>
+            <div className="bg-cyan-600 md:p-12 px-3 py-6 text-white">
+                <span className="block m-1">Email Address</span>
+                <div className="flex h-[3rem]">
+                    <input 
+                        type="email" 
+                        className="h-full bg-white" 
+                        placeholder="example@gmail.com"
+                    />
+                    <button className="h-full bg-rose-500 text-white rounded px-4">Subcribe</button>
+                </div>
+            </div>
+        </div>
+        {/*  ------ THE END OF SIGN UP SECTION ----------- */}
     </div>
   )
 }
 
-function OurProjectsSection(){
-  return(
-    <div className=""></div>
-  )
-}
 
-
+const data = [
+    {
+        title:'Right to Education',
+        text:'Street Children are obviously not educated. Because of this, they don’t have the same opportunities as other children. In fact, because they don’t see a future for themselves, and because they have no professional training, they are hindered from finding a job and from finally leaving the streets',
+        image:process.env.PUBLIC_URL+'./images/children/child-7.jpg'
+    },
+    {
+        title:'Right to Health',
+        text:'street children are exposed to different diseases. Their health is often troubling. Without a family to take care of them, these youth must take care of themselves.',
+        image:process.env.PUBLIC_URL+'./images/children/child-1.jpg'
+    },
+    {
+        title:'Right to food',
+        text:'Street children often don’t have access to a healthy and sufficient diet. Sometimes they don’t even have food, because living on the streets,  they don’t produce any and don’t have money to buy.',
+        image:process.env.PUBLIC_URL+'./images/children/child-6.jpg'
+    },
+]

@@ -1,13 +1,14 @@
 import Glide from "@glidejs/glide";
 import { useChildrenContext } from "contexts/ChildrenContextProvider"
 import { useEffect } from "react";
-import { FiChevronLeft, FiStar, FiChevronRight } from "react-icons/fi";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { FaClock } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 
 const sliderConfiguration = {
   gap: 20,
-  perView: 3,
+  perView: 4,
   startAt: 0,
   // autoplay: 3000,
   rewind: false,
@@ -25,16 +26,17 @@ const sliderConfiguration = {
 
 export default function ChildrenSection() {
 
-  const slider = new Glide('.glide', sliderConfiguration);
-  const { childrenData } = useChildrenContext()
+    const { childrenData } = useChildrenContext()
+      const slider = new Glide('.glide', sliderConfiguration);
   
 
   useEffect(() => {
     slider.mount()
   }, [slider])
 
+
   return (
-    <div className='px-[8%] glide relative mt-10'>
+    <div className='md:px-[8%] px-5 md:py-[4rem] py-[2rem] glide relative mt-10 bg-gray-200'>
       <div className="flex items-center justify-between text-2xl font-bol mb-6">
         <h3 className="md:block hidden text-3xl">Children wating for sponsorship</h3>
         <h3 className="md:hidden block  text-3xl">Waiting</h3>
@@ -59,33 +61,45 @@ export default function ChildrenSection() {
           </button>
         </div>
       </div>
+      
       <div className='glide__track' data-glide-el='track'>
         <div className='glide__slides'>
           {(childrenData && childrenData.length > 0) &&
             childrenData.map((c, i) => (
-              <div className="glide__slide slider rounded bg-gray-100 overflow-hidden shadow-md">
-                <img 
-                  className="h-[270px] w-full" 
-                  src={process.env.PUBLIC_URL+c.image}
-                  alt="" 
-                  />
-                <div className="text-left p-3">
-                  <h3 className="text-3xl font-bol px-8">{c.name}</h3>
-                  <div className="flex items-center my-3 px-8">
-                    <FiStar className="text-xl mr-2" /> Birth day: 17-02-2012
-                  </div>
-                  <div className="flex items-center mb-3 px-8">
-                    <FiStar className="text-xl mr-2" /> Birth day: 17-02-2012
-                  </div>
+                <div className="glide__slide slider rounded bg-white overflow-hidden shadow-md p-6 border hover:border-cyan-600">
+                <div className="flex justify-center">
+                    <img 
+                        className="md:h-[160px] md:w-[160px] h-[180px] w-[180px] rounded-full" 
+                        src={process.env.PUBLIC_URL+c.image}
+                        alt="" 
+                    />
                 </div>
-                <Link className="flex justify-evenly bg-cyan-300 text-white p-2" to={`/children/profile/${c.id}`}>
-                  <div className="">
-                    <span className="block">Age</span> {c.age}
-                  </div>
-                  <div className="flex flex-col items-center">
-                    <span>Location</span> {c.state}
-                  </div>
-                </Link>
+                <div className="mt-6">
+                    <h2 className="text-2xl font-bold">{c.name}</h2>
+                    <div className="my-2">{c.state}</div>
+                    <div className="w-[max-content] flex items-center p-1 bg-slate-100 border text-[.8rem] mb-3 rounded-md">
+                        <FaClock className="mr-1" />
+                        Days waiting: 224
+                    </div>
+                    <div className="flex items-center text-sm  my-2">
+                        <span>Birthday</span>
+                        <span className="flex-1 h-[.1rem] bg-slate-300 mx-2"></span>
+                        <span>17/02/2020</span>
+                    </div>
+                    <div className="flex items-center text-sm my-2">
+                        <span>Gender</span>
+                        <span className="flex-1 h-[.1rem] bg-slate-300 mx-2"></span>
+                        <span>{c.gender}</span>
+                    </div>
+                    <div className="flex items-center text-sm my-2">
+                        <span>Age</span>
+                        <span className="flex-1 h-[.1rem] bg-slate-300 mx-2"></span>
+                        <span>{c.age}</span>
+                    </div>
+                    <div className="mt-6">
+                        <Link className="px-3 py-2 bg-rose-500 text-white rounded text-sm mt-5" to={`/profile/${c.id}`}>View profile</Link>
+                    </div>
+                </div>
               </div>
             ))
           }
