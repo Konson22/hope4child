@@ -30,8 +30,8 @@ export default function SearchFilter({cName}:{cName:string}) {
   return (
         <div className={`
             ${cName}
-            md:w-[30%] w-full md:bg-black bg-cyan-600 md:bg-opacity-30
-            text-white backdrop-blur-sm rounded-md 
+            md:w-[30%] w-full bg-gradient-to-tl from-blue-300 to-cyan-400 md:bg-opacity-10
+            text-white backdrop-blur-xl rounded-md 
             px-6 py-10 md:ml-10 md:mt-0
         `}>
             <h3 className="text-2xl font-bold mb-4">Spanosr a child</h3>
@@ -61,7 +61,7 @@ export default function SearchFilter({cName}:{cName:string}) {
 }
 
 
-function ChildSearch({ selectedGender, setSelectedGender, cName } : childSearchProps){
+export function ChildSearch({ selectedGender, setSelectedGender, cName } : childSearchProps){
 
     const genderData = ['Either', 'male', 'female']
 

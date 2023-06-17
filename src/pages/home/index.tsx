@@ -1,9 +1,14 @@
 import { LinkButton1 } from "components/Buttons";
 import Header from "./Header";
 import ChildrenSection from "./ChildrenSection";
+import { Link } from "react-router-dom";
 
 
 export default function HomePage() {
+
+  const bgImage = process.env.PUBLIC_URL+'./images/bg-image.jpg'
+
+
   return (
     <div>
         <Header />
@@ -33,6 +38,7 @@ export default function HomePage() {
                     <span className="text-rose-600"> DO</span> OUR JOB
                 </h2>
                 <p>
+                    {/* Child sponsorship is a program that enables you to support children, their families and entire communities — giving them the chance to grow up healthy, educated and safe – forever changing their life and future */}
                     there are the children who have a home but work on the streets as their only means of income. They beg, steal or perform small jobs like shoe-shining or selling items in the market to feed themselves and their family. These children often drop out of school and are much more likely to join gangs, steal and become addicted to drugs and alcohol.
                 </p>
                 <div className="mt-6">
@@ -48,7 +54,7 @@ export default function HomePage() {
                 HOW TO 
                 <span className="text-rose-600"> SPONSOR</span> A CHILD
             </h2>
-            <div className="md:grid grid-cols-2 gap-5 md:mt-14">
+            <div className="md:grid grid-cols-3 gap-5 md:mt-14">
                 {data.map((d, index) => (
                     <div className="relative md:mb-0 mb-8" key={index}>
                         <div className="">
@@ -65,6 +71,27 @@ export default function HomePage() {
         {/* THE END OF WHAT WE DO SECTION */}
         <ChildrenSection />
         {/* THE END OF WHAT WE DO SECTION */}
+
+        {/* THE END OF WHAT WE DO SECTION */}
+        <div 
+            className="md:mx-[8%] md:py-[8rem] py-[4rem] my-16"
+            style={{
+                backgroundImage:`linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.5)), url('${bgImage}')`, 
+                backgroundSize:'100% 100%', 
+                backgroundPosition:'center'
+            }}
+        >
+            <div className="md:w-[65%] md:px-10 px-4 text-white md:text-2xl text-sm">
+                <h2 className="text-4xl font-bold mb-2">WHAT IS <span className="text-rose-600">SPONSORSHIP </span> ?</h2>
+                <p>
+                    Child sponsorship is a program that enables you to support children, their families and entire communities — giving them the chance to grow up healthy, educated and safe – forever changing their life and future
+                </p>
+                <div className="md:mt-8 mt-6">
+                    <Link className="bg-rose-600 text-white rounded px-5 py-2" to='/children'>Support child</Link>
+                </div>
+            </div>
+        </div>
+        {/* THE END OF WHAT WE DO SECTION */}
     </div>
   )
 }
@@ -73,14 +100,14 @@ export default function HomePage() {
 const data = [
     {
         title:'CHOOSE A CHILD',
-        text:'When you sponsor a child, you are helping to give an orphaned or abandoned child a family and a future. With your help, children who have lost everything get a mother, brothers and sisters and everything they need to have a normal childhood in a loving home.'
+        text:'Choose an area where you want to make a difference in children’s lives and their communities. No matter where you choose, you’ll help give girls and boys the opportunity to learn and grow.'
     },
     {
         title:'CHOOSE KIND OF SPONSORSHIP',
+        text:'Watch as your ongoing support enables the work that empowers true change in the lives of children who are impacted by your generosity.'
+    },
+    {
+        title:'WATCH YOUR CHILD PROGREES',
         text:'When you sponsor a child, you are helping to give an orphaned or abandoned child a family and a future. With your help, children who have lost everything get a mother, brothers and sisters and everything they need to have a normal childhood in a loving home.'
     },
-    // {
-    //     title:'WATCH YOUR CHILD PROGREES',
-    //     text:'When you sponsor a child, you are helping to give an orphaned or abandoned child a family and a future. With your help, children who have lost everything get a mother, brothers and sisters and everything they need to have a normal childhood in a loving home.'
-    // },
 ]

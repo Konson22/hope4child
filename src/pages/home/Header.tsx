@@ -15,7 +15,7 @@ export default function Header() {
   )
   return (
     <>
-    <div className="md:flex items-center px-[5%] md:pt-[4rem] pt-[4rem] md:pb-[4rem] pb-[8rem]"
+    <div className="md:flex items-center px-[5%] md:pt-[4rem] pt-[6rem] md:pb-[4rem] pb-[10rem]"
         style={{
             backgroundImage:`linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${bgImage}')`, 
             backgroundSize:'cover', 
@@ -25,7 +25,7 @@ export default function Header() {
         {SloganText}
         <SearchFilter cName='md:block hidden' />
     </div>
-    <div className="md:hidden block px-4 mt-[-5rem]">
+    <div className="md:hidden block px-4 mt-[-8rem]">
         <SearchFilter cName='' />
     </div>
     </>
