@@ -29,10 +29,10 @@ export default function ProfilePage() {
 
   return (
     <>
-      {profile &&
+      {profile ?
       <div className="md:flex items-center md:px-[10%] px-5 my-6">
         <div className="md:w-[35%] rounded-md overflow-hidden md:mr-6">
-          <img className="md:h-[350px] h-[260px]" src={process.env.PUBLIC_URL+`/${profile.image}`} alt="" />
+          <img className="md:h-[350px] h-[300px]" src={process.env.PUBLIC_URL+`/${profile.image}`} alt="" />
           <div className="bg-cyan-600 md:font-semibold text-white text-sm md:text-center md:p-3 p-2">
             {profile.name.split(' ')[0]} has been waiting <span className="text-red-700">456</span> days.
           </div>
@@ -71,6 +71,23 @@ export default function ProfilePage() {
                     Sponsor {profile.name}
                 </Link>
             </div>
+        </div>
+      </div> :
+      <div className="md:flex items-center md:px-[10%] px-5 my-6">
+        <div className="h-[350px] md:w-[35%] bg-gray-100"></div>
+        <div className="md:w-[70%] p-6">
+          <div className="h-4 rounded bg-gray-200 md:w-[40%] w-[80%] mb-8"></div>
+          <div className="flex justify-between my-5">
+            <span className="md:p-8 p-5 bg-gray-200 rounded-full"></span>
+            <span className="md:p-8 p-5 bg-gray-200 rounded-full"></span>
+            <span className="md:p-8 p-5 bg-gray-200 rounded-full"></span>
+          </div>
+          <div className="h-2 rounded bg-gray-100 w-[100%] mb-3"></div>
+          <div className="h-2 rounded bg-gray-100 w-[90%] mb-3"></div>
+          <div className="h-2 rounded bg-gray-100 w-[70%] mb-3"></div>
+          <div className="h-2 rounded bg-gray-100 w-[90%] mb-3"></div>
+          <div className="h-2 rounded bg-gray-100 w-[60%] mb-3"></div>
+          <div className="h-9 rounded bg-gray-200 w-[30%] mt-4"></div>
         </div>
       </div>
       }

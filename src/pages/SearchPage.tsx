@@ -9,7 +9,7 @@ export default function SearchPage() {
   const [searchParam] = useSearchParams()
   const { childrenData } = useChildrenContext()
   const genderParam = searchParam.get('gender')
-  const [children, setChildren] = useState([])
+  const [children, setChildren] = useState(childrenData)
 
   useEffect(() => {
     if(childrenData){

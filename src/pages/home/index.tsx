@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export default function HomePage() {
 
-  const bgImage = process.env.PUBLIC_URL+'./images/bg-image.jpg'
+  const bgImage = process.env.PUBLIC_URL+'./images/group-african-kids-learning-together.jpg'
 
 
   return (
@@ -82,9 +82,9 @@ export default function HomePage() {
             }}
         >
             <div className="md:w-[65%] md:px-10 px-4 text-white md:text-2xl text-sm">
-                <h2 className="text-4xl font-bold mb-2">WHAT IS <span className="text-rose-600">SPONSORSHIP </span> ?</h2>
+                <h2 className="md:text-4xl text-2xl font-bold mb-2">WHAT IS <span className="text-rose-600">SPONSORSHIP </span> ?</h2>
                 <p>
-                    Child sponsorship is a program that enables you to support children, their families and entire communities — giving them the chance to grow up healthy, educated and safe – forever changing their life and future
+                    Child sponsorship is a program that enables you to support children, their families and entire 
                 </p>
                 <div className="md:mt-8 mt-6">
                     <Link className="bg-rose-600 text-white rounded px-5 py-2" to='/children'>Support child</Link>
