@@ -1,43 +1,50 @@
-import { Title3 } from "components/HeadingTitle"
 import DonateForm from "./forms/DonateForm"
-import { Header } from "components/Header"
 
 
 export default function DonatePage() {
-
   return (
-    <div>
-        <Header 
-            image="./images/children-g1c4ec8142_1280.jpg" 
-            cName='pt-[4rem] pb-[7rem]'
-            text="Sponsor a child while respecting his rights" 
-        />
-        <div className="md:px-[8%] px-3 flex">
-            <div className="flex-1 md:p-8 p-3">
-                <p className="md:text-3xl hidden">
-                With Humanium, your sponsorship prioritizes protection of the child and their well-being. Your monthly gifts help ensure all children’s rights become a reality. Learn more
-Without obligation: you control your payments without consequences for the child.
-Tax deductible: your sponsorship is a qualified charitable donation.
-Respectfully, you help the child and his community.
-                </p>
-                <Title3 text="Realising street children’s right to education" />
-                <p className="my-3">
-                    The universal right to education has a solid basis in international law and is a key component of the United Nation’s 2030 Agenda, centred on leaving no one behind. The goal to get all children, adolescents and youth into education by 2030 has seen rising global enrolment rates reach 82% in 2017, the figure being as high as 91% for primary school aged children. Despite this commendable progress, street children are at risk of being left behind. The numerous societal, practical and health barriers street children face means they are among the millions of the world’s hardest-to-reach children who are unable to attend mainstream schools and face high drop-out rates from formal education programmes
-                </p>
-                <p>
-                    When data on enrolment rates are gathered, street children not enrolled in school are often not included – as most of the data is gathered through household surveys.[ii] This means they are neither part of the 91% of children in primary school, nor part of the 9% of children not in primary school – they remain invisible altogether
-                </p>
-                <div className="mt-5">
-                    <Title3 text="Why Sponsor Street child" />
-                    <p>
-                        Allowing street children to be left behind from efforts improving access to education will only perpetuate their cycle of poverty and the countless human rights violations they face on the streets every day. Providing them with access to education can not only provide safe spaces and security whilst they are on the streets, but also opportunities to move away from the streets and go on to lead happy and healthy adult lives.
-                    </p>
-                </div>
-            </div>
-            <div className="w-[45%] md:block hidden mt-[-4rem]">
-                <DonateForm />
-            </div>
-        </div>
+    <>
+    <div className="bg-red-500 px-[8%] pt-[4rem] pb-[10rem] text-white"
+      style={{
+        backgroundImage:`linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.2)), url(${process.env.PUBLIC_URL+'/images/bg.png'})`,
+        backgroundSize:'100% 100%'
+      }}
+    >
+      <div className="w-[70%]">
+        <h1 className="text-6xl font-bold">DONATE TODAY AND SAVE A LIFE</h1>
+        {/* */}
+      </div>
     </div>
+    <div className="md:flex md:px-[8%] px-3 py-4">
+      <div className="flex-1">
+        <p className="">
+          Vulnerable children need you more than ever.
+          Right now, children are growing up against the backdrop of hunger, conflict and natural disasters. Your gift today can help make change that protects the lives of children, families and their communities.
+        </p> 
+      </div>
+      <div className="flex-1 mt-[-6rem]">
+        <DonateForm />
+      </div>
+    </div>
+    </>
   )
 }
+
+
+const data = [
+  {
+    title:'',
+    text:`Once you donate, an account with a temporary password will be created for you in our Supporter Center. Simply log in to securely view this as well as any future gifts and so much more. You'll also start receiving email news of your generosity in action, including inspiring children's stories, emergency alerts and ways to get involved.`
+  },
+  {
+    title:'',
+    text:`
+    By making a donation, you give us permission to use your gift, combined with those of other donors, as part of our matching gift fund to inspire more donors like you to support our mission. Whether or not your gift is matched, it will still be tax deductible to the full extent allowable by IRS regulations in the same year it was made. If you donate after December 31, your donation will be matched in the following year.`
+  },
+  {
+    title:'',
+    text:`
+    For monthly gifts only: By providing my credit card information, I authorize Save the Children Federation, Inc. to charge my credit card on a recurring basis in the amount indicated above. I understand that this authorization shall remain in effect until I notify Save the Children at least 30 days prior to the upcoming charge that I wish to end this agreement. I understand my credit card issuer may impose additional requirements and I should contact the credit card issuer for further information. A record of my contributions will appear on my billing statement.`
+  },
+  
+]

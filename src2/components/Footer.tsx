@@ -1,53 +1,54 @@
-import { PhoneIcon, MapPinIcon } from '@heroicons/react/24/outline'
-// import {  } from "@heroicons/react/24/solid";
+import { Heading3 } from "./Heading";
+import SocialMedia from "./SocialMedia";
+
 
 export default function Footer() {
   return (
-    <div className="md:px-[8%] px-3 py-[2rem] md:flex justify-between bg-slate-800 text-white">
-        <div className="flex-1">
-            <span className="text-xl font-semibold">Who are we?</span>
-            <p>
-                The universal right to education has a solid basis in international law and is a key component of the United Nation’s 2030 Agenda, centred on leaving no one behind. The goal to get all children, adolescents and youth into education by 2030 has seen rising global enrolment rates reach 82% in 2017, the figure being
-            </p>
+    <footer className="bg-cyan-700 text-white">
+        <div className="flex justify-end md:px-[10%] px-4 md:py-[1.5rem] py-6">
+            <SocialMedia cName="text-3xl" />
         </div>
-        <div className="md:mx-14 md:mt-0 mt-10">
-            <span className="text-xl font-semibold">Policy & Privacy</span>
-            <ul>
-                <li className="flex items-center my-4">
-                    About us
-                </li>
-                <li className="flex items-center my-4">
-                    About us
-                </li>
-                <li className="flex items-center my-4">
-                    About us
-                </li>
-                <li className="flex items-center my-4">
-                    About us
-                </li>
-            </ul>
+        <div className="md:flex justify-between bg-sky-600 md:px-[10%] px-4 md:py-[2.5rem] py-6">
+            <div className="">
+                <Heading3 text="Ways to Give" />
+                <ul>
+                    <li className="my-2">Sponsor a Child</li>
+                    <li className="my-2">Ways to Donate</li>
+                    <li className="my-2">Disaster Relief</li>
+                    <li className="my-2">Meet Critical Needs</li>
+                    <li className="my-2">Donate Crypto</li>
+                </ul>
+            </div>
+            <div className="md:my-0 my-7">
+                <Heading3 text="Ways to Give" />
+                <ul>
+                    <li className="my-2">Sponsor a Child</li>
+                    <li className="my-2">Ways to Donate</li>
+                    <li className="my-2">Disaster Relief</li>
+                    <li className="my-2">Meet Critical Needs</li>
+                    <li className="my-2">Donate Crypto</li>
+                </ul>
+            </div>
+            <div className="">
+                <Heading3 text="Ways to Give" />
+                <ul>
+                    <li className="my-2">Sponsor a Child</li>
+                    <li className="my-2">Ways to Donate</li>
+                    <li className="my-2">Disaster Relief</li>
+                    <li className="my-2">Meet Critical Needs</li>
+                    <li className="my-2">Donate Crypto</li>
+                </ul>
+            </div>
+            <div className="md:mt-0 mt-7">
+                <Heading3 text="Quick Links" />
+                <ul>
+                    <li className="my-2">Contact Us</li>
+                    <li className="my-2">Careers</li>
+                    <li className="my-2">Estate and Asset Giving</li>
+                    <li className="my-2">Press Center</li>
+                </ul>
+            </div>
         </div>
-        <div className="md:mt-0 mt-10">
-            <span className="text-xl font-semibold">Contacts & addresses</span>
-            <ul>
-                <li className="flex items-center my-4">
-                    <MapPinIcon className='h-5 mr-3' />
-                    Stem center, Juba-S.Sudan
-                </li>
-                <li className="flex items-center my-4">
-                    <PhoneIcon className='h-5 mr-3' />
-                    0920079070
-                </li>
-                <li className="flex items-center my-4">
-                    <PhoneIcon className='h-5 mr-3' />
-                    0920079070
-                </li>
-                <li className="flex items-center my-4">
-                    <PhoneIcon className='h-5 mr-3' />
-                    info@hope4child.com
-                </li>
-            </ul>
-        </div>
-    </div>
+    </footer>
   )
 }

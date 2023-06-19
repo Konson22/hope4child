@@ -1,51 +1,57 @@
-import { FaHeart } from 'react-icons/fa'
-import { FiHeart } from 'react-icons/fi'
+import { FaClock } from 'react-icons/fa'
 import { childInterface } from '../util/Types'
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 
-export default function ChildCard({ child }: { child:childInterface}) {
+export default function ChildCard({ child, bg='bg-white' }: { child:childInterface, bg?:string}) {
 
-    const [isLiked, setIsLiked] = useState(false)
+    // const [isLiked, setIsLiked] = useState(false)
 
   return (
-    <div className='bg-slate-100' key={child.id}>
-        <div className="relative">
-            <img className='md:h-[170px] h-[200px] w-full' src={process.env.PUBLIC_URL+'/images/avatars/image-1.png'} alt="" />
-            {/* <img className='md:h-[170px] h-[200px] w-full' src={`http://localhost:3001/${child.image}`} alt="" /> */}
-            <span className="hidden bg-green-500 text-white absolute bottom-0 left-0 px-3 py-2">
-                {child.state}
-            </span>
+    <Link 
+      className={`
+        bg-gradient-to-tl from-sky-100 to-cyan-50
+        rounded ${bg} bg-white h-full w-full overflow-hidden shadow-md 
+        p-6 border hover:border-cyan-600`} to={`/profile/${child.id}
+      `}
+    >
+        <div className="flex justify-center">
+            <img 
+            className="md:h-[160px] md:w-[160px] h-[180px] w-[180px] rounded-full" 
+            src={process.env.PUBLIC_URL+child.image}
+            alt="" 
+            />
         </div>
-        <div className="p-3">
-            <h3 className="md:text-xl font-bold mb-">{child.name}</h3>
-            <span className="md:text-base line-clamp-2 text-sm mr-2">
-                Meet {child.name} a {child.age} years old from {child.gender} who want to be <span className="text-rose-500">Doctor</span> in future
-            </span>
-            <div className="flex items-center justify-between mt-5"
-                onClick={() => setIsLiked(!isLiked)}
-            >
-                <span className="">
-                    {isLiked ? 
-                        <div className="flex items-center">
-                            <FaHeart className='text-rose-600 text-2xl' /> 
-                            <span className="text-sm ml-1">150</span>
-                        </div> :
-                        <FiHeart className='text-rose-600 text-2xl' />
-                    }
-                </span>
-                <div className="flex">
-                    <Link 
-                        className="bg-rose-600 text-white rounded px-3 py-1 mr-3"
-                        to={`/children/profile/${child.id}`}
-                    >
-                        Profile
-                    </Link>
-                    <Link className="bg-cyan-600 text-white rounded px-3 py-1" to={`/support-child/${child.name}`}>Support</Link>
-                </div>
+        <div className="mt-6">
+            <h2 className="text-xl font-bold">{child.name}</h2>
+            <div className="my-2">{child.state}</div>
+            <div className="w-[max-content] flex items-center p-1 bg-slate-100 border text-[.8rem] mb-3 rounded-md">
+            <FaClock className="mr-1" />
+            Days waiting: 224
+            </div>
+            <div className="flex items-center text-sm  my-2">
+            <span>Birthday</span>
+            <span className="flex-1 h-[.1rem] bg-slate-300 mx-2"></span>
+            <span>17/02/2020</span>
+            </div>
+            <div className="flex items-center text-sm my-2">
+            <span>Gender</span>
+            <span className="flex-1 h-[.1rem] bg-slate-300 mx-2"></span>
+            <span>{child.gender}</span>
+            </div>
+            <div className="flex items-center text-sm my-2">
+            <span>Age</span>
+            <span className="flex-1 h-[.1rem] bg-slate-300 mx-2"></span>
+            <span>{child.age}</span>
+            </div>
+            <div className="flex mt-6">
+              <Link className="px-3 py-2 bg-rose-500 text-white rounded text-sm mt-5 mr-4" to={`/profile/${child.id}`}>View profile</Link>
+              <Link className="px-3 py-2 bg-rose-500 text-white rounded text-sm mt-5" to={`/profile/${child.id}`}>Sponsor</Link>
             </div>
         </div>
-    </div>
+    </Link>
   )
 }
+
+
+

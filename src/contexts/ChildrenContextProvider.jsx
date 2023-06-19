@@ -1,4 +1,4 @@
-// import childrenJson from 'assets/childrenJson'
+import childrenJson from 'assets/childrenJson'
 import axiosInstance from 'hooks/useAxios'
 import { useState, useContext, createContext, useEffect } from 'react'
 
@@ -8,7 +8,7 @@ export default function ChildrenContextProvider({ children }) {
 
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState('')
-  const [childrenData, setChildren] = useState([])
+  const [childrenData, setChildren] = useState(childrenJson)
 
   useEffect(() => {
     const controller = new AbortController();
@@ -17,7 +17,7 @@ export default function ChildrenContextProvider({ children }) {
       try{
         const results = await axiosInstance('/children').then(res => res)
         if(isMuted){
-          results.data.length >=1 ? setChildren(results.data) : setError('No data')
+          // results.data.length >=1 ? setChildren(results.data) : setError('No data')
         }
       }catch(error){
         if(error.status === 404 || error.status === 403 || error.status === 500){

@@ -33,7 +33,7 @@ export default function Appbar() {
           <PhoneIcon className="h-6 mr-2" />
           +211920079070
         </span>
-        <SocialMedia cName="text-2xl" />
+        <SocialMedia cName="text-2xl ml-3" />
       </div>
     </div>
     <div className=" md:bg-gray-100 bg-slate-800 md:text-slate-600 text-white backdrop-blur-sm flex items-center justify-between md:px-[3%] px-3 md:py-0 py-2 sticky top-0 left-0 z-40">

@@ -84,6 +84,13 @@ export const statesData = [
     'Ruweng',
 ]
 
+export const ageData = [
+    '4 - 8',
+    '9 - 13',
+    '14 - 18',
+    '19 - 23',
+]
+
 export const childrenTestimonialsData = [
     {
         name:'Rio de Janeiro',

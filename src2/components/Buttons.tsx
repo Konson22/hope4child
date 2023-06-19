@@ -1,36 +1,25 @@
-import React from 'react'
 
-interface buttonProps {
-    text:string;
-    cName?:string;
+interface buttonPorps {
     bg?:string;
+    text:string;
     Icon?:(props: React.ComponentProps<'svg'>) => JSX.Element;
+    cName?:string;
 }
 
-export const Button:React.FC<buttonProps> = ({ text, Icon, cName}) => {
+export function Button({ text, bg='bg-rose-500 text-white', Icon, cName} : buttonPorps) {
   return (
-    <button className={`flex items-center rounded text-white bg-rose-500 px-4 py-3 text-sm ${cName}`}>
+    <button className={`flex items-center px-3 py-2 rounded ${bg} ${cName}`}>
       {text}
-      {Icon && <Icon className='h-4 ml-2' />}
+      {Icon && <Icon className="ml-2" />}
     </button>
   )
 }
 
-export const MyButton:React.FC<buttonProps> = ({ text, Icon, bg='bg-rose-500', cName='px-4 py-2'}) => {
+export function ButtonSm({ text, bg='bg-rose-500 text-white', Icon, cName} : buttonPorps) {
   return (
-    <button className={`flex items-center rounded text-white ${bg} ${cName}`}>
+    <button className={`flex items-center px-3 py-1 rounded ${bg} ${cName}`}>
       {text}
-      {Icon && <Icon className='h-4 ml-2' />}
+      {Icon && <Icon className="ml-2" />}
     </button>
   )
 }
-
-export const Button1:React.FC<buttonProps> = ({ text, Icon, cName=''}) => {
-  return (
-    <button className={`flex items-center rounded text-white bg-rose-600 ${cName} px-4 py-2`}>
-      {text}
-      {Icon && <Icon className='h-4 ml-2' />}
-    </button>
-  )
-}
-

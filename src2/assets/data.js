@@ -4,7 +4,7 @@ export const navigationsLinksData = [
     {text:'HOME', path:'/'},
     {text:'WHO ARE WE', path:'/how-to-help', subLinks:[
         {text:'About us', path:'/about'},
-        {text:'Projects', path:'/our-projects'},
+        {text:'Projects', path:'/#projects'},
         {text:'Support & Partners', path:'donate'},
         {text:'Our Team', path:'donate'},
         {text:'Legal Structure', path:'donate'},
@@ -12,7 +12,7 @@ export const navigationsLinksData = [
     ]},
     {text:'GET INVOLVED', path:'/children', 
         subLinks:[
-            {text:'Sponsor Child', path:'/sponsor-child'},
+            {text:'Sponsor Child', path:'/children'},
             {text:'Make donation', path:'/donate'},
             {text:'Become a member', path:'/become-a-member'},
             {text:'Volunteer', path:'/volunteer'},
@@ -21,7 +21,7 @@ export const navigationsLinksData = [
             {text:'News latter', path:'/'},
         ],
     },
-    {text:'SPONSOR CHILD', path:'/sponsor-child'},
+    {text:'SPONSOR CHILD', path:'/children'},
     {text:'GIVE GIFT', path:'/'},
 ]
 
@@ -82,6 +82,13 @@ export const statesData = [
     'Bor',
     'Abiey',
     'Ruweng',
+]
+
+export const ageData = [
+    '4 - 8',
+    '9 - 13',
+    '14 - 18',
+    '19 - 23',
 ]
 
 export const childrenTestimonialsData = [
