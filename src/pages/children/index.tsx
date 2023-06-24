@@ -4,9 +4,7 @@ import { useChildrenContext } from "contexts/ChildrenContextProvider";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Dropdown } from "components/Dropdown";
-import { ageData, statesData } from "assets/data";
-import { FiSearch } from "react-icons/fi";
-import { ChildSearch } from "components/SearchFilter";
+import { ageData, genderData, statesData } from "assets/data";
 // import { getChildren } from "apis/apis";
 // import { useQuery } from "@tanstack/react-query"
 
@@ -21,88 +19,70 @@ export default function ChildrenPage() {
     const [selectedAge, setSelectedAge] = useState<string>('All ages');
 
     const handleSearch = () => { 
-        let query = []
-        if(selectedState && selectedState !== 'All States'){
-            query.push(`state=${selectedState}`)
-        }
-        if(selectedGender && selectedGender !== 'Either'){
-            query.push(`gender=${selectedGender}`)
-        }
-        if(selectedAge && selectedAge !== 'All ages'){
-            query.push(`age=${selectedAge}`)
-        }
-        navigate(`/search?${query.join('&')}`)
+        navigate(`/search?state=${selectedState}&&gender=${selectedGender}&age=${selectedAge}`)
     }
    
-    const bgImage = process.env.PUBLIC_URL+'./images/children-g1c4ec8142_1280.jpg'
+    const bgImage = process.env.PUBLIC_URL+'./images/bg.png'
 
   return (
     <>
     <div 
-        className="md:px-[20%] px-4 md:pt-[7rem] pt-[3rem] pb-[8rem] text-white"
+        className="md:h-[50vh] h-[35vh]"
         style={{
-            backgroundImage:`linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${bgImage}')`, 
+            backgroundImage:`linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url('${bgImage}')`, 
             backgroundSize:'cover', 
             backgroundPosition:'center'
         }}
     >
-        <div className="md:w-[80">
-            <h2 className="md:text-6xl text-4xl font-bold">
-                Realizing <span className="text-rose-600">street</span> children’s right to <span className="text-rose-600">education</span></h2>
-           
-        </div>
     </div>
     <div className="px-[3%] py-4 mt-[-6rem]">
-        <div className="flex justify-center">
-            <div className="rounded text-whitee bg-gradient-to-tl from-sky-100 to-cyan-100 md:px-20 px-4 py-12">
-                <div className="md:flex md:w-auto w-full">
-                    <ChildSearch 
-                        selectedGender={selectedGender} 
-                        setSelectedGender={setSelectedGender} 
-                        cName="w-[31%]"
-                    />
-                    {/* <ChildSearch 
-                        selectedGender={selectedGender} 
-                        setSelectedGender={setSelectedGender} 
-                        cName="flex-1 md:mx-2 mx-1"
-                    /> */}
-                    <div className="flex md:mx-6 md:my-0 my-6">
-                        <div className="md:flex-none flex-1 md:mr-3">
-                            <span className="block mb-1">Choose State</span>
-                            <Dropdown 
-                                data={selectedAge} 
-                                handleChange={setSelectedAge} 
-                                dataArray={ageData} 
-                                cName="flex-1 mx-1" 
-                            />
-                        </div>
-                        <div className="md:flex-none flex-1">
-                            <span className="block mb-1">Choose State</span>
-                            <Dropdown 
-                                data={selectedState} 
-                                handleChange={setSelectedState} 
-                                dataArray={statesData} 
-                                cName="flex-1 mx-1" 
-                            />
-                        </div>
+        <div className="md:mx-[10%] md:flex items-center bg-cyan-500 bg-opacity-80 text-white md:p-12 rounded p-5">
+            <div className="flex-1 text-2xl md:mr-6">
+                Your generosity gives children a smile Sponsor child now
+            </div>
+            <div className="md:flex">
+                <div className="flex md:my-0 my-6">
+                    <div className='md:mr-1'>
+                        <span className="block m-1">Gender</span>
+                        <Dropdown 
+                            data={selectedGender} 
+                            handleChange={setSelectedGender} 
+                            dataArray={genderData} 
+                            cName="w-full" 
+                        />
                     </div>
-                    <div className="md:mr-3">
-                        <span className="block mb-1">Match child</span>
-                        <button 
-                            className="
-                                w-full flex items-center justify-center bg-rose-600 text-white
-                                rounded px-5 py-2
-                            "
-                            onClick={handleSearch}
-                        >
-                            <FiSearch className="text-xl mr-2" />
-                            Search
-                        </button>
+                    <div className='flex-1 md:mx-2 mx-1'>
+                        <span className="block m-1">State</span>
+                        <Dropdown 
+                            data={selectedState} 
+                            handleChange={setSelectedState} 
+                            dataArray={statesData} 
+                            cName="w-full" 
+                            hieght='h-[180px] overflow-y-scroll'
+                        />
                     </div>
+                    <div className='flex-'>
+                        <span className="block m-1">Age</span>
+                        <Dropdown
+                            data={selectedAge} 
+                            handleChange={setSelectedAge} 
+                            dataArray={ageData} 
+                            cName="w-full" 
+                        />
+                    </div>
+                </div>
+                <div className='md:ml-3 ml-0'>
+                    <span className="md:block hidden m-1">Search</span>
+                    <button 
+                        className="md:w-auto w-full px-5 py-2 text-white bg-rose-700 rounded"
+                        onClick={handleSearch}
+                    >
+                        Match your child
+                    </button>
                 </div>
             </div>
         </div>
-        <div className="md:px-0 mx-2 my-10">
+        <div className="md:px-0 px-3 mx-2 my-10">
             <div className="flex items-center justify-between mb-7">
                 <span className="text-2xl">Results 120</span>
                 <div className="px-3 py-1 border">Sort by</div>
@@ -125,31 +105,31 @@ export default function ChildrenPage() {
 
 
 
-function LoaderCard(){
-    return(
-      <div className="grid md:grid-cols-4 grid-cols-1 gap-x-3 gap-y-6 md:mt-16 mt-8 md:px-0 px-5">
-        {[...new Array(10)].map((_, item) => (
-          <div className="bg-gray-50" key={item}>
-            <img className="h-[210px]" 
-                src={process.env.PUBLIC_URL+'/images/placeholder-large.png'} 
-                alt="" 
-            />
-            <div className="px-3 py-2">
-                <span className="h-2 w-[60%] bg-gray-200 block mt-2"></span>
-                <span className="h-1 w-[90%] bg-gray-200 block mt-2"></span>
-                <span className="h-1 w-[80%] bg-gray-200 block mt-2"></span>
-                <span className="h-1 w-[80%] bg-gray-200 block mt-2"></span>
-                <div className="flex items-center justify-between mt-7">
-                    <span className="h-7 w-7 rounded-full bg-gray-200 block"></span>
-                    <div className="flex items-center">
-                        <span className="md:h-7 h-4 md:w-18 w-16 bg-gray-200 block rounded mr-3"></span>
-                        <span className="md:h-7 h-4 md:w-18 w-16 bg-gray-200 block rounded"></span>
-                    </div>
-                </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    )
-  }
+// function LoaderCard(){
+//     return(
+//       <div className="grid md:grid-cols-4 grid-cols-1 gap-x-3 gap-y-6 md:mt-16 mt-8 md:px-0 px-5">
+//         {[...new Array(10)].map((_, item) => (
+//           <div className="bg-gray-50" key={item}>
+//             <img className="h-[210px]" 
+//                 src={process.env.PUBLIC_URL+'/images/placeholder-large.png'} 
+//                 alt="" 
+//             />
+//             <div className="px-3 py-2">
+//                 <span className="h-2 w-[60%] bg-gray-200 block mt-2"></span>
+//                 <span className="h-1 w-[90%] bg-gray-200 block mt-2"></span>
+//                 <span className="h-1 w-[80%] bg-gray-200 block mt-2"></span>
+//                 <span className="h-1 w-[80%] bg-gray-200 block mt-2"></span>
+//                 <div className="flex items-center justify-between mt-7">
+//                     <span className="h-7 w-7 rounded-full bg-gray-200 block"></span>
+//                     <div className="flex items-center">
+//                         <span className="md:h-7 h-4 md:w-18 w-16 bg-gray-200 block rounded mr-3"></span>
+//                         <span className="md:h-7 h-4 md:w-18 w-16 bg-gray-200 block rounded"></span>
+//                     </div>
+//                 </div>
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//     )
+//   }
   

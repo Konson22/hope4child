@@ -13,8 +13,8 @@ export default function HomePage() {
     <div>
         <Header />
         {/* START OF INTRODUCTION SECTION */}
-        <div className="md:px-[8%] px-3 md:py-[5rem] py-[3rem] md:text-center">
-            <h2 className="md:text-5xl text-[1.4rem] font-bold mb-3">
+        <div className="md:px-[18%] px-3 md:py-[5rem] py-[3rem] md:text-center">
+            <h2 className="md:text-3xl text-[1.4rem] font-bold mb-3">
                 Realizing Street
                 <span className="text-rose-600"> Children</span> Right To
                 <span className="text-rose-600"> Education</span>
@@ -26,16 +26,31 @@ export default function HomePage() {
             </p>
         </div>
         {/* THE END OF INTRODUCTION SECTION */}
-
+        
+        <div className="
+                clip-path md:px-[20%] px-3 md:py-[5rem] py-[3rem]
+                text-white bg-slate-800 text-center mb-16
+            "
+        >
+            <h1 className="md:text-4xl font-bold text-cyan-500 ">WHAT IS STREET CHILD SPONSORSHIP</h1>
+            <p>
+                Child sponsorship is a program that enables you to support children, their families and entire communities, giving them the chance to grow up healthy, educated and safe, forever changing their life and future
+                {/* Every child available for sponsorship is a child in need. In that sense, there’s no wrong choice.
+                At the same time, we know that choosing a child to sponsor is an important, life-changing decision. We believe those choices are the beginning of a beautiful story that God is writing. */}
+            </p>
+            <div className="mt-8">
+                <LinkButton1 text="Support Child" cName="mt-6" path="/what we do" />
+            </div>
+        </div>
         {/* THE END OF WHAT WE DO SECTION */}
-        <div className="md:px-[8%] mx-2 md:py-[5rem] bg-slate-2000 md:flex items-center">
+        <div className="md:px-[2%] mx-2 md:py-[5rem] bg-slate-2000 md:flex items-cente">
             <div className="md:w-[45%] md:mr-6">
                 <img src={process.env.PUBLIC_URL+'./images/children-g1c4ec8142_1280.jpg'} alt="" />
             </div>
             <div className="flex-1 md:p-0 p-3">
-                <h2 className="md:text-4xl text-[1.4rem] font-bold mb-3">
-                    WHY WE
-                    <span className="text-rose-600"> DO</span> OUR JOB
+                <h2 className="md:text-3xl text-[1.4rem] font-bold mb-3">
+                   WHY TO SUPPORT <span className="text-rose-600">STREET</span>  CHILD?
+                    
                 </h2>
                 <p>
                     {/* Child sponsorship is a program that enables you to support children, their families and entire communities — giving them the chance to grow up healthy, educated and safe – forever changing their life and future */}
@@ -49,10 +64,30 @@ export default function HomePage() {
         {/* THE END OF WHAT WE DO SECTION */}
 
         {/* THE END OF WHAT WE DO SECTION */}
+        <div className="md:mx-[2%] mx-2 md:p-[2rem bg-slate-2000 md:flex items-center bg-slate-200">
+            <div className="flex-1 md:p-5 p-3">
+                <h2 className="md:text-3xl text-[1.4rem] font-bold mb-3">
+                   WHY TO SUPPORT <span className="text-rose-600">STREET</span>  CHILD?
+                    
+                </h2>
+                <p>
+                    {/* Child sponsorship is a program that enables you to support children, their families and entire communities — giving them the chance to grow up healthy, educated and safe – forever changing their life and future */}
+                    there are the children who have a home but work on the streets as their only means of income. They beg, steal or perform small jobs like shoe-shining or selling items in the market to feed themselves and their family. These children often drop out of school and are much more likely to join gangs, steal and become addicted to drugs and alcohol.
+                </p>
+                <div className="mt-6">
+                    <LinkButton1 text="Learn more" cName="mt-6" path="/what we do" />
+                </div>
+            </div>
+            <div className="md:w-[45%] h-[400px] md:m6">
+                <img src={process.env.PUBLIC_URL+'./images/children/child-8.jpg'} alt="" />
+            </div>
+        </div>
+        {/* THE END OF WHAT WE DO SECTION */}
+
+        {/* THE END OF SPONSOR CHILD SECTION */}
         <div className="md:px-[8%] px-3 md:py-[5rem] py-[3rem]">
             <h2 className="md:text-5xl text-[1.4rem] md:text-center font-bold mb-3">
-                HOW TO 
-                <span className="text-rose-600"> SPONSOR</span> A CHILD
+                HOW TO SUPPORT <span className="text-rose-600">STREET</span>  CHILD?
             </h2>
             <div className="md:grid grid-cols-3 gap-5 md:mt-14">
                 {data.map((d, index) => (
@@ -66,7 +101,7 @@ export default function HomePage() {
                 ))}
             </div>
         </div>
-        {/* THE END OF WHAT WE DO SECTION */}
+        {/* THE END OF SPONSOR CHILD SECTION */}
 
         {/* THE END OF WHAT WE DO SECTION */}
         <ChildrenSection />

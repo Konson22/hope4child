@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ageData, statesData } from 'assets/data';
+import { ageData, genderData, statesData } from 'assets/data';
 import { useNavigate } from 'react-router-dom';
 import { Dropdown } from './Dropdown';
 import { childSearchProps } from 'util/Types';
@@ -7,9 +7,9 @@ import { childSearchProps } from 'util/Types';
 export default function SearchFilter({cName}:{cName:string}) {
 
     const navigate = useNavigate()
-    const [selectedState, setSelectedState] = useState<string>('All States');
-    const [selectedGender, setSelectedGender] = useState<string>('Either');
-    const [selectedAge, setSelectedAge] = useState<string>('All ages');
+    const [selectedState, setSelectedState] = useState<string>(statesData[0]);
+    const [selectedGender, setSelectedGender] = useState<string>(genderData[0]);
+    const [selectedAge, setSelectedAge] = useState<string>(ageData[0]);
 
     const handleSearch = () => { 
         let query: string[] = []
@@ -30,31 +30,46 @@ export default function SearchFilter({cName}:{cName:string}) {
   return (
         <div className={`
             ${cName}
-            md:w-[30%] w-full bg-gradient-to-tl from-blue-300 to-cyan-400 md:bg-opacity-10
+            md:w-[33%] w-full bg-black md:bg-opacity-30
             text-white backdrop-blur-xl rounded-md 
-            px-6 py-10 md:ml-10 md:mt-0
+            px-6 py-10 md:ml-10 md:mt-0 text-base
         `}>
-            <h3 className="text-2xl font-bold mb-4">Spanosr a child</h3>
-            <ChildSearch selectedGender={selectedGender} setSelectedGender={setSelectedGender} cName="w-[31%]"/>
-            <div className="flex mt-10">
-                <Dropdown 
-                    data={selectedState} 
-                    handleChange={setSelectedState} 
-                    dataArray={statesData} 
-                    cName="flex-1 mr-1" 
-                />
-                <Dropdown
-                    data={selectedAge} 
-                    handleChange={setSelectedAge} 
-                    dataArray={ageData} 
-                    cName="flex-1 ml-1" 
-                />
+            <h3 className="text-xl font-sembold">Your generosity gives children a smile Sponsor child now</h3>
+            <div className="flex mt-4">
+                <div className='mr-1'>
+                    <span className="block m-1">Gender</span>
+                    <Dropdown 
+                        data={selectedGender} 
+                        handleChange={setSelectedGender} 
+                        dataArray={genderData} 
+                        cName="w-full" 
+                    />
+                </div>
+                <div className='flex-1 mx-2'>
+                    <span className="block m-1">State</span>
+                    <Dropdown 
+                        data={selectedState} 
+                        handleChange={setSelectedState} 
+                        dataArray={statesData} 
+                        cName="w-full" 
+                        hieght='h-[180px] overflow-y-scroll'
+                    />
+                </div>
+                <div className='flex-'>
+                    <span className="block m-1">Age</span>
+                    <Dropdown
+                        data={selectedAge} 
+                        handleChange={setSelectedAge} 
+                        dataArray={ageData} 
+                        cName="w-full" 
+                    />
+                </div>
             </div>
             <button 
                 className="w-full py-2 text-white bg-rose-700 rounded mt-10"
                 onClick={handleSearch}
             >
-            Match you child
+            Match your child
             </button>
         </div>
   )

@@ -25,25 +25,10 @@
   }
 } 
 
-.clip-bottom{
-  clip-path: polygon(100% 0, 50% 100%, 100% 100%, 50% 100%, 0 0);
-}
-.clip-top{
-  clip-path: polygon(100% 0, 50% 100%, 100% 100%, 50% 100%, 0 0);
-}
-
-
 .clip-path{
   -webkit-clip-path: polygon(50% 0%, 100% 10%, 100% 90%, 50% 100%, 0 90%, 0 10%);
   clip-path: polygon(50% 0%, 100% 10%, 100% 90%, 50% 100%, 0 90%, 0 10%);
 }
-
-.clip-path-bottom{
-  -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 90%, 50% 100%, 0 90%, 0 0);
-  clip-path: polygon(50% 0%, 100% 0, 100% 90%, 50% 100%, 0 90%, 0 0);
-}
-
-
 
 
 img{
@@ -55,9 +40,9 @@ img{
     letter-spacing: unset;
   }
 
-  .clip-path-bottom{
-    -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 99%, 50% 100%, 0 99%, 0 0);
-    clip-path: polygon(50% 0%, 100% 0, 100% 99%, 50% 100%, 0 99%, 0 0);
+  .clip-path{
+    -webkit-clip-path: polygon(50% 0%, 100% 3%, 100% 97%, 50% 100%, 0 97%, 0 3%);
+    clip-path: polygon(50% 0%, 100% 3%, 100% 97%, 50% 100%, 0 97%, 0 3%);
   }
   
 }

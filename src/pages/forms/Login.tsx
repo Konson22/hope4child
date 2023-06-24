@@ -11,7 +11,7 @@ export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const { setUser, setShowForm } = useGlobalContext()
-    const bgImage = process.env.PUBLIC_URL+'./images/pexels-shelagh-murphy-2883380.jpg'
+    const bgImage = process.env.PUBLIC_URL+'/images/bg-image.jpg'
 
 
   // LOGIN USER WITH GOOGLE PROVIDER
@@ -42,16 +42,14 @@ export default function Login() {
 
   return (
     <div className="h-screen flex items-center justify-center fixed inset-0 z-50 backdrop-blur-sm bg-white bg-opacity-30 shadow-md">
-        <div className="md:w-[75%] w-[90%] flex bg-white rounded-md relative"
-            // style={{backgroundImage:`linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2)), url('${bgImage}')`, backgroundSize:'cover', backgroundPosition:'center'}}
-        >
+        <div className="md:w-[75%] w-[90%] flex bg-sky-600 text-white rounded-md relative md:py-0 py-6">
             <div 
                 className="bg-black bg-opacity-80 p-1 rounded-full text-white cursor-pointer absolute right-3 top-3"
                 onClick={() => setShowForm(null)}
             >
                 <XMarkIcon className='h-6' />
             </div>
-            <div className="flex-1 p-8">
+            <div className="md:w-[35%] w-full md:p-8 p-4">
                 <div className="flex justify-center text-3xl font-bold">
                     Login
                 </div>
@@ -83,26 +81,36 @@ export default function Login() {
                     <button 
                         className="
                             flex-1 flex items-center justify-center border 
-                            border-slate-500 text-gray-800 rounded bg-white p-2"
-                            onClick={GoogleAuthHandler}
-                    >
-                        <img className="md:h-6 h-4 md:w-6 w-4 mr-2" src={process.env.PUBLIC_URL+'/images/social-media/Facebook.svg'} alt="" />
-                        Facebook
-                    </button>
-                    <span className="mx-4">OR</span>
-                    <button 
-                        className="
-                        flex-1 flex items-center justify-center bg-white border-slate-500 text-gray-800 border rounded  p-2"
+                            border-slate-500 text-gray-800 rounded bg-white p-2
+                        "
                         onClick={GoogleAuthHandler}
                     >
-                        <img className="md:h-6 h-4 md:w-6 w-4  mr-2" src={process.env.PUBLIC_URL+'/images/social-media/Google.svg'} alt="" />
+                        <img className="md:h-4 h-4 md:w-6 w-4 mr-1" src={process.env.PUBLIC_URL+'/images/social-media/Facebook.svg'} alt="" />
+                        Facebook
+                    </button>
+                    <span className="mx-2">OR</span>
+                    <button 
+                        className="
+                            flex-1 flex items-center justify-center bg-white
+                            border-slate-500 text-gray-800 border rounded p-2
+                        "
+                        onClick={GoogleAuthHandler}
+                    >
+                        <img className="md:h-4 h-4 md:w-6 w-4  mr-1" src={process.env.PUBLIC_URL+'/images/social-media/Google.svg'} alt="" />
                         Google
                     </button>
                 </div>
             </div>
             
-            <div className="md:block hidden flex-1" style={{backgroundImage:`linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2)), url('${bgImage}')`, backgroundSize:'cover', backgroundPosition:'center'}}>
-                <img className="h-full" src={bgImage} alt="" />
+            <div 
+                className="md:block hidden flex-1" 
+                style={{
+                    backgroundImage:`linear-gradient(to right, rgba(1, 81, 201, 0.7), rgba(1, 81, 201, 0.7)), url('${bgImage}')`,
+                    backgroundSize:'cover', 
+                    backgroundPosition:'center'
+                }}
+            >
+                {/* <img src={bgImage} alt="" /> */}
             </div>
         </div>
     </div>

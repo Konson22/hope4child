@@ -71,6 +71,7 @@ export const childrenDataDb = [
 ]
 
 export const statesData = [
+    'All States',
     'Juba',
     'Awiel',
     'Malakal',
@@ -89,6 +90,10 @@ export const ageData = [
     '9 - 13',
     '14 - 18',
     '19 - 23',
+]
+
+export const genderData = [
+    'Either', 'male', 'femal'
 ]
 
 export const childrenTestimonialsData = [

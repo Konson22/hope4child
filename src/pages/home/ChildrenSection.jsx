@@ -33,10 +33,20 @@ export default function ChildrenSection() {
   useEffect(() => {
     slider.mount()
   }, [slider])
+  const bgImage = process.env.PUBLIC_URL+'./images/map.png'
 
 
   return (
-    <div className='md:px-[8%] px-5 md:py-[4rem] py-[2rem] glide relative mt-10 bg-gradient-to-tl from-sky-200 to-green-100'>
+    <div 
+      className='md:px-[8%] px-5 md:py-[4rem] py-[2rem] glide relative mt-10 
+        bg-gradient-to-tl from-sky-200 to-green-100
+      '
+      style={{
+        backgroundImage:`linear-gradient(rgba(230,230,230,0.5), rgba(230,230,230,0.5)), url('${bgImage}')`, 
+        backgroundSize:'cover', 
+        backgroundPosition:'center'
+      }}
+    >
       <div className="flex items-center justify-between text-2xl font-bol mb-6">
         <h3 className="md:block hidden text-3xl">Children wating for sponsorship</h3>
         <h3 className="md:hidden block  text-3xl">Waiting</h3>
@@ -84,25 +94,24 @@ export default function ChildrenSection() {
                 </div>
                 <div className="mt-6">
                   <h2 className="text-xl font-bold">{c.name}</h2>
-                  <div className="my-2">{c.state}</div>
-                  <div className="w-[max-content] flex items-center p-1 bg-slate-100 border text-[.8rem] mb-3 rounded-md">
+                  <div className="w-[max-content] flex items-center p-1 bg-slate-100 border text-[.8rem] rounded-md">
                     <FaClock className="mr-1" />
                     Days waiting: 224
                   </div>
-                  <div className="flex items-center text-sm  my-2">
-                    <span>Birthday</span>
-                    <span className="flex-1 h-[.1rem] bg-slate-300 mx-2"></span>
-                    <span>17/02/2020</span>
-                  </div>
-                  <div className="flex items-center text-sm my-2">
+                  <div className="flex items-center my-2">
                     <span>Gender</span>
                     <span className="flex-1 h-[.1rem] bg-slate-300 mx-2"></span>
                     <span>{c.gender}</span>
                   </div>
-                  <div className="flex items-center text-sm my-2">
+                  <div className="flex items-center my-2">
                     <span>Age</span>
                     <span className="flex-1 h-[.1rem] bg-slate-300 mx-2"></span>
                     <span>{c.age}</span>
+                  </div>
+                  <div className="flex items-center  my-2">
+                    <span>Location</span>
+                    <span className="flex-1 h-[.1rem] bg-slate-300 mx-2"></span>
+                    <span>{c.state}</span>
                   </div>
                   <div className="mt-6">
                     <Link className="px-3 py-2 bg-rose-500 text-white rounded text-sm mt-5" to={`/profile/${c.id}`}>View profile</Link>

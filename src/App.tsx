@@ -11,7 +11,7 @@ function App() {
   const { showForm } = useGlobalContext()
 
   return (
-    <div className="bg-slate-00 md:text-xl dark:bg-neutral-900 text-neutral-500 dark:text-neutral-200">
+    <div className="bg-slate-00 md:text-x dark:bg-neutral-900 text-neutral-500 dark:text-neutral-200">
       {(showForm && showForm === 'login') && <Login />}
       <Appbar />
       <ScrollToTop />
