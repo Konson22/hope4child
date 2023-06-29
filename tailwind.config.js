@@ -67,7 +67,9 @@ module.exports = {
           800: customColors("--c-neutral-800"),
           900: customColors("--c-neutral-900"),
         },
-        myblue:'rgb(5, 175, 197)'
+        main:'rgb(60, 72, 110)',
+        main3:'rgb(45, 59, 102)',
+        main2:'rgb(134, 196, 71)',
       },
     },
   },

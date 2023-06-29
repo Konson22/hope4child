@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { ageData, genderData, statesData } from 'assets/data';
 import { useNavigate } from 'react-router-dom';
-import { Dropdown } from './Dropdown';
+import { AgeDropdown, Dropdown } from './Dropdown';
 import { childSearchProps } from 'util/Types';
 
 export default function SearchFilter({cName}:{cName:string}) {
@@ -9,7 +9,7 @@ export default function SearchFilter({cName}:{cName:string}) {
     const navigate = useNavigate()
     const [selectedState, setSelectedState] = useState<string>(statesData[0]);
     const [selectedGender, setSelectedGender] = useState<string>(genderData[0]);
-    const [selectedAge, setSelectedAge] = useState<string>(ageData[0]);
+    const [selectedAge, setSelectedAge] = useState<{min:number; max:number}>({min:4, max:8});
 
     const handleSearch = () => { 
         let query: string[] = []
@@ -20,21 +20,27 @@ export default function SearchFilter({cName}:{cName:string}) {
         if(selectedGender && selectedGender !== 'Either'){
             query.push(`gender=${selectedGender}`)
         }
-        if(selectedAge && selectedAge !== 'All ages'){
-            query.push(`age=${selectedAge}`)
-        }
+        // if(selectedAge && selectedAge !== 'All ages'){
+        //     query.push(`age=${selectedAge}`)
+        // }
         console.log(`/search?${query.join('&')}`)
         navigate(`/search?${query.join('&')}`)
     }
 
   return (
+        // <div className={`
+        //     ${cName}
+        //     md:w-[33%] w-full bg-sky-300/10 backdrop-filter backdrop-blur-md shadow-lg
+        //     text-white rounded-md 
+        //     px-6 py-10 md:ml-10 md:mt-0 text-base z-20
+        // `}>
         <div className={`
             ${cName}
-            md:w-[33%] w-full bg-black md:bg-opacity-30
-            text-white backdrop-blur-xl rounded-md 
-            px-6 py-10 md:ml-10 md:mt-0 text-base
+            md:w-[33%] w-full bg-main2 backdrop-filter backdrop-blur-md shadow-lg
+            text-white rounded-md 
+            px-6 py-10 md:ml-10 md:mt-0 text-base z-20
         `}>
-            <h3 className="text-xl font-sembold">Your generosity gives children a smile Sponsor child now</h3>
+            <h3 className="text-2xl font-sembold">Your generosity gives children a smile Sponsor child now</h3>
             <div className="flex mt-4">
                 <div className='mr-1'>
                     <span className="block m-1">Gender</span>
@@ -57,8 +63,8 @@ export default function SearchFilter({cName}:{cName:string}) {
                 </div>
                 <div className='flex-'>
                     <span className="block m-1">Age</span>
-                    <Dropdown
-                        data={selectedAge} 
+                    <AgeDropdown
+                        data={`${selectedAge.min} - ${selectedAge.max}`} 
                         handleChange={setSelectedAge} 
                         dataArray={ageData} 
                         cName="w-full" 

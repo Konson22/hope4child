@@ -1,7 +1,3 @@
-// import { useQuery } from "@tanstack/react-query";
-// import { getChild } from "apis/apis";
-// import SponsorFeedback from "components/SponsorFeedback";
-// import YourDonation from "components/YourDonation";
 import { useChildrenContext } from "contexts/ChildrenContextProvider"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
@@ -30,7 +26,7 @@ export default function ProfilePage() {
   return (
     <>
       {profile ?
-      <div className="md:flex items-center md:px-[10%] px-5 my-6">
+      <div className="md:flex md:px-[10%] px-5 my-6">
         <div className="md:w-[35%] rounded-md overflow-hidden md:mr-6">
           <img className="md:h-[350px] h-[300px]" src={process.env.PUBLIC_URL+`/${profile.image}`} alt="" />
           <div className="bg-cyan-600 md:font-semibold text-white text-sm md:text-center md:p-3 p-2">
@@ -40,37 +36,37 @@ export default function ProfilePage() {
         <div className="flex-1 md:p-5 md:mt-0 mt-4">
           <h3 className="md:text-4xl text-3xl font-bold">{profile.name}</h3>
           <div className="flex justify-between my-6">
-              <div className="flex flex-col items-center">
-                <span className="mb-2 flex items-center justify-center md:p-4 p-2 rounded-full bg-slate-100 md:text-4xl text-2xl">
-                  <FaCity />
-                </span>
-                <span className="">State: {profile.state}</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <span className="mb-2 flex items-center justify-center md:p-4 p-2 rounded-full bg-slate-100 md:text-4xl text-2xl">
-                  <FiUser />
-                </span>
-                <span className="">{profile.age} years old</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <span className="mb-2 flex items-center justify-center md:p-4 p-2 rounded-full bg-slate-100 md:text-4xl text-2xl">
-                  <FaMale />
-                </span>
-                <span className="">Gender: {profile.gender}</span>
-              </div>
+            <div className="flex flex-col items-center">
+              <span className="mb-2 flex items-center justify-center md:p-3 p-2 rounded-full bg-slate-100 md:text-3xl text-2xl">
+                <FaCity />
+              </span>
+              <span className="">Location: {profile.state}</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="mb-2 flex items-center justify-center md:p-3 p-2 rounded-full bg-slate-100 md:text-3xl text-2xl">
+                <FiUser />
+              </span>
+              <span className="">{profile.age} years old</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="mb-2 flex items-center justify-center md:p-3 p-2 rounded-full bg-slate-100 md:text-3xl text-2xl">
+                <FaMale />
+              </span>
+              <span className="">Gender: {profile.gender}</span>
+            </div>
           </div>
           <div className="md:mt-4 mt-2">
-            <h3 className="text-2xl font-bold">Who is {profile.name}?</h3>
+            <h3 className="md:text-2xl font-bold">Who is {profile.name}?</h3>
             <p className="">
               {profile.name} is anxiously waiting for a sponsor. He needs your support of $38/month to have new opportunities to learn and grow physically, mentally and spiritually. He needs your support of $38/month to have new opportunities to learn and grow physically, mentally and spiritually.
             </p>
           </div>
           <div className="my-7">
-            <h3 className="text-2xl font-bold">Academic Background</h3>
+            <h3 className="md:text-2xl font-bold mb-2"><span className="border-b-2 border-red-400">Academic</span> Background</h3>
             <p>{profile.name} was a primary four student at Light the nation primary school befor his financial status forced him to street and leave school behind</p>
           </div>
           <div className="">
-            <h3 className="text-2xl font-bold">How you can Help {profile.name.split(' ')[0]}</h3>
+            <h3 className="md:text-2xl font-bold">How you can Help {profile.name.split(' ')[0]}</h3>
             <p>{profile.name.split(' ')[0]} there are the children who have a home but work on the streets as their only means of income. They beg, steal or perform small jobs like shoe-shining or selling items in the market to feed</p>
           </div>
           <div className="flex md:text-xl text-base mt-8">
