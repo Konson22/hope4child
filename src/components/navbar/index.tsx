@@ -1,9 +1,7 @@
 import { BellIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 import { navigationsLinksData } from "assets/data";
-import { Button } from "components/Buttons";
 import { useGlobalContext } from "contexts/GlobalContextProvider";
 import { useState } from "react";
-// import { FaBars } from "react-icons/fa";
 import { FiChevronDown, FiX } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
@@ -17,7 +15,6 @@ export default function Navbar() {
   return (
     <div className="bg-main text-white flex items-center justify-between md:px-[5%] sticky inset-0 z-40 px-3 md:py-0 py-2">
       <div className="md:hidden block text-xl" onClick={() => setOpenMenu(!openMenu)}>
-        {/* <FaBars /> */}
         <span className="block h-[2px] w-6 bg-white mb-[.4rem]"></span>
         <span className="block h-[2px] w-6 bg-white mb-[.4rem]"></span>
         <span className="block h-[2px] w-6 bg-white mb-[.4rem]"></span>
@@ -46,7 +43,11 @@ export default function Navbar() {
             <ul>
               {!link.subLinks ?
                 <Link 
-                  className="block md:border-none border-y border-gray-400 md:py-6 py-4 md:pr-10 pr-4 md:pl-0 pl-4" 
+                  className="
+                    block
+                    hover:bg-mainlight
+                    md:py-5 py-4 md:px-5
+                  " 
                   to={link.path}
                   onClick={() => setOpenMenu(false)}
                 >
@@ -100,18 +101,18 @@ function DropdownLinks({ links, text, setOpenMenu }: DropdownLinksProps){
     >
       <div 
         className="
-          flex items-center justify-between md:border-none border-y border-gray-400 
-          md:py-6 py-4 md:pr-10 pr-4 md:pl-0 pl-4 cursor-pointer
+          flex items-center justify-between md:border-none border-y border-gray-400 hover:bg-mainlight
+          md:py-5 py-4 md:px-5 cursor-pointer
         "
       >
         {text}
         <FiChevronDown className="text-2xl ml-2" />
       </div>
       {isOpen &&
-        <div className="md:absolute left-0 top-full md:bg-gray-100 md:text-slate-800 rounded">
+        <div className="w-full md:absolute left-0 top-full md:bg-mainlight/80 rounded">
           {links.map(link => (
             <Link 
-              className="block md:border-none border-b border-gray-400 md:px-4 px-4 md:ml-0 ml-8 md:py-2 py-2" 
+              className="block md:border-none border-b border-gray-400 hover:bg-main2 md:px-4 px-4 md:ml-0 ml-8 md:py-2 py-2" 
               to={link.path}
               onClick={() => setOpenMenu(false)}
             >

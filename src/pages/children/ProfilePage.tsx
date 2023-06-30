@@ -3,8 +3,10 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom"
 import { childInterface } from "util/Types";
-import { FaCity, FaMale } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
+import { GiModernCity } from "react-icons/gi";
+import { BsGenderFemale, BsGenderMale } from "react-icons/bs";
+import ChildCard from "components/ChildCard";
 
 
 export default function ProfilePage() {
@@ -13,6 +15,7 @@ export default function ProfilePage() {
  
   const { childrenData } = useChildrenContext()
   const [profile, setProfile] = useState<childInterface | null>(null)
+  const [relatedChildren, setRelatedChildren] = useState<childInterface[] | null>(null)
   
 
   useEffect(() => {
@@ -20,12 +23,15 @@ export default function ProfilePage() {
       // eslint-disable-next-line eqeqeq
       const user = childrenData.filter((user: any) => user.id == profileId)[0]
       user && setProfile(user)
+      const relatedChildren = user && childrenData.filter((c: { state: string; id:string; }) => c.state === user.state && c.id !== user.id)
+      relatedChildren && setRelatedChildren(relatedChildren)
     }
-  }, [])
+  }, [profileId])
 
   return (
     <>
       {profile ?
+      <>
       <div className="md:flex md:px-[10%] px-5 my-6">
         <div className="md:w-[35%] rounded-md overflow-hidden md:mr-6">
           <img className="md:h-[350px] h-[300px]" src={process.env.PUBLIC_URL+`/${profile.image}`} alt="" />
@@ -37,20 +43,20 @@ export default function ProfilePage() {
           <h3 className="md:text-4xl text-3xl font-bold">{profile.name}</h3>
           <div className="flex justify-between my-6">
             <div className="flex flex-col items-center">
-              <span className="mb-2 flex items-center justify-center md:p-3 p-2 rounded-full bg-slate-100 md:text-3xl text-2xl">
-                <FaCity />
+              <span className="mb-2 flex items-center justify-center md:p-3 p-2 rounded-full bg-slate-1000 md:text-3xl text-2xl">
+                <GiModernCity />
               </span>
               <span className="">Location: {profile.state}</span>
             </div>
             <div className="flex flex-col items-center">
-              <span className="mb-2 flex items-center justify-center md:p-3 p-2 rounded-full bg-slate-100 md:text-3xl text-2xl">
+              <span className="mb-2 flex items-center justify-center md:p-3 p-2 rounded-full bg-slate-1000 md:text-3xl text-2xl">
                 <FiUser />
               </span>
               <span className="">{profile.age} years old</span>
             </div>
             <div className="flex flex-col items-center">
-              <span className="mb-2 flex items-center justify-center md:p-3 p-2 rounded-full bg-slate-100 md:text-3xl text-2xl">
-                <FaMale />
+              <span className="mb-2 flex items-center justify-center md:p-3 p-2 rounded-full bg-slate-1000 md:text-3xl text-2xl">
+                {profile.gender !== 'male' ? <BsGenderFemale /> : <BsGenderMale />}
               </span>
               <span className="">Gender: {profile.gender}</span>
             </div>
@@ -84,7 +90,11 @@ export default function ProfilePage() {
             </Link>
           </div>
         </div>
-      </div> :
+      </div> 
+      <div className="px-[5%] grid md:grid-cols-4 grid-cols-1 gap-4 mt-12">
+        {relatedChildren && relatedChildren.map(c => <ChildCard child={c} />)}
+      </div>
+      </>:
       <div className="md:flex items-center md:px-[10%] px-5 my-6">
         <div className="h-[350px] md:w-[35%] bg-gray-100"></div>
         <div className="md:w-[70%] p-6">
