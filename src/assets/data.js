@@ -16,8 +16,6 @@ export const navigationsLinksData = [
             {text:'Make donation', path:'/donate'},
             {text:'Become a member', path:'/become-a-member'},
             {text:'Volunteer', path:'/volunteer'},
-            {text:'Internship', path:'/internship'},
-            {text:'Jobs', path:'/jobs'},
             {text:'News latter', path:'/'},
         ],
     },
@@ -25,50 +23,6 @@ export const navigationsLinksData = [
     {text:'GIVE GIFT', path:'/'},
 ]
 
-export const childrenDataDb = [
-    {
-        id:'2sa',
-        name:'Kon Akech',
-        gender:'male',
-        age:14,
-        avatar:process.env.PUBLIC_URL+'/images/avatars/image-1.png'
-    },
-    {
-        id:'2edsa',
-        name:'James John',
-        gender:'male',
-        age:14,
-        avatar:process.env.PUBLIC_URL+'/images/avatars/image-2.png'
-    },
-    {
-        id:'2sdsa',
-        name:'Suzan Malik',
-        gender:'male',
-        age:14,
-        avatar:process.env.PUBLIC_URL+'/images/avatars/image-3.png'
-    },
-    {
-        id:'2sa',
-        name:'Kon Akech',
-        gender:'male',
-        age:14,
-        avatar:process.env.PUBLIC_URL+'/images/avatars/image-4.png'
-    },
-    {
-        id:'2edsa',
-        name:'James John',
-        gender:'male',
-        age:14,
-        avatar:process.env.PUBLIC_URL+'/images/avatars/image-5.png'
-    },
-    {
-        id:'2sdsa',
-        name:'Suzan Malik',
-        gender:'male',
-        age:14,
-        avatar:process.env.PUBLIC_URL+'/images/avatars/image-6.png'
-    },
-]
 
 export const statesData = [
     'All States',
@@ -86,10 +40,10 @@ export const statesData = [
 ]
 
 export const ageData = [
-    '4 - 8',
-    '9 - 13',
-    '14 - 18',
-    '19 - 23',
+    {min:4, max:8},
+    {min:9, max:13},
+    {min:14, max:18},
+    {min:19, max:22},
 ]
 
 export const genderData = [
@@ -123,25 +77,3 @@ export const childrenTestimonialsData = [
     }
 ]
 
-export const projectsData = [
-    {
-        title:'Back to School project',
-        description:'We have a participatory approach, which respects diverse peoples and their cultures. Our priority is to ensure the protection of children and their welfare. We endeavour to act in the best way possible and we are committed to our Ethical Charter. Our projects to help children are regularly monitored by our teams and their financing is subject to independent and transparent inspection.',
-        image:process.env.PUBLIC_URL+'./images/header-bg.jpeg'
-    },
-    {
-        title:'Back to School project',
-        description:'We have a participatory approach, which respects diverse peoples and their cultures. Our priority is to ensure the protection of children and their welfare. We endeavour to act in the best way possible and we are committed to our Ethical Charter. Our projects to help children are regularly monitored by our teams and their financing is subject to independent and transparent inspection.',
-        image:process.env.PUBLIC_URL+'./images/WhatsApp Image 2023-03-30 at 2.28.27 PM.jpeg'
-    },
-    {
-        title:'Back to School project',
-        description:'We have a participatory approach, which respects diverse peoples and their cultures. Our priority is to ensure the protection of children and their welfare. We endeavour to act in the best way possible and we are committed to our Ethical Charter. Our projects to help children are regularly monitored by our teams and their financing is subject to independent and transparent inspection.',
-        image:process.env.PUBLIC_URL+'./images/istockphoto-468578642-612x612.jpg'
-    },
-    {
-        title:'Back to School project',
-        description:'We have a participatory approach, which respects diverse peoples and their cultures. Our priority is to ensure the protection of children and their welfare. We endeavour to act in the best way possible and we are committed to our Ethical Charter. Our projects to help children are regularly monitored by our teams and their financing is subject to independent and transparent inspection.',
-        image:process.env.PUBLIC_URL+'./images/header-bg.jpeg'
-    },
-]

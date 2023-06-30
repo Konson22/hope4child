@@ -42,7 +42,7 @@ export default function Login() {
 
   return (
     <div className="h-screen flex items-center justify-center fixed inset-0 z-50 backdrop-blur-sm bg-white bg-opacity-30 shadow-md">
-        <div className="md:w-[75%] w-[90%] flex bg-sky-600 text-white rounded-md relative md:py-0 py-6">
+        <div className="md:w-[75%] w-[90%] flex bg-gray-200 rounded-md relative md:py-0 py-6">
             <div 
                 className="bg-black bg-opacity-80 p-1 rounded-full text-white cursor-pointer absolute right-3 top-3"
                 onClick={() => setShowForm(null)}

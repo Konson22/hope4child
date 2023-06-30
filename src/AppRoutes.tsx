@@ -1,4 +1,3 @@
-import SearchPage from "pages/SearchPage";
 import ChildrenPage from "pages/children";
 import ProfilePage from "pages/children/ProfilePage";
 import ConnectWithChildRequestForm from "pages/forms/ConnectWithChildRequestForm";
@@ -11,9 +10,8 @@ export default function AppRoutes() {
     <Routes>
       <Route path='/' element={<HomePage />} />
       <Route path='/children' element={<ChildrenPage />} />
-      <Route path="/profile/:profileId" element={<ProfilePage />} />
-      <Route path="/request-to-connect-with-child/:profileId" element={<ConnectWithChildRequestForm />} />
-      <Route path="/search" element={<SearchPage />} />
+      <Route path='/profile/:profileId' element={<ProfilePage />} />
+      <Route path='/request-to-connect-with-child/:profileId' element={<ConnectWithChildRequestForm />} />
     </Routes>
   )
 }
