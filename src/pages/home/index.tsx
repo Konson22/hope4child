@@ -1,9 +1,10 @@
 import { Button } from "components/Buttons";
 import Header from "./Header";
-import ChildrenSection from "./ChildrenSection";
 import HowtoSponsorSection from "./HowtoSponsorSection";
 import OurFocusSection from "./OurFocusSection";
 import { Link } from "react-router-dom";
+import ChildrenSection from "./ChildrenSection";
+import { childrenTestimonialsData } from "assets/data";
 
 
 export default function HomePage() {
@@ -42,6 +43,35 @@ export default function HomePage() {
       <ChildrenSection />
       
       {/* THE START OF HOW TO SPONSOR */}
+      <div className="md:px-[8%] md:py-[4rem] py-[1rem] bg-gray-100">
+        <div className="text-center px-[18%]">
+          <h2 className="md:text-4xl text-2xl font-bold mb-3">
+            What street children say
+          </h2>
+          <p className="">
+            This isn’t a part of every child sponsorship journey (though every sponsor is invited!), but when it is, it is an unforgettable experience for both sponsor and
+          </p>
+        </div>
+        <div className="grid grid-cols-3 gap-7 mt-8">
+          {childrenTestimonialsData.map(quote => (
+            <div className="text-center fflex items-center rounded">
+              <img 
+                className="h-[200px] w-[200px] rounded-full overflow-hidden mx-auto my-0" 
+                src={process.env.PUBLIC_URL+`./pics/children/child-1.jpg`} alt="" 
+              />
+              <div className="flex-1 p-3">
+                <span className="block mb-2 font-bold">15 Years old fron Juba Says</span>
+                <p className="font-thin">
+                  {quote.text}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* THE START OF HOW TO SPONSOR */}
+      
+      {/* THE START OF HOW TO SPONSOR */}
       <div className="md:mx-[5%] text-white md:py-[4rem] py-[1rem] md:my-[4rem]"
         style={{
           backgroundImage:`linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(38, 146, 218, 0.1)), url(${process.env.PUBLIC_URL+'./images/bg-image.jpg'})`,
@@ -51,7 +81,7 @@ export default function HomePage() {
         <div className="md:w-[50%] md:p-8 p-4 md:text-3xl">
           {/* <h2 className="md:text-4xl text-2xl font-bold mb-3">HOW TO SPONSOR A CHILD?</h2> */}
           <p>
-            No matter how street life is defined, one thing remains the same: all are at risk of disease, violence, becoming addicted to alcohol and drugs and being trafficked or sold into prostitution. 
+            No matter how street life is defined, one thing remains the same: all are at risk of disease, violence, becoming addicted to alcohol and drugs.
           </p>
           <button className="border rounded bg-main2 px-4 py-2 mt-5">
             <Link to='/children'>Sponsor child</Link>

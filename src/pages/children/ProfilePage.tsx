@@ -23,7 +23,9 @@ export default function ProfilePage() {
       // eslint-disable-next-line eqeqeq
       const user = childrenData.filter((user: any) => user.id == profileId)[0]
       user && setProfile(user)
-      const relatedChildren = user && childrenData.filter((c: { state: string; id:string; }) => c.state === user.state && c.id !== user.id)
+      const relatedChildren = user && childrenData.filter((c:childInterface) => {
+        return (c.state === user.state || c.age === user.age) && c.id !== user.id
+      })
       relatedChildren && setRelatedChildren(relatedChildren)
     }
   }, [profileId])
@@ -91,8 +93,11 @@ export default function ProfilePage() {
           </div>
         </div>
       </div> 
-      <div className="px-[5%] grid md:grid-cols-4 grid-cols-1 gap-4 mt-12">
-        {relatedChildren && relatedChildren.map(c => <ChildCard child={c} />)}
+      <div className="px-[5%] mt-12">
+        <h2 className="text-2xl font-bold">Related Results</h2>
+        <div className="grid md:grid-cols-4 grid-cols-1 gap-4 mt-5">
+          {relatedChildren && relatedChildren.map(c => <ChildCard child={c} />)}
+        </div>
       </div>
       </>:
       <div className="md:flex items-center md:px-[10%] px-5 my-6">

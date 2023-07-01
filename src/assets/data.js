@@ -51,11 +51,11 @@ export const genderData = [
 ]
 
 export const childrenTestimonialsData = [
-    {
-        name:'Rio de Janeiro',
-        title:'18-year-old street boy',
-        text:`Give us the opportunity to change our story`
-    },
+    // {
+    //     name:'Rio de Janeiro',
+    //     title:'18-year-old street boy',
+    //     text:`Give us the opportunity to change our story`
+    // },
     {
         name:'Zimbabwe Rio de Janeiro',
         title:'Street child in Harare',
