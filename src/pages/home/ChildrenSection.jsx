@@ -1,7 +1,7 @@
 import { useChildrenContext } from "contexts/ChildrenContextProvider"
 import { FiChevronLeft, FiChevronRight, FiHeart } from "react-icons/fi"
 import { Link } from "react-router-dom"
-// import { childInterface } from "util/Types"
+
 
 
 export default function ChildrenSection() {

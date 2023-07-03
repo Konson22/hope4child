@@ -12,7 +12,6 @@ import GlobalContextProvider from 'contexts/GlobalContextProvider';
 import ChildrenContextProvider from 'contexts/ChildrenContextProvider';
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
-
 const client = new QueryClient()
 const container = document.getElementById('root') as HTMLElement;
 const root = createRoot(container);

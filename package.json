@@ -3,13 +3,16 @@
   "version": "1.4.0",
   "private": true,
   "homepage": ".",
+  "engines": {
+    "node": "16.17.0",
+    "npm": "8.15.0"
+  },
   "dependencies": {
     "-": "^0.0.1",
     "@babel/runtime": "7.0.0",
     "@glidejs/glide": "^3.4.1",
     "@headlessui/react": "^1.6.6",
     "@heroicons/react": "^2.0.10",
-    "@supabase/supabase-js": "^1.35.7",
     "@tailwindcss/aspect-ratio": "^0.4.1",
     "@tailwindcss/forms": "^0.5.2",
     "@tailwindcss/line-clamp": "^0.4.1",
@@ -28,9 +31,7 @@
     "framer-motion": "^10.12.16",
     "google-map-react": "^2.2.0",
     "lodash": "^4.17.21",
-    "rc-slider": "^10.0.0",
     "react": "^18.2.0",
-    "react-dates": "21.8.0",
     "react-dom": "^18.2.0",
     "react-dropdown": "^1.11.0",
     "react-helmet": "6.1.0",
