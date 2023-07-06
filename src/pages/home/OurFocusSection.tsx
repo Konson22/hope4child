@@ -2,9 +2,9 @@
 
 export default function OurFocusSection() {
   return (
-    <div className="px-[5%] py-[4rem]">
-        <div className="md:px-[10%] text-center mb-10">
-            <h2 className="text-3xl font-bold mb-3">HOW WE CAN HELP STREET CHILDREN?</h2>
+    <div className="md:px-[5%] px-3 md:py-[4rem] py-[2rem]">
+        <div className="md:px-[10%] md:text-center md:mb-10 mb-7">
+            <h2 className="md:text-3xl text-xl font-bold mb-3">HOW WE CAN HELP STREET CHILDREN?</h2>
             <p>
                 Street children can have complex circumstances and are very vulnerable to exploitation and violence. It’s hard to reach them with vital services such as education and healthcare. They miss out on their right to education because they are trying to support themselves or their families, so less formal approaches might
             </p>

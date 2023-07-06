@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { ageData, genderData, statesData } from 'assets/data';
+import { ageData, genderData, statesData } from '../assets/data';
 import { useNavigate } from 'react-router-dom';
 import { AgeDropdown, Dropdown } from './Dropdown';
-import { childSearchProps } from 'util/Types';
+import { childSearchProps } from '../util/Types';
 
 export default function SearchFilter({cName}:{cName:string}) {
 

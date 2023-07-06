@@ -10,7 +10,8 @@ export default function Header() {
  const headingTitle = (
     <div className="flex-1 text-white">
         <h1 className="md:text-6xl text-4xl font-bold">
-            Giving the Street Children’s Right To Education
+            Realizing Street Children Right to Education!
+            {/* Giving the Street Children’s Right To Education */}
         </h1>
     </div>
  )

@@ -1,4 +1,4 @@
-import childrenJson from 'assets/childrenJson'
+import childrenJson from '../assets/childrenJson'
 // import axiosInstance from 'hooks/useAxios'
 import { useState, useContext, createContext, useEffect } from 'react'
 

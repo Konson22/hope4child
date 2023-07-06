@@ -1,7 +1,7 @@
 import React from 'react'
 import { FiHeart } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
-import { childInterface } from 'util/Types'
+import { childInterface } from '../util/Types'
 
 export default function ChildCard({ child } : {child:childInterface}) {
   return (

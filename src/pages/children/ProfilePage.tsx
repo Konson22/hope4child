@@ -1,12 +1,12 @@
-import { useChildrenContext } from "contexts/ChildrenContextProvider"
+import { useChildrenContext } from "../../contexts/ChildrenContextProvider"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom"
-import { childInterface } from "util/Types";
+import { childInterface } from "../../util/Types";
 import { FiUser } from "react-icons/fi";
 import { GiModernCity } from "react-icons/gi";
 import { BsGenderFemale, BsGenderMale } from "react-icons/bs";
-import ChildCard from "components/ChildCard";
+import ChildCard from "../../components/ChildCard";
 
 
 export default function ProfilePage() {
