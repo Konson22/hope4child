@@ -1,9 +1,17 @@
+<<<<<<< HEAD
+=======
+import { Button } from "components/Buttons";
+>>>>>>> cc9730ebe9ac7af5213abce6bec78524393c4e25
 import Header from "./Header";
 import HowtoSponsorSection from "./HowtoSponsorSection";
 import OurFocusSection from "./OurFocusSection";
 import { Link } from "react-router-dom";
 import ChildrenSection from "./ChildrenSection";
+<<<<<<< HEAD
 import { childrenTestimonialsData } from "../../assets/data";
+=======
+import { childrenTestimonialsData } from "assets/data";
+>>>>>>> cc9730ebe9ac7af5213abce6bec78524393c4e25
 
 
 export default function HomePage() {
@@ -33,7 +41,11 @@ export default function HomePage() {
             To reach out the problems of the street children and how to help street children who are facing a number of problems including protection, shelter, limited access to food and the education, we may go to them directly to know the intensity of their problems. We may not be able to help them out from getting them out of all their problems, but perhaps we can solve some of them.
             {/* there are those children who have a home but work on the streets as their only means of income. They beg, steal or perform small jobs like shoe-shining or selling items in the market to feed themselves and their family. These children often drop out of school and are much more likely to join gangs, steal and become addicted to drugs and alcohol. */}
           </p>
+<<<<<<< HEAD
           <button className="bg-main2 border rounded text-white px-6 py-2">Sponsor</button>
+=======
+          <Button text="Sponsor child" cName="mt-6" />
+>>>>>>> cc9730ebe9ac7af5213abce6bec78524393c4e25
         </div>
       </div>
       {/* THE end OF SPONSOR */}

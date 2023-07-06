@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { ageData, genderData, statesData } from "../../assets/data"
 import ChildCard from "../../components/ChildCard"
 import { AgeDropdown, Dropdown } from "../../components/Dropdown"
@@ -5,6 +6,15 @@ import { useChildrenContext } from "../../contexts/ChildrenContextProvider"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { childInterface } from "../../util/Types"
+=======
+import { ageData, genderData, statesData } from "assets/data"
+import ChildCard from "components/ChildCard"
+import { AgeDropdown, Dropdown } from "components/Dropdown"
+import { useChildrenContext } from "contexts/ChildrenContextProvider"
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { childInterface } from "util/Types"
+>>>>>>> cc9730ebe9ac7af5213abce6bec78524393c4e25
 
 
 export default function ChildrenPage() {
