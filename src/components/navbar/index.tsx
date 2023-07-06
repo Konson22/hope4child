@@ -1,11 +1,5 @@
-<<<<<<< HEAD
 import { navigationsLinksData } from "../../assets/data";
 import { useGlobalContext } from "../../contexts/GlobalContextProvider";
-=======
-import { BellIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
-import { navigationsLinksData } from "assets/data";
-import { useGlobalContext } from "contexts/GlobalContextProvider";
->>>>>>> cc9730ebe9ac7af5213abce6bec78524393c4e25
 import { useState } from "react";
 import { FiChevronDown, FiX } from "react-icons/fi";
 import { Link } from "react-router-dom";
@@ -137,11 +131,7 @@ function UserProfile({ user }:{user:{id:string; name:string, avatar:string}}){
   return(
     <div className="flex md:text-white cursor-pointer">
       <span className="md:mx-6 mx-3 py-3">
-<<<<<<< HEAD
         <FiChevronDown className="h-7" />
-=======
-        <BellIcon className="h-7" />
->>>>>>> cc9730ebe9ac7af5213abce6bec78524393c4e25
       </span>
       <span className="flex items-center relative py-3" onClick={() => setIsOpen(!isOpen)}>
         <img 
@@ -150,11 +140,7 @@ function UserProfile({ user }:{user:{id:string; name:string, avatar:string}}){
           alt="" 
         />
         <span className="md:block hidden mx-2">{user.name.split(' ')[0]}</span>
-<<<<<<< HEAD
         <FiChevronDown className="md:block hidden h-4" />
-=======
-        <ChevronDownIcon className="md:block hidden h-4" />
->>>>>>> cc9730ebe9ac7af5213abce6bec78524393c4e25
         {isOpen &&
           <div className="bg-slate-50 text-slate-700 border shadow-sm absolute w-[180px] right-0 top-full rounded-md p-4">
             <div className="px-4 py-2 hover:bg-slate-100">Profile</div>

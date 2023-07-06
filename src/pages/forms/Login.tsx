@@ -1,18 +1,9 @@
-<<<<<<< HEAD
 import { FiX } from "react-icons/fi";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"
 import { useGlobalContext } from "../../contexts/GlobalContextProvider"
 import { auth } from "../../config";
 import { useState } from "react";
 import axiosInstance from "../../hooks/useAxios";
-=======
-import { XMarkIcon } from "@heroicons/react/24/solid";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"
-import { useGlobalContext } from "contexts/GlobalContextProvider"
-import { auth } from "config";
-import { useState } from "react";
-import axiosInstance from "hooks/useAxios";
->>>>>>> cc9730ebe9ac7af5213abce6bec78524393c4e25
 
 
 export default function Login() {
@@ -56,11 +47,7 @@ export default function Login() {
                 className="bg-black bg-opacity-80 p-1 rounded-full text-white cursor-pointer absolute right-3 top-3"
                 onClick={() => setShowForm(null)}
             >
-<<<<<<< HEAD
                 <FiX className='h-6' />
-=======
-                <XMarkIcon className='h-6' />
->>>>>>> cc9730ebe9ac7af5213abce6bec78524393c4e25
             </div>
             <div className="md:w-[35%] w-full md:p-8 p-4">
                 <div className="flex justify-center text-3xl font-bold">

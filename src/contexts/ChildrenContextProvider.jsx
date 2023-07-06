@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import childrenJson from '../assets/childrenJson'
-=======
-import childrenJson from 'assets/childrenJson'
->>>>>>> cc9730ebe9ac7af5213abce6bec78524393c4e25
 // import axiosInstance from 'hooks/useAxios'
 import { useState, useContext, createContext, useEffect } from 'react'
 

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useChildrenContext } from "../../contexts/ChildrenContextProvider"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
@@ -8,17 +7,6 @@ import { FiUser } from "react-icons/fi";
 import { GiModernCity } from "react-icons/gi";
 import { BsGenderFemale, BsGenderMale } from "react-icons/bs";
 import ChildCard from "../../components/ChildCard";
-=======
-import { useChildrenContext } from "contexts/ChildrenContextProvider"
-import { useEffect, useState } from "react"
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom"
-import { childInterface } from "util/Types";
-import { FiUser } from "react-icons/fi";
-import { GiModernCity } from "react-icons/gi";
-import { BsGenderFemale, BsGenderMale } from "react-icons/bs";
-import ChildCard from "components/ChildCard";
->>>>>>> cc9730ebe9ac7af5213abce6bec78524393c4e25
 
 
 export default function ProfilePage() {
@@ -40,7 +28,7 @@ export default function ProfilePage() {
       })
       relatedChildren && setRelatedChildren(relatedChildren)
     }
-  }, [profileId])
+  }, [profileId, childrenData])
 
   return (
     <>
