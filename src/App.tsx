@@ -1,4 +1,3 @@
-
 import './App.css';
 import AppRoutes from './AppRoutes';
 import Footer from './components/footer';
@@ -10,9 +9,9 @@ import Login from './pages/forms/Login';
 function App() {
 
   const { showForm } = useGlobalContext()
-
+  
   return (
-    <div className="App">
+    <div className="text-base">
       {(showForm && showForm === 'login') && <Login />}
       <ScrollToTop />
       <Navbar />

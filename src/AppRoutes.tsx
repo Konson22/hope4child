@@ -5,12 +5,13 @@ import ConnectWithChildRequestForm from "./pages/forms/ConnectWithChildRequestFo
 import HomePage from "./pages/home";
 
 import { Route, Routes } from "react-router-dom";
+import MainPage from "./pages/main";
 
 
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route path='/' element={<HomePage />} />
+      <Route path='/' element={<MainPage />} />
       <Route path='/home' element={<HomePage />} />
       <Route path='/children' element={<ChildrenPage />} />
       <Route path='/profile/:profileId' element={<ProfilePage />} />

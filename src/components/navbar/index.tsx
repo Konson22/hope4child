@@ -6,13 +6,20 @@ import { Link } from "react-router-dom";
 import Logo from "./Logo";
 
 
+
 export default function Navbar() {
 
   const { user, setShowForm } = useGlobalContext();
   const [openMenu, setOpenMenu] = useState<boolean>(false)
 
   return (
-    <div className="bg-main text-white flex items-center justify-between md:px-[5%] sticky inset-0 z-40 px-3 md:py-0 py-2">
+    <div 
+      className='
+        bg-main
+         text-white flex items-center justify-between md:px-[5%] sticky inset-0 z-40 
+        px-3 md:py-0 py-2
+      '
+    >
       <div className="md:hidden block text-xl" onClick={() => setOpenMenu(!openMenu)}>
         <span className="block h-[2px] w-6 bg-white mb-[.4rem]"></span>
         <span className="block h-[2px] w-6 bg-white mb-[.4rem]"></span>

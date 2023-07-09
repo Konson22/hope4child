@@ -1,23 +1,24 @@
 
 export default function ChildRightSection() {
   return (
-    <div className="md:px-[8%] px-3 md:py-[4rem] py-[2rem] md:bg-gray-200">
+    <div className="md:px-[5%] px-3 md:py-[4rem] py-[2rem] md:bg-gray-2000">
         <div className="text-center md:px-[15%] mb-8">
             <h2 className="md:text-4xl text-base md:font-bold font-bold mb-3">
-                Street children Rights
+                What we focus on
             </h2>
             <p>
                 Street children are confronted by a large number of problems. In fact, growing up in an environment generally regarded as dangerous, they incur considerable risks.
                 As a consequence, some of their rights are very often compromised.
             </p>
         </div>
-        <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
+        <div className="grid md:grid-cols-3 grid-cols-1 gap-5">
             {data.map(d => (
                 <div className="bg-gray-100">
-                    <img className="h-[300px]" src={d.image} alt="" />
-                    <div className="p-3">
+                    <img className="h-[250px]" src={d.image} alt="" />
+                    <div className="p-5">
                         <h3 className="text-xl font-semibold">{d.title}</h3>
-                        <p className="line-clamp-6">{d.text}</p>
+                        <p className="line-clamp-4">{d.text}</p>
+                        <button className="border border-main rounded px-5 py-2 mt-6">Learn more</button>
                     </div>
                 </div>
             ))}
@@ -28,11 +29,16 @@ export default function ChildRightSection() {
 
 
 const data = [
+    // {
+    //     title:'Right to Food',
+    //     text:`Street children often don’t have access to a healthy and sufficient diet. Sometimes they don’t even have food, because living on the streets, they don’t produce any and don’t have money to buy.
+    //     Also, these children don’t benefit from a balanced diet: they eat what they can find. Sometimes, when they have the choice, they even favor unhealthy foods such as ice cream, cakes, etc. and so run the risk of malnutrition. Growth problems are also common with these children.`,
+    //     image:process.env.PUBLIC_URL+'./images/pexels-art-lov-16690847.jpg'
+    // },
     {
-        title:'Right to Food',
-        text:`Street children often don’t have access to a healthy and sufficient diet. Sometimes they don’t even have food, because living on the streets, they don’t produce any and don’t have money to buy.
-        Also, these children don’t benefit from a balanced diet: they eat what they can find. Sometimes, when they have the choice, they even favor unhealthy foods such as ice cream, cakes, etc. and so run the risk of malnutrition. Growth problems are also common with these children.`,
-        image:process.env.PUBLIC_URL+'./images/pexels-art-lov-16690847.jpg'
+        title:'Right to Education',
+        text:`Street Children are obviously not educated. Because of this, they don’t have the same opportunities as other children. In fact, because they don’t see a future for themselves, and because they have no professional training, they are hindered from finding a job and from finally leaving the streets`,
+        image:process.env.PUBLIC_URL+'./images/child-8.jpg'
     },
     {
         title:'Right to Health',
@@ -41,11 +47,6 @@ const data = [
         Additionally, street children, to escape their reality, often use cannabis, alcohol, or inhale natural gas. Unfortunately, these very hard living conditions, have a negative impact not only on their physical and psychosocial development, but also on their cultural and economic development`,
         image:process.env.PUBLIC_URL+'./images/child-8.jpg'
 
-    },
-    {
-        title:'Right to Education',
-        text:`Street Children are obviously not educated. Because of this, they don’t have the same opportunities as other children. In fact, because they don’t see a future for themselves, and because they have no professional training, they are hindered from finding a job and from finally leaving the streets`,
-        image:process.env.PUBLIC_URL+'./images/child-8.jpg'
     },
     {
         title:'Right to Non-discrimination',

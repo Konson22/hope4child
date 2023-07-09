@@ -1,40 +1,52 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Glide from "@glidejs/glide";
 import "@glidejs/glide/dist/css/glide.core.min.css";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const sliderConfiguration = {
-    type: "carousel",
-    startAt: 0,
-    animationTimingFunc: "ease-in-out",
-    gap: 100,
-    perView: 3
+  type: "slider",
+  startAt: 0,
+  animationTimingFunc: "ease-in-out",
+  gap: 25,
+  perView: 4,
+  breakpoints: {
+    600: {
+      perView: 1,
+    },
+  },
 };
 
-export const Mainslider = ()=>{
-  const mainGlide = new Glide(".main__glide", sliderConfiguration); // default options
-
- useEffect(() => {
+export default function Slider({ children, title, cName }) {
+    
+  useEffect(() => {
+    const mainGlide = new Glide(".main__glide", sliderConfiguration); // default options
     mainGlide.mount();
     // return () => mainGlide.destroy();
-  }, [mainGlide]);
+  }, []);
 
-return (
-  <div className="main__glide">
-    <div className="glide__track" data-glide-el="track">
-        <ul className="glide__slides">
-          <li className="glide__slide bg-red-600 p-16">
-         </li>
-      </ul>
-  </div>
-  <div data-glide-el="controls" className="controls">
-    <div data-glide-dir="<" id="prev">
-        <FaArrowLeft className="controls-arrow" />
+  return (
+    <div className={`${cName} main__glide`}>
+      <div className="flex items-center justify-between mb-6">
+        <h3 className="md:text-3xl text-xl font-bold">{title}</h3>
+        <div data-glide-el="controls" className="flex items-center text-2xl controls">
+          <div 
+            data-glide-dir="<" 
+            id="prev" 
+            className="bg-red-200 rounded-full flex items-center justify-center mr-5 p-2"
+          >
+            <FiChevronLeft />
+          </div>
+          <div data-glide-dir=">" id="next" 
+            className="flex items-center justify-center bg-gray-200 rounded-full p-2"
+          >
+            <FiChevronRight className="controls-arrow" />
+          </div>
+        </div>
+      </div>
+      <div className="glide__track" data-glide-el="track">
+        {children}
+        
+      </div>
     </div>
-    <div data-glide-dir=">" id="next">
-        <FaArrowRight className="controls-arrow" />
-    </div>
-</div>
-</div>
-)
+  )
 }
