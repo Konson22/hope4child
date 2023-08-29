@@ -6,10 +6,11 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        main:'rgb(60, 72, 110)',
-        mainlight:'rgb(97, 118, 182)',
-        main3:'rgb(45, 59, 102)',
-        main2:'rgb(134, 196, 71)',
+        primary:'rgb(7, 170, 192)',
+        secondary:'rgb(235, 56, 12)',
+        darkgray:'rgb(233, 233, 224)',
+        lightgray:'rgb(221, 221, 209)',
+        gold:'rgb(165, 140, 71)',
       }
     },
   },

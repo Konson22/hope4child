@@ -1,10 +1,11 @@
 import { FaHandHoldingHeart, FaUserGraduate } from "react-icons/fa";
 import Header from "./Header";
-import InspireSection from "./InspireSection";
+import "@glidejs/glide/dist/css/glide.core.min.css";
 import ChildrenSection from "./ChildrenSection";
 
 
 export default function MainPage() {
+
   return (
     <div>
         <Header />
@@ -13,8 +14,9 @@ export default function MainPage() {
                 There are estimated to be around 120 million children living on the streets in the world (30 million in Africa, 30 million in Asia, and 60 million in South America). Often victims of all kinds of abuse, these children still have rights
             </p>
         </div>
-         {/* the start of child right section */}
-         <InspireSection />
+         {/* the start of INSPIRATION SECTION section */}
+       <ChildrenSection />
+
          <div className="md:mx-[5%] mx-3 md:py-[7rem] py-[3rem] px-7 text-xl"
             style={{
                 backgroundImage:`
@@ -96,7 +98,6 @@ export default function MainPage() {
             </div>
          </div>
          {/* start of section */}
-         <ChildrenSection />
          
     </div>
   )

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { auth } from '../config'
-=======
-import { auth } from 'config'
->>>>>>> cc9730ebe9ac7af5213abce6bec78524393c4e25
 import { onAuthStateChanged, signOut } from 'firebase/auth'
 import { useState, useContext, createContext, useEffect } from 'react'
 

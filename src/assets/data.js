@@ -2,14 +2,16 @@
 
 export const navigationsLinksData = [
     {text:'HOME', path:'/'},
-    {text:'WHO ARE WE', path:'/how-to-help', subLinks:[
-        {text:'About us', path:'/about'},
-        {text:'Projects', path:'/#projects'},
-        {text:'Support & Partners', path:'donate'},
-        {text:'Our Team', path:'donate'},
-        {text:'Legal Structure', path:'donate'},
-        {text:'Anual Report', path:'donate'},
-    ]},
+    {text:'WHO ARE WE', path:'/how-to-help', 
+        // subLinks:[
+        //     {text:'About us', path:'/about'},
+        //     {text:'Projects', path:'/#projects'},
+        //     {text:'Support & Partners', path:'donate'},
+        //     {text:'Our Team', path:'donate'},
+        //     {text:'Legal Structure', path:'donate'},
+        //     {text:'Anual Report', path:'donate'},
+        // ]
+    },
     {text:'GET INVOLVED', path:'/children', 
         subLinks:[
             {text:'Sponsor Child', path:'/children'},

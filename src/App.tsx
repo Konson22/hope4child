@@ -1,21 +1,19 @@
-import './App.css';
-import AppRoutes from './AppRoutes';
-import Footer from './components/footer';
+import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/navbar';
-import { useGlobalContext } from './contexts/GlobalContextProvider';
-import ScrollToTop from './hooks/ScrollToTop';
-import Login from './pages/forms/Login';
+import MainPage from './pages/main';
+import ChildrenPage from './pages/children';
+import Footer from './components/Footer';
 
 function App() {
 
-  const { showForm } = useGlobalContext()
   
   return (
-    <div className="text-base">
-      {(showForm && showForm === 'login') && <Login />}
-      <ScrollToTop />
+    <div className="text-base bg-darkgray text-gray-500">
       <Navbar />
-      <AppRoutes />
+      <Routes>
+        <Route path='/' element={<MainPage />} />
+        <Route path='/children' element={<ChildrenPage />} />
+      </Routes>
       <Footer />
     </div>
   );

@@ -1,14 +1,7 @@
-<<<<<<< HEAD
 import { useChildrenContext } from "../../contexts/ChildrenContextProvider"
 import { useParams } from "react-router-dom"
 import FormInput from "./FormInput"
 import { statesData } from "../../assets/data"
-=======
-import { useChildrenContext } from "contexts/ChildrenContextProvider"
-import { useParams } from "react-router-dom"
-import FormInput from "./FormInput"
-import { statesData } from "assets/data"
->>>>>>> cc9730ebe9ac7af5213abce6bec78524393c4e25
 
 
 export default function ConnectWithChildRequestForm() {

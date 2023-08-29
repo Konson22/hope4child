@@ -1,6 +1,6 @@
 import childrenJson from '../assets/childrenJson'
-// import axiosInstance from 'hooks/useAxios'
 import { useState, useContext, createContext, useEffect } from 'react'
+import axiosInstance from '../hooks/useAxios'
 
 const contextApi = createContext()
 
@@ -16,9 +16,9 @@ export default function ChildrenContextProvider({ children }) {
     async function fetchItems(){
       try{
         // const results = await axiosInstance('/children').then(res => res)
-        if(isMuted){
-          // results.data.length >=1 ? setChildren(results.data) : setError('No data')
-        }
+        // if(isMuted){
+        //   results.data.length >=1 ? setChildren(results.data) : setError('No data')
+        // }
       }catch(error){
         if(error.status === 404 || error.status === 403 || error.status === 500){
           return setError(error?.response?.data)

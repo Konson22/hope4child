@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { useChildrenContext } from "../../contexts/ChildrenContextProvider"
-=======
-import { useChildrenContext } from "contexts/ChildrenContextProvider"
->>>>>>> cc9730ebe9ac7af5213abce6bec78524393c4e25
 import { FiChevronLeft, FiChevronRight, FiHeart } from "react-icons/fi"
 import { Link } from "react-router-dom"
 import { useEffect } from "react";
@@ -28,21 +24,12 @@ export default function ChildrenSection() {
 
   const { childrenData } = useChildrenContext()
 
-<<<<<<< HEAD
   
  useEffect(() => {
   const mainGlide = new Glide(".main__glide", sliderConfiguration); // default options
     mainGlide.mount();
     // return () => mainGlide.destroy();
   }, [childrenData]);
-=======
-  const mainGlide = new Glide(".main__glide", sliderConfiguration); // default options
-
- useEffect(() => {
-    mainGlide.mount();
-    // return () => mainGlide.destroy();
-  }, [mainGlide]);
->>>>>>> cc9730ebe9ac7af5213abce6bec78524393c4e25
 
   return (
     <div className="px-[5%] py-[4rem] main__glide">
