@@ -9,8 +9,6 @@ module.exports = {
         primary:'rgb(7, 170, 192)',
         secondary:'rgb(235, 56, 12)',
         darkgray:'rgb(233, 233, 224)',
-        lightgray:'rgb(221, 221, 209)',
-        gold:'rgb(165, 140, 71)',
       }
     },
   },

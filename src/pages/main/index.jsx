@@ -1,26 +1,33 @@
-import CallToActionSection from "./CallToActionSection";
-import ContactSection from "./ContactSection";
+import GetInvolvedSection from "./GetInvolvedSection";
 import Header from "./Header";
-import HowSponsorshipWorkSection from "./HowSponsorshipWorkSection";
-import OurVissionSection from "./OurVissionSection";
-import SocialMediaSection from "./SocialMediaSection";
-import TestimonialSection from "./TestimonialSection";
+import HowSponsorWorkSection from "./HowSponsorWorkSection";
+import IntroSection from "./IntroSection";
+import PersonalStoriesOfImpact from "./PersonalStoriesOfImpact";
+import TransformativePowerOfEducation from "./TransformativePowerOfEducation";
+import UrgentNeedSection from "./UrgentNeedSection";
+import WhySponsorshipMatterSection from "./WhySponsorshipMatterSection";
 
 export default function MainPage() {
   return (
-    <>
+    <div>
       <Header />
-      <div className="md:px-[15%] px-4 py-8 text-center text-xl">
+      <IntroSection />
+      <UrgentNeedSection />
+      <WhySponsorshipMatterSection />
+      <HowSponsorWorkSection />
+      <TransformativePowerOfEducation />
+      <PersonalStoriesOfImpact />
+      <GetInvolvedSection />
+      <div className="">
         <p>
-          Welcome to Empowering Futures, a platform dedicated to transforming the lives of street children through education. Our mission is to provide these vulnerable young minds with hope, opportunity, and a chance to break free from the cycle of poverty. By becoming a sponsor, you can directly contribute to their education and be a beacon of light in their lives.
+          By sponsoring a street child or orphan, you are investing in the
+          future, one child at a time. Together, we can build a world where
+          every child has the opportunity to grow, learn, and thrive. Join us in
+          making a lasting impact and be a beacon of hope for those who need it
+          the most. Sponsor a child today and become a part of a transformative
+          journey toward a brighter tomorrow.
         </p>
       </div>
-      <OurVissionSection />
-      <HowSponsorshipWorkSection />
-      <CallToActionSection />
-      <TestimonialSection />
-      <SocialMediaSection />
-      <ContactSection />
-    </>
-  )
+    </div>
+  );
 }
