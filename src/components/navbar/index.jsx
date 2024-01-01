@@ -1,94 +1,64 @@
-import { Link } from "react-router-dom";
-import { navigationLink } from "../../assets/data";
-import { Button } from "../../util/Buttons";
-import { FiChevronDown } from "react-icons/fi";
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import Logo from "./Logo";
+import NavigationLinks from "./NavigationLinks";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaPhoneAlt,
+  FaTwitter,
+  FaYoutube,
+} from "react-icons/fa";
+import { FiBarChart2, FiMail } from "react-icons/fi";
 
 export default function index() {
   return (
-    <nav className="flex items-center justify-between bg-primary px-[5%]  text-white">
-      <Logo />
-      <div className="">
-        <ul className="flex items-center">
-          {navigationLink.map((link) =>
-            link.subLinks ? <SubLink link={link} /> : <NavLink link={link} />
-          )}
-        </ul>
+    <nav className="md:block flex items-center justify-between bg-sky-600 text-white md:p-0 p-4">
+      <div className="flex items-center justify-between md:py-5 md:px-[10%]">
+        <Logo />
+        <div className="md:flex hidden items-center">
+          <SocialMedia />
+          <div className="flex">
+            <span className="flex items-center mx-8">
+              <FiMail className="text-xl mr-2" />
+              info@hope4futur.com
+            </span>
+            <span className="flex items-center">
+              <FaPhoneAlt className="text-xl mr-2" />
+              +211920079070
+            </span>
+          </div>
+        </div>
       </div>
-      <div className="flex items-center">
-        <Button text="Donate" />
-        <Button text="Login" cName="border" />
+      <div className="flex justify-between md:bg-sky-700 md:px-[8%]">
+        <NavigationLinks />
+        <div className="flex">
+          <button className="md:block hidden bg-rose-500 px-4">
+            Sponsor a child
+          </button>
+          <button className="md:px-4">Login</button>
+          <button className="md:hidden block md:px-4">
+            <FiBarChart2 className="text-3xl -rotate-90 ml-4" />
+          </button>
+        </div>
       </div>
     </nav>
   );
 }
 
-function SubLink({ link }) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const menuVars = {
-    initial: {
-      opacity: 0,
-      y: 10,
-    },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.2,
-        ease: [0.12, 0, 0.39, 0],
-      },
-    },
-    exit: {
-      y: 0,
-      transition: {
-        delay: 0.3,
-        duration: 0.5,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
+function SocialMedia() {
   return (
-    <li
-      className="cursor-pointer relative"
-      onMouseEnter={() => setIsOpen(true)}
-      onMouseLeave={() => setIsOpen(false)}
-    >
-      <div className="flex items-center">
-        {link.title}
-        <FiChevronDown className="ml-2" />
-      </div>
-      {isOpen && (
-        <AnimatePresence>
-          <motion.div
-            variants={menuVars}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            className="absolute top-full left-0 z-40 bg-white text-gray-600 w-52 py-1 rounded-md"
-          >
-            {link.subLinks.map((link, index) => (
-              <NavLink
-                link={link}
-                cName="px-6 py-3 hover:bg-primary/70 hover:text-white"
-                key={index}
-              />
-            ))}
-          </motion.div>
-        </AnimatePresence>
-      )}
-    </li>
-  );
-}
-
-function NavLink({ link, cName = "px-5 py-6" }) {
-  return (
-    <li className="">
-      <Link className={`block ${cName}`} to={link.path}>
-        {link.title}
-      </Link>
-    </li>
+    <div className="flex">
+      <span className="text-xl p-2">
+        <FaFacebook />
+      </span>
+      <span className="text-xl p-2">
+        <FaTwitter />
+      </span>
+      <span className="text-xl p-2">
+        <FaInstagram />
+      </span>
+      <span className="text-xl p-2">
+        <FaYoutube />
+      </span>
+    </div>
   );
 }

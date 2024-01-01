@@ -5,8 +5,8 @@ import {
   FaTwitter,
   FaYoutube,
 } from "react-icons/fa";
-import NavigationLinks from "./NavigationLinks";
 import { FiMail, FiUser } from "react-icons/fi";
+import NavigationLinks from "./NavigationLinks";
 import Logo from "./Logo";
 
 export default function Appbar() {

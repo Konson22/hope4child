@@ -9,7 +9,7 @@ export default function Logo() {
         />
       </div>
       <span className="md:text-2xl flex items-center">
-        Hope<span className="text-amber-500 text-4xl">4</span>Futur
+        Wings<span className="text-amber-500 text-4xl">4</span>Change
       </span>
     </div>
   );

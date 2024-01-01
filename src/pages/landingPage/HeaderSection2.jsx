@@ -1,7 +1,25 @@
 import { FaDollarSign, FaHandHoldingHeart, FaHeartbeat } from "react-icons/fa";
 import { ButtonRounded } from "../../util/Buttons";
+import { slogans } from "../../assets/data";
+import { useEffect, useState } from "react";
+import { animateHeader } from "../../assets/animationVariants";
+import { motion } from "framer-motion";
 
 export default function HeaderSection() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCount((prevCount) => prevCount + 1);
+
+      if (count >= 2) {
+        setCount(0);
+      }
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [count]);
+
   return (
     <div className="">
       <header
@@ -14,15 +32,7 @@ export default function HeaderSection() {
           backgroundSize: "cover",
         }}
       >
-        <div className="md:w-[65%] text-white md:pb-16">
-          <h1 className="md:text-6xl text-3xl">
-            Let's Build a Future of Possibilities and Promise.
-          </h1>
-          <ButtonRounded
-            text="DONATE NOW"
-            cName="bg-rose-600 text-white mt-8 text-xl"
-          />
-        </div>
+        <SloganCard slogan={slogans[count]} />
       </header>
       <div className="grid md:grid-cols-3 grid-cols-1 gap-6 md:-mt-16 mt-8 md:px-[10%] px-4">
         {data.map((info, index) => (
@@ -47,6 +57,24 @@ export default function HeaderSection() {
         ))}
       </div>
     </div>
+  );
+}
+
+function SloganCard({ slogan }) {
+  return (
+    <motion.div
+      className="md:w-[65%] text-white md:pb-16"
+      variants={animateHeader}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+    >
+      <h1 className="md:text-6xl text-3xl">{slogan.title}</h1>
+      <ButtonRounded
+        text="DONATE NOW"
+        cName="bg-rose-600 text-white mt-8 text-xl"
+      />
+    </motion.div>
   );
 }
 

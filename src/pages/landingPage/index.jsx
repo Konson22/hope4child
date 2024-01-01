@@ -2,24 +2,26 @@ import { whySponsorData } from "../../assets/data";
 import { Heading1 } from "../../util/HeadingTitles";
 import AchivementSection from "./AchivementSection";
 import ChildrenSection from "./ChildrenSection";
-import HeaderSection from "./HeaderSection";
+import HeaderSection from "./HeaderSection2";
 import WhySponsorshipMatterSection from "./WhySponsorshipMatterSection";
 
 export default function LandingPage() {
   return (
     <div>
       <HeaderSection />
-      <div className="md:px-[10%] px-4 my-16">
+      <div className="md:px-[10%] px-4 my-20">
         <div className="md:flex mt-10">
           <div className="md:w-[40%]">
             <img
               className="rounded-xl"
-              src={process.env.PUBLIC_URL + "/images/laos-972541_1280.jpg"}
+              src={
+                process.env.PUBLIC_URL +
+                "/images/pexels-tubarones-photography-3704379.jpg"
+              }
               alt=""
             />
           </div>
           <div className="flex-1 md:px-10">
-            <p className="text-xl">Welcome to Hope4Futur</p>
             <Heading1 text="Help Poor Children to Get Life Better." />
             <p>
               At Hopeful Hearts Foundation, we believe in the power of

@@ -10,26 +10,44 @@ export const navigationLink = [
         path:'/',
         subLinks:[
             {
-                title:'Sponsor',
+                title:'Donate to cause',
                 path:'/sponsor'
             },
             {
-                title:'Donate',
+                title:'Meet critical causes',
                 path:'/sponsor'
             },
             {
-                title:'Pay fees',
-                path:'/sponsor'
-            },
-            {
-                title:'Sponsor',
+                title:'Other ways to give',
                 path:'/sponsor'
             },
         ]
     },
     {
-        title:'SPONSOR',
-        path:'/'
+        title:'GET INVOLVED',
+        path:'/',
+        subLinks:[
+            {
+                title:'SPONSOR A CHILD',
+                path:'/sponsor'
+            },
+            {
+                title:'MAKE DONATION',
+                path:'/sponsor'
+            },
+            {
+                title:'VOLUNTEER',
+                path:'/sponsor'
+            },
+            {
+                title:'BECAME A MEMBER',
+                path:'/sponsor'
+            },
+            {
+                title:'NEWS LETTER',
+                path:'/sponsor'
+            },
+        ]
     },
     {
         title:'CAUSES',
@@ -164,6 +182,23 @@ export const whySponsorData = [
       path:'/safe-shelter'
     },
   ];
+
+
+  export const slogans = [
+    {
+        title:'From Streets to Dreams, Nurturing Hope for Every Child',
+        text:`Together, we create a haven of love and opportunity.
+     `
+    },
+    {
+        title:'Bridging Hearts, Building Futures: Orphanage & Street Children Support',
+        text:`One child at a time, we sculpt a path to a brighter tomorrow.`
+    },
+    {
+        title:'Hope Blooms Here, Uniting for Orphans and Street Kidsn\' Bright Tomorrows',
+        text:`Planting seeds of change, cultivating dreams for a resilient future.`
+    },
+  ]
 
 /*
  Who We Are
