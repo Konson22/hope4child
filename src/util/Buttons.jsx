@@ -9,10 +9,10 @@ export function ButtonRounded({
 }) {
   return (
     <button
-      className={`flex items-center border px-6 py-3 rounded-full ${cName}`}
+      className={`flex items-center border md:px-6 px-4 md:py-3 py-2 rounded-full ${cName}`}
     >
       {text}
-      {icon && <span className="text-xl ml-3">{icon}</span>}
+      {icon && <span className="md:text-xl text-sm ml-3">{icon}</span>}
     </button>
   );
 }
@@ -24,10 +24,10 @@ export function RoundedLinkButton({
 }) {
   return (
     <button
-      className={`flex items-center border px-6 py-3 rounded-full ${cName}`}
+      className={`flex items-center border md:px-6 px-4 md:py-3 py-2 rounded-full ${cName}`}
     >
       {text}
-      {icon && <span className="text-xl ml-3">{icon}</span>}
+      {icon && <span className="md:text-xl ml-3">{icon}</span>}
     </button>
   );
 }

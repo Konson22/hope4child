@@ -5,6 +5,7 @@ import LandingPage from './pages/landingPage';
 import Footer from './components/Footer';
 import EducationPage from './pages/EducationPage';
 import EmpowermentPage from './pages/EmpowermentPage';
+import DonateForm from './pages/forms/DonateForm';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path='/' element={<LandingPage />} />
         <Route path='/education' element={<EducationPage />} />
+        <Route path='/donate-form' element={<DonateForm />} />
         <Route path='/empowerement' element={<EmpowermentPage />} />
       </Routes>
       <Footer />

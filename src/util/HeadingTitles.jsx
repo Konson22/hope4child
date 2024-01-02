@@ -4,6 +4,6 @@ export function Heading1({ text, cName = "" }) {
 export function Heading2({ text }) {
   return <h3 className="text-4xl">{text}</h3>;
 }
-export function Heading3({ text }) {
-  return <h3 className="text-xl font-semibold mb-1">{text}</h3>;
+export function Heading3({ text, cName = "mb-1" }) {
+  return <h3 className={` ${cName} text-xl font-semibold`}>{text}</h3>;
 }

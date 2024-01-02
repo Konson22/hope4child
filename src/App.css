@@ -24,6 +24,10 @@ img {
     height: 100%;
 }
 
+.title-text {
+    font-family: 'Kodchasan-Bold';
+}
+
 .heading-border,
 .image-container {
     position: relative;
@@ -58,4 +62,9 @@ img {
 
 .contact-circle {
     clip-path: ellipse(140% 100% at 50% 0);
+}
+
+.hidden-circle {
+    clip-path: circle(9.0% at 99% 0);
+    clip-path: circle(140.5% at 99% 0);
 }

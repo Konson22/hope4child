@@ -186,17 +186,20 @@ export const whySponsorData = [
 
   export const slogans = [
     {
-        title:'From Streets to Dreams, Nurturing Hope for Every Child',
+        title:'Hope for Every Child',
         text:`Together, we create a haven of love and opportunity.
-     `
+     `,
+     bgImage:process.env.PUBLIC_URL + "/images/african-child-2578559_1280.jpg"
     },
     {
-        title:'Bridging Hearts, Building Futures: Orphanage & Street Children Support',
-        text:`One child at a time, we sculpt a path to a brighter tomorrow.`
+        title:'Building Futures',
+        text:`One child at a time, we sculpt a path to a brighter tomorrow.`,
+        bgImage:process.env.PUBLIC_URL + "/images/people-3149087_1280.jpg"
     },
     {
-        title:'Hope Blooms Here, Uniting for Orphans and Street Kidsn\' Bright Tomorrows',
-        text:`Planting seeds of change, cultivating dreams for a resilient future.`
+        title:'Hope Blooms Here',
+        text:`Planting seeds of change, cultivating dreams for a resilient future.`,
+        bgImage:process.env.PUBLIC_URL + "/images/bg-image.jpg"
     },
   ]
 

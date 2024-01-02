@@ -1,4 +1,6 @@
+import { useState } from "react";
 import Logo from "./Logo";
+import MobileNavigationLinks from "./MobileNavigationLinks";
 import NavigationLinks from "./NavigationLinks";
 import {
   FaFacebook,
@@ -9,7 +11,11 @@ import {
 } from "react-icons/fa";
 import { FiBarChart2, FiMail } from "react-icons/fi";
 
-export default function index() {
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+
   return (
     <nav className="md:block flex items-center justify-between bg-sky-600 text-white md:p-0 p-4">
       <div className="flex items-center justify-between md:py-5 md:px-[10%]">
@@ -30,12 +36,13 @@ export default function index() {
       </div>
       <div className="flex justify-between md:bg-sky-700 md:px-[8%]">
         <NavigationLinks />
+        <MobileNavigationLinks isOpen={isOpen} toggleMenu={toggleMenu} />
         <div className="flex">
           <button className="md:block hidden bg-rose-500 px-4">
             Sponsor a child
           </button>
           <button className="md:px-4">Login</button>
-          <button className="md:hidden block md:px-4">
+          <button className="md:hidden block md:px-4" onClick={toggleMenu}>
             <FiBarChart2 className="text-3xl -rotate-90 ml-4" />
           </button>
         </div>
